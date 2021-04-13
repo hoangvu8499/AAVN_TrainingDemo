@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="1.0" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+    <persistence-unit name="TrainingManage">
+        <non-jta-data-source>TrainingManage</non-jta-data-source>
+        <class>ivy.trainingmanage.model.Category</class>
+        <class>ivy.trainingmanage.model.FilePost</class>
+        <class>ivy.trainingmanage.model.Post</class>
+        <class>ivy.trainingmanage.model.Role</class>
+        <class>ivy.trainingmanage.model.User</class>
+        <class>ivy.trainingmanage.model.UserRoleDetail</class>
+        <properties/>
+    </persistence-unit>
+</persistence>

@@ -1,0 +1,6 @@
+CategoryData #class
+training.center.manage.category.Category #namespace
+categories java.util.List<ivy.trainingmanage.model.Category> #field
+categories PERSISTENT #fieldModifier
+category ivy.trainingmanage.model.Category #field
+category PERSISTENT #fieldModifier

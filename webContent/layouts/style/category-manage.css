@@ -1,0 +1,40 @@
+.category-content {
+	display: flex;
+	font-family: cursive;
+}
+
+.category-manage-list {
+	width: 65%;
+	padding: 2%;
+}
+
+.category-manage-create {
+	width: 30%;
+	padding: 2%;
+	border-left: 1px solid;
+}
+
+.title-list-category {
+	font-size: 15px;
+	font-weight: bold;
+	padding: 5%;
+}
+
+.title-create-category {
+	font-size: 15px;
+	font-weight: bold;
+	padding: 10%;
+}
+
+.create-name {
+	font-size: 15px;
+	padding: 5%;
+}
+
+.button-create {
+	margin-left: 30%;
+}
+
+
+
+

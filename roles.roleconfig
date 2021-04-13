@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<role>
+    <identifier>Everybody</identifier>
+    <role>
+        <identifier>Admin</identifier>
+    </role>
+    <role>
+        <identifier>Teacher</identifier>
+    </role>
+    <role>
+        <identifier>Student</identifier>
+    </role>
+</role>
