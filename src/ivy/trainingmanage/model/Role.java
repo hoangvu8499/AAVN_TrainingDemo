@@ -31,7 +31,7 @@ public class Role extends BaseEntity {
 		this.userRoleDetail = userRoleDetail;
 	}
 
-	public Role(String name) {
+	public Role() {
 	}
 
 }

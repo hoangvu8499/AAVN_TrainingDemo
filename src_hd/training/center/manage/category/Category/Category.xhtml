@@ -10,48 +10,43 @@
 	<ui:composition
 		template="/layouts/includes/basic-manage-template.xhtml">
 		<ui:define name="title">ShowCategory</ui:define>
-		<ui:define name="content">
 
+		<ui:define name="content">
+		
+			<ic:training.center.manage.components.Header>
+			</ic:training.center.manage.components.Header>
+			
 			<div class="ui-g-12 category-content">
 				<div id="category-manage-list" class="category-manage-list">
 					<div class="title-list-category">LIST CATEGORY</div>
 					<div class="table-category">
-						<p:dataTable id="table-category" value="#{data.categories}" 
-							var="category" editable="true" editMode="cell" editInitEvent="dblclick">
-		<p:ajax event="cellEdit" listener="#{logic.update(category)}" />
-							
-							<!-- 
-							<p:column headerText="No" styleClass="id-column">
-								<p:outputLabel value="#{category.id}" />
-							</p:column> -->
+						<h:form id="form">
+							<p:messages id="message-form" />
+							<p:dataTable id="table-category" value="#{data.categories}"
+								var="category" editable="true" editMode="cell"
+								editInitEvent="dblclick">
+								<p:column headerText="Name" styleClass="name-column">
+									<p:cellEditor>
+										<f:facet name="output">
+											<h:outputText value="#{category.name}" />
+										</f:facet>
+										<f:facet name="input">
+											<p:inputText value="#{category.name}" />
+										</f:facet>
+									</p:cellEditor>
+								</p:column>
 
-							<p:column headerText="Name" styleClass="name-column">
-								<p:cellEditor>
-<!-- 		<p:outputLabel id="colName" value="#{category.name}" />
- -->								
-									<f:facet name="output">
-										<h:outputText value="#{category.name}" />
-									</f:facet>
-									<f:facet name="input">
-										<p:inputText id="modelInput3" value="#{category.name}"
-											style="width:100%" />
-									</f:facet>
-								</p:cellEditor>
-							</p:column>
-
-							<p:column headerText="Action" styleClass="action-column">
-								<!-- 	<p:commandButton update=":editForm:productDetail"
-									onclick="PF('editDialog').show();" icon="ui-icon-edit"
-									title="Edit this Product">
-									<f:setPropertyActionListener value="#{category}"
-										target="#{data.category}" />
-								</p:commandButton>  -->
-								<p:commandButton styleClass="action-button-delete"
-									icon="ui-icon-trash" title="Delete this Product" 
-									id="deleteButton" actionListener="#{logic.delete}" />
-							</p:column>
-						</p:dataTable>
-
+								<p:column headerText="Action" styleClass="action-column">
+									<p:commandButton styleClass="action-button-edit"
+										icon="fa fa-edit" id="editButton"
+										actionListener="#{logic.update(category)}" />
+									<p:commandButton styleClass="action-button-delete"
+										icon="fa fa-trash" id="deleteButton"
+										actionListener="#{logic.delete(category)}"
+										update=":form:table-category" />
+								</p:column>
+							</p:dataTable>
+						</h:form>
 					</div>
 				</div>
 
@@ -67,13 +62,16 @@
 
 						<div class="button-create">
 							<p:commandButton id="save" icon="fa fa-save" value="Save"
-								actionListener="#{logic.save}" update=":table-category" />
+								actionListener="#{logic.save(data.category)}"
+								update=":form:table-category" />
 						</div>
 					</h:form>
-
 				</div>
-			</div>
 
+			</div>
+			
+				<ic:training.center.manage.components.Footer>
+				</ic:training.center.manage.components.Footer>
 			<h:outputStylesheet name="layouts/style/category-manage.css" />
 		</ui:define>
 	</ui:composition>

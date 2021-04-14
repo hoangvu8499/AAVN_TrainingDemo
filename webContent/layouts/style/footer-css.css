@@ -1,10 +1,12 @@
 .footer-dark {
-  padding:3px 0;
-  color:#f0f9ff;
-  background-color:#282d32;
-  font-family: cursive !important;
-  height: 5% !important;
+	padding: 3px 0;
+	color: #f0f9ff;
+	font-family: cursive !important;
+	height: 5% !important;	
+	background-color: #282d32;
+	margin-left: 3%;
 }
+
 
 .container-footer-row {
 	padding-left: 5%;

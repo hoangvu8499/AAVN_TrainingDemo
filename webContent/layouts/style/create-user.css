@@ -1,0 +1,15 @@
+.content-create-user {
+	background-color: white;
+	border: 1px solid;
+	border-radius: 15px;
+	margin: 3%;
+	width: 75%;
+	margin-left: 12%;
+}
+
+.element-create {
+	width:100%;
+	padding-left:25%;
+	padding-bottom: 5%;
+	display: flex !important;
+}

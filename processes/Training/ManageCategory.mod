@@ -1,7 +1,7 @@
 [Ivy]
 178B08283379DB89 7.5.0 #module
 >Proto >Proto Collection #zClass
-Cy0 Manage Big #zClass
+Cy0 ManageCategory Big #zClass
 Cy0 B #cInfo
 Cy0 #process
 Cy0 @TextInP .type .type #zField
@@ -18,7 +18,7 @@ Cy0 @UserDialog f6 '' #zField
 Cy0 @EndTask f7 '' #zField
 Cy0 @PushWFArc f8 '' #zField
 Cy0 @PushWFArc f9 '' #zField
->Proto Cy0 Cy0 Manage #zField
+>Proto Cy0 Cy0 ManageCategory #zField
 Cy0 f0 outLink Dashboard.ivp #txt
 Cy0 f0 inParamDecl '<> param;' #txt
 Cy0 f0 requestEnabled true #txt
@@ -62,12 +62,12 @@ Cy0 f5 caseData businessCase.attach=true #txt
 Cy0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>ShowCategory.ivp</name>
+        <name>Category.ivp</name>
     </language>
 </elementInfo>
 ' #txt
 Cy0 f5 @C|.responsibility Everybody #txt
-Cy0 f5 49 177 30 30 -21 17 #rect
+Cy0 f5 49 153 30 30 -21 17 #rect
 Cy0 f5 @|StartRequestIcon #fIcon
 Cy0 f6 dialogId training.center.manage.category.Category #txt
 Cy0 f6 startMethod start() #txt
@@ -82,12 +82,12 @@ Cy0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cy0 f6 192 170 128 44 -40 -16 #rect
+Cy0 f6 192 146 128 44 -40 -16 #rect
 Cy0 f6 @|UserDialogIcon #fIcon
-Cy0 f7 433 177 30 30 0 15 #rect
+Cy0 f7 433 153 30 30 0 15 #rect
 Cy0 f7 @|EndIcon #fIcon
-Cy0 f8 79 192 192 192 #arcP
-Cy0 f9 320 192 433 192 #arcP
+Cy0 f8 79 168 192 168 #arcP
+Cy0 f9 320 168 433 168 #arcP
 >Proto Cy0 .type training.center.manage.Category #txt
 >Proto Cy0 .processKind NORMAL #txt
 >Proto Cy0 0 0 32 24 18 0 #rect
