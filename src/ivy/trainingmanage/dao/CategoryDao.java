@@ -32,6 +32,7 @@ public class CategoryDao extends BaseDao {
 		}
 	}
 
+	@SuppressWarnings("unchecked")
 	public List<Category> getAll() {
 		List<Category> categories = new ArrayList<>();
 		Session session = sessionFactory.openSession();

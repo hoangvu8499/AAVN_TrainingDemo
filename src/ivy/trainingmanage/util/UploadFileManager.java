@@ -16,17 +16,8 @@ import javax.faces.bean.ViewScoped;
 import org.apache.commons.compress.utils.IOUtils;
 import org.primefaces.model.UploadedFile;
 
-//import ch.ccenergie.phoenix.main.common.Constant;
-//import ch.ccenergie.phoenix.main.entities.CommunicationHistory;
-//import ch.ccenergie.phoenix.main.enums.CommunicationType;
-//import ch.ccenergie.phoenix.main.service.DaoServices;
-//import ch.ccenergie.phoenix.main.utils.FileStorageUtils;
 import ch.ivyteam.ivy.environment.Ivy;
 
-/***
- * handle upload file
- * 
- */
 @ManagedBean(name = "uploadFileManager")
 @ViewScoped
 public class UploadFileManager {
@@ -89,7 +80,13 @@ public class UploadFileManager {
 			String suffix = uploadedFile.getContentType();
 			if (suffix.toLowerCase().endsWith("gif")) {
 				suffix = ".gif";
-			} else if (suffix.toLowerCase().endsWith("jpeg") || suffix.toLowerCase().endsWith("jpg")) {
+			} else if (suffix.toLowerCase().endsWith("pdf")) {
+				suffix = ".pdf";
+			}else if (suffix.toLowerCase().endsWith("docx")) {
+				suffix = ".docx";
+			} else if (suffix.toLowerCase().endsWith("doc")) {
+				suffix = ".doc";
+			}else if (suffix.toLowerCase().endsWith("jpeg") || suffix.toLowerCase().endsWith("jpg")) {
 				suffix = ".jpg";
 			} else if (suffix.toLowerCase().endsWith("png")) {
 				suffix = ".png";
@@ -100,8 +97,6 @@ public class UploadFileManager {
 
 			String absolutePath = tempFile.getAbsolutePath();
 			String tempFilePath = absolutePath.substring(0, absolutePath.lastIndexOf(File.separator));
-
-			Ivy.log().error("dadsads" + tempFilePath);
 
 			tempFile.deleteOnExit();
 			FileOutputStream out = new FileOutputStream(tempFile);

@@ -21,16 +21,16 @@ Mt0 @TaskSwitchSimple f9 '' #zField
 Mt0 @TkArc f10 '' #zField
 Mt0 @PushWFArc f11 '' #zField
 >Proto Mt0 Mt0 ManageUserAccount #zField
-Mt0 f0 outLink start.ivp #txt
+Mt0 f0 outLink createUser.ivp #txt
 Mt0 f0 inParamDecl '<> param;' #txt
 Mt0 f0 requestEnabled true #txt
 Mt0 f0 triggerEnabled false #txt
-Mt0 f0 callSignature start() #txt
+Mt0 f0 callSignature createUser() #txt
 Mt0 f0 caseData businessCase.attach=true #txt
 Mt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>start.ivp</name>
+        <name>createUser</name>
     </language>
 </elementInfo>
 ' #txt
@@ -40,9 +40,10 @@ Mt0 f0 @|StartRequestIcon #fIcon
 Mt0 f1 609 49 30 30 0 15 #rect
 Mt0 f1 @|EndIcon #fIcon
 Mt0 f3 dialogId training.center.manage.user.CreateUser #txt
-Mt0 f3 startMethod start() #txt
-Mt0 f3 requestActionDecl '<> param;' #txt
+Mt0 f3 startMethod start(ivy.trainingmanage.model.User) #txt
+Mt0 f3 requestActionDecl '<ivy.trainingmanage.model.User user> param;' #txt
 Mt0 f3 responseMappingAction 'out=in;
+out.user=result.user;
 ' #txt
 Mt0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -54,9 +55,29 @@ Mt0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Mt0 f3 136 42 112 44 -32 -8 #rect
 Mt0 f3 @|UserDialogIcon #fIcon
 Mt0 f4 79 64 136 64 #arcP
-Mt0 f5 responseMappingAction 'out=in;
+Mt0 f5 dialogId training.center.manage.user.AdminConfirm #txt
+Mt0 f5 startMethod start(ivy.trainingmanage.model.User) #txt
+Mt0 f5 requestActionDecl '<ivy.trainingmanage.model.User user> param;' #txt
+Mt0 f5 requestMappingAction 'param.user=in.user;
 ' #txt
-Mt0 f5 320 42 112 44 0 -8 #rect
+Mt0 f5 responseMappingAction 'out=in;
+out.user=result.user;
+' #txt
+Mt0 f5 caseData 'case.description=New person send information to Admin confirm
+case.name=createUser' #txt
+Mt0 f5 taskData 'TaskA.DESC=Admin Accept Create User or None Accept
+TaskA.NAM=Accept Create User
+TaskA.ROL=Admin
+TaskA.TYPE=0
+TaskA.customFields.STRING.embedInFrame="false"' #txt
+Mt0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>AdminConfirm</name>
+    </language>
+</elementInfo>
+' #txt
+Mt0 f5 320 42 112 44 -39 -8 #rect
 Mt0 f5 @|UserTaskIcon #fIcon
 Mt0 f6 248 64 320 64 #arcP
 Mt0 f7 512 48 32 32 0 16 #rect

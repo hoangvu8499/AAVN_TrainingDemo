@@ -1,2 +1,4 @@
 ManageUserAccountData #class
 training.center.manage #namespace
+user ivy.trainingmanage.model.User #field
+user PERSISTENT #fieldModifier

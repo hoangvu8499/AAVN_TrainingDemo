@@ -1,0 +1,6 @@
+AdminConfirmData #class
+training.center.manage.user.AdminConfirm #namespace
+comment String #field
+comment PERSISTENT #fieldModifier
+user ivy.trainingmanage.model.User #field
+user PERSISTENT #fieldModifier

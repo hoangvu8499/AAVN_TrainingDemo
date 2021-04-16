@@ -2,6 +2,7 @@ package ivy.trainingmanage.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
@@ -11,6 +12,10 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "user_account")
 public class User extends BaseEntity {
+	
+	private String fullName;
+	
+	private String ipCard;
 
 	private String userName;
 
@@ -18,7 +23,7 @@ public class User extends BaseEntity {
 
 	private String email;
 
-	@OneToOne
+	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_file")
 	private FilePost filePost;
 	
@@ -55,6 +60,30 @@ public class User extends BaseEntity {
 
 	public void setFilePost(FilePost filePost) {
 		this.filePost = filePost;
+	}
+
+	public String getFullName() {
+		return fullName;
+	}
+
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
+	}
+
+	public String getIpCard() {
+		return ipCard;
+	}
+
+	public void setIpCard(String ipCard) {
+		this.ipCard = ipCard;
+	}
+
+	public List<UserRoleDetail> getUserRoleDetail() {
+		return userRoleDetail;
+	}
+
+	public void setUserRoleDetail(List<UserRoleDetail> userRoleDetail) {
+		this.userRoleDetail = userRoleDetail;
 	}
 
 	public User() {

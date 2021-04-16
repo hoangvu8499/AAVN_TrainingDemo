@@ -10,6 +10,7 @@ import ivy.trainingmanage.model.Role;
 
 public class RoleDao extends BaseDao {
 
+	@SuppressWarnings("unchecked")
 	public List<Role> getAll() {
 		List<Role> roles = new ArrayList<>();
 		Session session = sessionFactory.openSession();

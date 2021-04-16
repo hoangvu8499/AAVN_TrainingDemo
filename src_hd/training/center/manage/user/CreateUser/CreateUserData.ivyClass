@@ -1,2 +1,8 @@
 CreateUserData #class
 training.center.manage.user.CreateUser #namespace
+user ivy.trainingmanage.model.User #field
+user PERSISTENT #fieldModifier
+eventFile org.primefaces.event.FileUploadEvent #field
+eventFile PERSISTENT #fieldModifier
+checking Boolean #field
+checking PERSISTENT #fieldModifier
