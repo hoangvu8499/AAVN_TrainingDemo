@@ -2,7 +2,9 @@ package ivy.trainingmanage.model;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -12,7 +14,7 @@ public class Role extends BaseEntity {
 
 	private String name;
 
-	@OneToMany(mappedBy = "role")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "role", cascade = CascadeType.ALL)
 	private List<UserRoleDetail> userRoleDetail;
 
 	public String getName() {

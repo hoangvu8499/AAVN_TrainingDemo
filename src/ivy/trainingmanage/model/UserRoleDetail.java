@@ -34,7 +34,13 @@ public class UserRoleDetail extends BaseEntity {
 	}
 
 	public UserRoleDetail() {
-		super();
 	}
+
+	public UserRoleDetail(User user, Role role) {
+		this.user = user;
+		this.role = role;
+	}
+	
+	
 
 }

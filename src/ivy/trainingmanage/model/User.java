@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
@@ -27,7 +28,7 @@ public class User extends BaseEntity {
 	@JoinColumn(name = "id_file")
 	private FilePost filePost;
 	
-	@OneToMany(mappedBy = "user")
+	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL)
 	private List<UserRoleDetail> userRoleDetail;
 
 	public String getUserName() {

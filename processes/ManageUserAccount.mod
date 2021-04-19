@@ -37,11 +37,13 @@ Mt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Mt0 f0 @C|.responsibility Everybody #txt
 Mt0 f0 49 49 30 30 -21 17 #rect
 Mt0 f0 @|StartRequestIcon #fIcon
-Mt0 f1 609 49 30 30 0 15 #rect
+Mt0 f1 633 49 30 30 0 15 #rect
 Mt0 f1 @|EndIcon #fIcon
 Mt0 f3 dialogId training.center.manage.user.CreateUser #txt
 Mt0 f3 startMethod start(ivy.trainingmanage.model.User) #txt
 Mt0 f3 requestActionDecl '<ivy.trainingmanage.model.User user> param;' #txt
+Mt0 f3 requestMappingAction 'param.user=in.user;
+' #txt
 Mt0 f3 responseMappingAction 'out=in;
 out.user=result.user;
 ' #txt
@@ -56,11 +58,14 @@ Mt0 f3 136 42 112 44 -32 -8 #rect
 Mt0 f3 @|UserDialogIcon #fIcon
 Mt0 f4 79 64 136 64 #arcP
 Mt0 f5 dialogId training.center.manage.user.AdminConfirm #txt
-Mt0 f5 startMethod start(ivy.trainingmanage.model.User) #txt
-Mt0 f5 requestActionDecl '<ivy.trainingmanage.model.User user> param;' #txt
+Mt0 f5 startMethod start(ivy.trainingmanage.model.User,String) #txt
+Mt0 f5 requestActionDecl '<ivy.trainingmanage.model.User user,String comment> param;' #txt
 Mt0 f5 requestMappingAction 'param.user=in.user;
+param.comment=in.comment;
 ' #txt
 Mt0 f5 responseMappingAction 'out=in;
+out.accept=result.accept;
+out.comment=result.comment;
 out.user=result.user;
 ' #txt
 Mt0 f5 caseData 'case.description=New person send information to Admin confirm
@@ -83,14 +88,43 @@ Mt0 f6 248 64 320 64 #arcP
 Mt0 f7 512 48 32 32 0 16 #rect
 Mt0 f7 @|AlternativeIcon #fIcon
 Mt0 f8 432 64 512 64 #arcP
-Mt0 f2 544 64 609 64 #arcP
-Mt0 f9 actionTable 'out=in1;
+Mt0 f2 expr in #txt
+Mt0 f2 outCond 'in.accept == true' #txt
+Mt0 f2 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>accept&#13;
+</name>
+    </language>
+</elementInfo>
 ' #txt
+Mt0 f2 544 64 633 64 #arcP
+Mt0 f9 actionTable 'out=in1;
+out.accept=in1.accept;
+out.comment=in1.comment;
+out.user=in1.user;
+' #txt
+Mt0 f9 caseData 'case.description=New person send information to Admin confirm
+case.name=createUser' #txt
+Mt0 f9 taskData 'TaskA.DESC=Update Information User to Admin confirm to Create
+TaskA.NAM=Update Information User to Create
+TaskA.ROL=Teacher
+TaskA.TYPE=0
+TaskA.customFields.STRING.embedInFrame="false"' #txt
 Mt0 f9 361 129 30 30 0 16 #rect
 Mt0 f9 @|TaskSwitchSimpleIcon #fIcon
+Mt0 f10 expr in #txt
+Mt0 f10 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>none accept&#13;
+</name>
+    </language>
+</elementInfo>
+' #txt
 Mt0 f10 528 80 391 144 #arcP
 Mt0 f10 1 528 144 #addKink
-Mt0 f10 1 0.11884439749780801 0 0 #arcLabel
+Mt0 f10 0 0.65625 37 0 #arcLabel
 Mt0 f11 361 144 192 86 #arcP
 Mt0 f11 1 192 144 #addKink
 Mt0 f11 0 0.7817785329490189 0 0 #arcLabel

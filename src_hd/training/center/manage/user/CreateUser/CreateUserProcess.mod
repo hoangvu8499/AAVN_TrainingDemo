@@ -183,7 +183,10 @@ Cs0 f14 actionTable 'out=in;
 ' #txt
 Cs0 f14 actionCode 'import ivy.trainingmanage.model.User;
 
-in.user = new User();' #txt
+if(in.user.fullName.isEmpty()){
+	in.user = new User();
+	in.checking = false;
+}' #txt
 Cs0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

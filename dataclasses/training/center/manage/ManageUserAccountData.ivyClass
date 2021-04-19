@@ -2,3 +2,7 @@ ManageUserAccountData #class
 training.center.manage #namespace
 user ivy.trainingmanage.model.User #field
 user PERSISTENT #fieldModifier
+accept Boolean #field
+accept PERSISTENT #fieldModifier
+comment String #field
+comment PERSISTENT #fieldModifier

@@ -4,3 +4,9 @@ comment String #field
 comment PERSISTENT #fieldModifier
 user ivy.trainingmanage.model.User #field
 user PERSISTENT #fieldModifier
+accept Boolean #field
+accept PERSISTENT #fieldModifier
+roles java.util.List<ivy.trainingmanage.model.Role> #field
+roles PERSISTENT #fieldModifier
+userRole ivy.trainingmanage.model.Role #field
+userRole PERSISTENT #fieldModifier
