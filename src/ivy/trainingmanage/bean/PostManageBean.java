@@ -20,5 +20,11 @@ public class PostManageBean {
 		String link = LinkHelper.getFullLinkBySignature("homePage()");
 		redirect(link);
 	}
+	
+	public void moveCreateUserPage() throws java.io.IOException {
+		String link = LinkHelper.getFullLinkBySignature("createUser()");
+		redirect(link);
+	}
+	
 
 }

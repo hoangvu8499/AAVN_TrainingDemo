@@ -1,0 +1,61 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:ic="http://ivyteam.ch/jsf/component"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:pe="http://primefaces.org/ui/extensions">
+<h:body>
+	<ui:composition
+		template="/layouts/includes/basic-manage-template.xhtml">
+		<ui:define name="title">Show Lis Post</ui:define>
+
+		<ui:define name="content">
+			<div class="ui-g-12">
+				<ic:training.center.manage.components.Header>
+				</ic:training.center.manage.components.Header>
+			</div>
+
+			<div class="ui-g-12 content-dashboard-user">
+				<div class="title-manage-user">Post Manage</div>
+				<p:commandButton styleClass="button-create" value="Create New Post"
+					icon="fa fa-newspaper-o"
+					actionListener="#{postManageBean.moveCreateUserPage}" />
+
+				<h:form id="form-list-post">
+					<p:messages />
+					<p:dataTable id="theTable" value="#{data.postList}" var="post">
+						<p:column styleClass="name-column" headerText="Name">
+							<p:outputLabel id="colName" value="#{post.name}" />
+						</p:column>
+						<p:column styleClass="email-column" headerText="Description">
+							<p:outputLabel id="colEmail" value="#{post.description}" />
+						</p:column>
+						<p:column styleClass="username-column" headerText="Image">
+							<p:graphicImage styleClass="img-product"
+								name="layouts/images/#{product.image}" alt="#{product.image}" />
+
+						</p:column>
+						<p:column styleClass="name-ip" headerText="CreateBy">
+							<p:outputLabel id="colIp" value="#{post.user.userName}" />
+						</p:column>
+
+						<p:column styleClass="action-column" headerText="Action">
+							<p:commandButton styleClass="action-button-delete"
+								update=":form-list-user" icon="fa fa-trash" id="deleteButton" />
+						</p:column>
+					</p:dataTable>
+
+
+				</h:form>
+			</div>
+			<div>
+				<ic:training.center.manage.components.Footer>
+				</ic:training.center.manage.components.Footer>
+			</div>
+			<h:outputStylesheet name="layouts/style/dashboard-post.css" />
+
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

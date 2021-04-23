@@ -1,0 +1,8 @@
+DashboardManagePostData #class
+training.center.manage.post.DashboardManagePost #namespace
+postList java.util.List<ivy.trainingmanage.model.Post> #field
+postList PERSISTENT #fieldModifier
+post ivy.trainingmanage.model.Post #field
+post PERSISTENT #fieldModifier
+eventFile org.primefaces.event.FileUploadEvent #field
+eventFile PERSISTENT #fieldModifier

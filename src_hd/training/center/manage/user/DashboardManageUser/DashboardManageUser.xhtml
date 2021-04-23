@@ -6,31 +6,50 @@
 	xmlns:p="http://primefaces.org/ui"
 	xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
-	<ui:composition template="/layouts/BasicTemplate.xhtml">
-		<ui:define name="title">DashboardManageUser</ui:define>
+	<ui:composition
+		template="/layouts/includes/basic-manage-template.xhtml">
+		<ui:define name="title">ShowUser</ui:define>
+
 		<ui:define name="content">
+			<div class="ui-g-12">
+				<ic:training.center.manage.components.Header>
+				</ic:training.center.manage.components.Header>
+			</div>
 
-			<h3>
-			This is an <a href="https://developer.axonivy.com/doc/latest/designer-guide/user-interface/user-dialogs.html#html-dialogs">Html Dialog</a> 
-			implemented with JSF and <a href="http://primefaces.org/">Primefaces</a> as widget library
-			</h3>
+			<div class="ui-g-12 content-dashboard-user">
+				<div class="title-manage-user">User Manage</div>
+				<p:commandButton styleClass="button-create" value="Create New User" 
+								icon="fa fa-newspaper-o" />
+								
+				<h:form id="form-list-user">
+				<p:messages/>
+					<p:dataTable id="theTable" value="#{data.users}" var="user">
+						<p:column styleClass="name-column" headerText="Full Name">
+							<p:outputLabel id="colName" value="#{user.fullName}" />
+						</p:column>
+						<p:column styleClass="email-column" headerText="Email">
+							<p:outputLabel id="colEmail" value="#{user.email}" />
+						</p:column>
+						<p:column styleClass="username-column" headerText="Username">
+							<p:outputLabel id="colUsername" value="#{user.userName}" />
+						</p:column>
+						<p:column styleClass="name-ip" headerText="IP Card">
+							<p:outputLabel id="colIp" value="#{user.ipCard}" />
+						</p:column>
+						
+						<p:column styleClass="action-column" headerText="Action">
+							<p:commandButton styleClass="action-button-delete" update=":form-list-user"
+								icon="fa fa-trash" id="deleteButton" actionListener="#{logic.delete(user)}"/>
+						</p:column>
+					</p:dataTable>
+				</h:form>
+			</div>
+			<div>
+				<ic:training.center.manage.components.Footer>
+				</ic:training.center.manage.components.Footer>
+			</div>
+			<h:outputStylesheet name="layouts/style/dashboard-user.css" />
 
-			<h:form id="form">
-				<p:messages />
-				<p:panelGrid columns="2" layout="grid" styleClass="ui-panelgrid-blank"
-					columnClasses="ui-g-12 ui-md-3 ui-lg-2, 
-						ui-g-12 ui-md-9 ui-lg-4, 
-						ui-g-12 ui-md-3 ui-lg-2, 
-						ui-g-12 ui-md-9 ui-lg-4">
-
-					
-
-				</p:panelGrid>
-				<br />
-				<div class="command-btns">
-					<p:commandButton id="proceed" actionListener="#{logic.close}" value="Proceed" update="form" icon="ui-icon-check" />
-				</div>
-			</h:form>
 		</ui:define>
 	</ui:composition>
 </h:body>

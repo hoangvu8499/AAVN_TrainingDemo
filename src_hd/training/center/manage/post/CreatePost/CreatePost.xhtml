@@ -17,54 +17,56 @@
 			</div>
 
 			<div id="content-create-user" class="ui-g-12 content-create-user">
-				<p:fieldset legend="Create New User Account" styleClass="fieldset">
+				<p:fieldset legend="Create New Post" styleClass="fieldset">
 					<div class="logo">
 						<p:graphicImage styleClass="img-product"
-							name="layouts/images/logo.bmp" alt="#{product.image}" />
+							name="layouts/images/logo.bmp" />
 					</div>
 					<h:form id="form-create">
 						<p:messages />
 						<div class="element-create">
-							<div class="title-element-create">Your Name:</div>
+							<div class="title-element-create">Name:</div>
 							<div class="input-content-element">
 								<p:inputText styleClass="content-element"
-									value="#{data.user.fullName}" />
-							</div>
-						</div>
-						<div class="element-create">
-							<div class="title-element-create">Email:</div>
-							<div class="input-content-element">
-								<p:inputText styleClass="content-element"
-									value="#{data.user.email}" />
-							</div>
-						</div>
-						<div class="element-create">
-							<div class="title-element-create">UserName:</div>
-							<div class="input-content-element">
-								<p:inputText styleClass="content-element"
-									value="#{data.user.userName}" />
-							</div>
-						</div>
-						<div class="element-create">
-							<div class="title-element-create">Password:</div>
-							<div class="input-content-element">
-								<p:password id="turkishFeedback" feedback="true" weakLabel="Yếu"
-									goodLabel="Trung Bình" strongLabel="Siêu Bảo Mật"
-									value="#{data.user.password}" redisplay="true"
-									styleClass="content-element" toggeleMask="true" />
+									value="#{data.post.name}" />
 							</div>
 						</div>
 
 						<div class="element-create">
-							<div class="title-element-create">IP Card:</div>
+							<div class="title-element-create">Category:</div>
+							<p:selectOneMenu styleClass="select-menu" id="group"
+								value="#{data.post.category}" converter="pojoConverter">
+								<f:selectItems value="#{data.categories}" var="category"
+									itemLabel="#{category.name}" itemValue="#{category}" />
+							</p:selectOneMenu>
+						</div>
+
+						<div class="element-create">
+							<div class="title-element-create">Description:</div>
 							<div class="input-content-element">
 								<p:inputText styleClass="content-element"
-									value="#{data.user.ipCard}" />
+									value="#{data.post.description}" />
+							</div>
+						</div>
+						<div class="element-create">
+							<div class="title-element-create">Content:</div>
+							<div class="input-content-element">
+								<p:inputTextarea rows="5" cols="45"
+									value="#{data.post.content_post}" />
 							</div>
 						</div>
 
 						<div class="element-create">
-							<div class="title-element-create">Import CV:</div>
+							<div class="title-element-create">Image:</div>
+							<div class="input-content-element">
+								<p:fileUpload fileUploadListener="#{logic.handleFileUpload}"
+									auto="true" id="fileUpload" styleClass="content-element"
+									required="true" />					
+							</div>
+						</div>
+
+						<div class="element-create">
+							<div class="title-element-create">File Post:</div>
 							<div class="input-content-element">
 								<p:fileUpload fileUploadListener="#{logic.handleFileUpload}"
 									auto="true" id="fileUpload" styleClass="content-element"
@@ -74,7 +76,8 @@
 
 						<div class="button-create">
 							<p:commandButton id="save" icon="fa fa-save"
-								value="Confirm Information" actionListener="#{logic.create}" update="@form" />
+								value="Confirm Information" actionListener="#{logic.create}"
+								update="@form" />
 						</div>
 					</h:form>
 				</p:fieldset>
@@ -84,7 +87,7 @@
 				<ic:training.center.manage.components.Footer>
 				</ic:training.center.manage.components.Footer>
 			</div>
-			<h:outputStylesheet name="layouts/style/create-user.css" />
+			<h:outputStylesheet name="layouts/style/create-post.css" />
 
 		</ui:define>
 	</ui:composition>

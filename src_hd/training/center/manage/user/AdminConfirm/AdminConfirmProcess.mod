@@ -23,10 +23,12 @@ As0 @UdEvent f3 '' #zField
 As0 @UdExitEnd f4 '' #zField
 As0 @GridStep f5 '' #zField
 As0 @PushWFArc f9 '' #zField
-As0 @PushWFArc f10 '' #zField
 As0 @GridStep f17 '' #zField
 As0 @PushWFArc f18 '' #zField
 As0 @PushWFArc f2 '' #zField
+As0 @EMail f19 '' #zField
+As0 @PushWFArc f10 '' #zField
+As0 @PushWFArc f20 '' #zField
 >Proto As0 As0 AdminConfirmProcess #zField
 As0 f0 guid 178D395F5D65FD8F #txt
 As0 f0 method start(ivy.trainingmanage.model.User,String) #txt
@@ -78,7 +80,7 @@ As0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-As0 f11 160 178 112 44 -34 -8 #rect
+As0 f11 168 186 112 44 -34 -8 #rect
 As0 f11 @|StepIcon #fIcon
 As0 f6 guid 178E8E2BE99A1C8C #txt
 As0 f6 actionTable 'out=in;
@@ -90,13 +92,13 @@ As0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-As0 f6 83 187 26 26 -15 15 #rect
+As0 f6 83 195 26 26 -15 15 #rect
 As0 f6 @|UdEventIcon #fIcon
-As0 f7 427 187 26 26 0 12 #rect
+As0 f7 491 195 26 26 0 12 #rect
 As0 f7 @|UdExitEndIcon #fIcon
-As0 f15 315 275 26 26 0 12 #rect
+As0 f15 355 283 26 26 0 12 #rect
 As0 f15 @|UdProcessEndIcon #fIcon
-As0 f13 312 184 32 32 0 16 #rect
+As0 f13 352 192 32 32 0 16 #rect
 As0 f13 @|AlternativeIcon #fIcon
 As0 f16 expr in #txt
 As0 f16 outCond in.comment.isBlank() #txt
@@ -108,10 +110,10 @@ As0 f16 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-As0 f16 328 216 328 275 #arcP
+As0 f16 368 224 368 283 #arcP
 As0 f16 0 0.6779661016949152 -61 0 #arcLabel
-As0 f12 109 200 160 200 #arcP
-As0 f14 272 200 312 200 #arcP
+As0 f12 109 208 168 208 #arcP
+As0 f14 280 208 352 208 #arcP
 As0 f8 expr in #txt
 As0 f8 outCond !in.comment.isBlank() #txt
 As0 f8 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -121,7 +123,7 @@ As0 f8 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-As0 f8 344 200 427 200 #arcP
+As0 f8 384 208 491 208 #arcP
 As0 f8 0 0.4782608695652174 0 -16 #arcLabel
 As0 f3 guid 178E8E5681BEA72D #txt
 As0 f3 actionTable 'out=in;
@@ -135,7 +137,7 @@ As0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 As0 f3 83 363 26 26 -14 15 #rect
 As0 f3 @|UdEventIcon #fIcon
-As0 f4 419 363 26 26 0 12 #rect
+As0 f4 515 363 26 26 0 12 #rect
 As0 f4 @|UdExitEndIcon #fIcon
 As0 f5 actionTable 'out=in;
 ' #txt
@@ -156,16 +158,18 @@ As0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-As0 f5 208 354 112 44 -18 -8 #rect
+As0 f5 168 354 112 44 -18 -8 #rect
 As0 f5 @|StepIcon #fIcon
-As0 f9 109 376 208 376 #arcP
-As0 f10 320 376 419 376 #arcP
+As0 f9 109 376 168 376 #arcP
 As0 f17 actionTable 'out=in;
 ' #txt
-As0 f17 actionCode 'import ivy.trainingmanage.dao.RoleDao;
+As0 f17 actionCode 'import ch.ivyteam.ivy.environment.Ivy;
+import ivy.trainingmanage.dao.RoleDao;
 
 RoleDao  roleDao = new RoleDao();
 in.roles = roleDao.getAll();
+
+Ivy.log().error("Category: "+in.roles.size());
 ' #txt
 As0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -178,6 +182,21 @@ As0 f17 216 42 112 44 -15 -8 #rect
 As0 f17 @|StepIcon #fIcon
 As0 f18 109 64 216 64 #arcP
 As0 f2 328 64 419 64 #arcP
+As0 f19 beanConfig '"{/emailSubject ""Welcom New User""/emailFrom ""<%=ivy.cms.co(\\""/adminEmail\\"")%>""/emailReplyTo ""<%=ivy.cms.co(\\""/adminEmail\\"")%>""/emailTo ""<%=in.user.email%>""/emailCC ""<%=in.user.email%>""/emailBCC """"/exceptionMissingEmailAttachments ""false""/emailMessage ""Hi, <%=in.user.fullName%>!\\nI\\''m Admin Of IT Training Center, after review your CV, I think you are a person - we need!\\nYou passed!\\nPlease reply \\""confirm\\"" if you want join with my center.\\nThanks! \\nWelcom  <%=in.user.fullName%>""/emailAttachments * }"' #txt
+As0 f19 type training.center.manage.user.AdminConfirm.AdminConfirmData #txt
+As0 f19 timeout 0 #txt
+As0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>welcomMail</name>
+    </language>
+</elementInfo>
+' #txt
+As0 f19 352 354 112 44 -32 -8 #rect
+As0 f19 @|EMailIcon #fIcon
+As0 f10 280 376 352 376 #arcP
+As0 f20 expr out #txt
+As0 f20 464 376 515 376 #arcP
 >Proto As0 .type training.center.manage.user.AdminConfirm.AdminConfirmData #txt
 >Proto As0 .processKind HTML_DIALOG #txt
 >Proto As0 -8 -8 16 16 16 26 #rect
@@ -192,9 +211,11 @@ As0 f13 out f16 tail #connect
 As0 f16 head f15 mainIn #connect
 As0 f3 mainOut f9 tail #connect
 As0 f9 head f5 mainIn #connect
-As0 f5 mainOut f10 tail #connect
-As0 f10 head f4 mainIn #connect
 As0 f0 mainOut f18 tail #connect
 As0 f18 head f17 mainIn #connect
 As0 f17 mainOut f2 tail #connect
 As0 f2 head f1 mainIn #connect
+As0 f5 mainOut f10 tail #connect
+As0 f10 head f19 mainIn #connect
+As0 f19 mainOut f20 tail #connect
+As0 f20 head f4 mainIn #connect

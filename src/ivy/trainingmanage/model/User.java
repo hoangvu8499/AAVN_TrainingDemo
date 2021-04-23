@@ -1,5 +1,6 @@
 package ivy.trainingmanage.model;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -23,13 +24,23 @@ public class User extends BaseEntity {
 	private String password;
 
 	private String email;
+	
+	private Date deleted;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_file")
 	private FilePost filePost;
 	
-	@OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
 	private List<UserRoleDetail> userRoleDetail;
+
+	public Date getDeleted() {
+		return deleted;
+	}
+
+	public void setDeleted(Date deleted) {
+		this.deleted = deleted;
+	}
 
 	public String getUserName() {
 		return userName;
@@ -89,5 +100,7 @@ public class User extends BaseEntity {
 
 	public User() {
 	}
+	
+	
 
 }

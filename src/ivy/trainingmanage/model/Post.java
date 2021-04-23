@@ -3,6 +3,7 @@ package ivy.trainingmanage.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -17,7 +18,9 @@ public class Post extends BaseEntity {
 
 	private String description;
 
-	private String content;
+	private String content_post;
+	
+	private String img;
 
 	private Date deleted;
 
@@ -29,7 +32,7 @@ public class Post extends BaseEntity {
 	@JoinColumn(name = "id_user", nullable = false)
 	private User user;
 
-	@OneToMany(mappedBy = "post")
+	@OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
 	private List<FilePost> filePost;
 
 	public String getName() {
@@ -40,20 +43,28 @@ public class Post extends BaseEntity {
 		this.name = name;
 	}
 
+	public String getContent_post() {
+		return content_post;
+	}
+
+	public void setContent_post(String content_post) {
+		this.content_post = content_post;
+	}
+
+	public String getImg() {
+		return img;
+	}
+
+	public void setImg(String img) {
+		this.img = img;
+	}
+
 	public String getDescription() {
 		return description;
 	}
 
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	public String getContent() {
-		return content;
-	}
-
-	public void setContent(String content) {
-		this.content = content;
 	}
 
 	public Date getDeleted() {

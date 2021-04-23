@@ -1,2 +1,8 @@
 DashboardManageUserData #class
 training.center.manage.user.DashboardManageUser #namespace
+users java.util.List<ivy.trainingmanage.model.User> #field
+users PERSISTENT #fieldModifier
+hightestRoleUser ivy.trainingmanage.model.Role #field
+hightestRoleUser PERSISTENT #fieldModifier
+user ivy.trainingmanage.model.User #field
+user PERSISTENT #fieldModifier

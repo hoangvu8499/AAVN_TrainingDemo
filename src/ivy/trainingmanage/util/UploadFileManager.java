@@ -16,8 +16,6 @@ import javax.faces.bean.ViewScoped;
 import org.apache.commons.compress.utils.IOUtils;
 import org.primefaces.model.UploadedFile;
 
-import ch.ivyteam.ivy.environment.Ivy;
-
 @ManagedBean(name = "uploadFileManager")
 @ViewScoped
 public class UploadFileManager {

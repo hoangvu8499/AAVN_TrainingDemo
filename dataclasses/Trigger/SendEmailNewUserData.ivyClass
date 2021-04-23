@@ -1,0 +1,4 @@
+SendEmailNewUserData #class
+Trigger #namespace
+user ivy.trainingmanage.model.User #field
+user PERSISTENT #fieldModifier

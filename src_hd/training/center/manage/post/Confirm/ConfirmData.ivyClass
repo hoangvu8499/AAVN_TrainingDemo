@@ -1,0 +1,8 @@
+ConfirmData #class
+training.center.manage.post.Confirm #namespace
+confirm Boolean #field
+confirm PERSISTENT #fieldModifier
+post ivy.trainingmanage.model.Post #field
+post PERSISTENT #fieldModifier
+comment String #field
+comment PERSISTENT #fieldModifier

@@ -1,6 +1,7 @@
 package ivy.trainingmanage.service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
@@ -12,6 +13,7 @@ import ch.ivyteam.ivy.security.ISecurityContext;
 import ch.ivyteam.ivy.security.IUser;
 import ivy.trainingmanage.dao.RoleDao;
 import ivy.trainingmanage.dao.UserDao;
+import ivy.trainingmanage.dao.UserDetailDao;
 import ivy.trainingmanage.model.Role;
 import ivy.trainingmanage.model.User;
 import ivy.trainingmanage.model.UserRoleDetail;
@@ -21,6 +23,7 @@ import ivy.trainingmanage.util.MessageUtil;
 public class UserService {
 	private UserDao userDao = new UserDao();
 	private RoleDao roleDao = new RoleDao();
+	private UserDetailDao userDetailDao = new UserDetailDao();
 
 	private ISecurityContext securityContext = Ivy.wf().getApplication().getSecurityContext();
 
@@ -29,6 +32,12 @@ public class UserService {
 				|| user.getUserName().isBlank() || user.getFilePost() == null) {
 			FacesContext.getCurrentInstance().addMessage(":form-create", new FacesMessage(FacesMessage.SEVERITY_ERROR,
 					MessageUtil.MESSAGE_FIELD_NULL, MessageUtil.MESSAGE_FIELD_NULL));
+			return false;
+		}
+
+		if (userDao.checkExistsUser(user).size() > 0) {
+			FacesContext.getCurrentInstance().addMessage(":form-create", new FacesMessage(FacesMessage.SEVERITY_ERROR,
+					MessageUtil.MESSAGE_EXISTS_EMAIL_USERNAME, MessageUtil.MESSAGE_EXISTS_EMAIL_USERNAME));
 			return false;
 		}
 		return true;
@@ -82,14 +91,11 @@ public class UserService {
 
 	public void setRoleTeacher(User user, IUser iUser) {
 		List<UserRoleDetail> roleDetails = new ArrayList<>();
-		Role role = new Role();
 		try {
 			iUser.addRole(securityContext.findRole(Constant.TeacherRole));
 			iUser.addRole(securityContext.findRole(Constant.StudentRole));
-			role = roleDao.findById(Constant.TeacherRoleId);
-			roleDetails.add(new UserRoleDetail(user, role));
-			role = roleDao.findById(Constant.TeacherRoleId);
-			roleDetails.add(new UserRoleDetail(user, role));
+			roleDetails.add(new UserRoleDetail(user, roleDao.findById(Constant.TeacherRoleId)));
+			roleDetails.add(new UserRoleDetail(user, roleDao.findById(Constant.StudentRoleId)));
 			user.setUserRoleDetail(roleDetails);
 		} catch (Exception e) {
 			securityContext.deleteUser(user.getUserName());
@@ -108,6 +114,20 @@ public class UserService {
 			securityContext.deleteUser(user.getUserName());
 			e.printStackTrace();
 		}
+	}
+
+	public void deleteUser(User user) {
+		String userName = Ivy.session().getSessionUserName();
+		User userLogin = userDao.getByUserName(userName);
+		user.setDeleted(new Date());
+		userDao.save(user);
+//		if (userLogin.getUserRoleDetail().size()==3) {
+//			user.setDeleted(new Date());
+//			userDao.save(user);
+//		} else {
+//			FacesContext.getCurrentInstance().addMessage(":form-list-user", new FacesMessage(FacesMessage.SEVERITY_ERROR,
+//					MessageUtil.MESSAGE_NONE_ACCEPT_ROLE, MessageUtil.MESSAGE_NONE_ACCEPT_ROLE));
+//		}
 	}
 
 }
