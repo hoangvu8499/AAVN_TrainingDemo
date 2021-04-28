@@ -4,6 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -15,7 +16,7 @@ public class Category extends BaseEntity {
 
 	private Date deleteAt;
 	
-	@OneToMany(mappedBy = "category")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
 	private List<Post> postList;
 
 	public String getName() {

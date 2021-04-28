@@ -51,7 +51,6 @@
 
 .input-content-element {
 	width: 60%;
-	
 }
 
 .content-element {
@@ -75,7 +74,52 @@
 }
 
 
+.commention {
+	background-color: white;
+	border-radius: 15px !important;
+	padding-bottom: 5%;
+	padding: 2%;
+	border: 1px solid;
+}
 
+.comment {
+	width: 110%;
+	padding-left: 15%;
+	padding-bottom: 5%;
+	display: flex !important;
+}
+
+.button-non-accept {
+	margin-left: 42%;
+}
+
+.input-comment {
+	width: 50%;
+	margin-left: 10%;
+}
+
+.label-comment {
+	font-family: cursive !important;
+	font-weight: bold;
+	font-size: 15px;
+}
+
+.input-content-element-image {
+	width: 60%;
+	
+}
+
+.img {
+	width: 80%;
+}
+
+.upload-img {
+	
+}
+
+.img-post {
+	width: 100%;
+}
 
 
 

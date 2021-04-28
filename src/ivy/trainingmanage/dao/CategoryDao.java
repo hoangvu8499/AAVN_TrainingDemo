@@ -3,7 +3,10 @@ package ivy.trainingmanage.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.Query;
+
 import org.hibernate.Criteria;
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
@@ -42,6 +45,9 @@ public class CategoryDao extends BaseDao {
 			Criteria cr = session.createCriteria(Category.class);
 			cr.add(Restrictions.isNull("deleteAt"));
 			categories = cr.list();
+			for(Category category: categories) {
+				Hibernate.initialize(category.getPostList());
+			}
 		} catch (Exception e) {
 			transaction.rollback();
 			e.printStackTrace();

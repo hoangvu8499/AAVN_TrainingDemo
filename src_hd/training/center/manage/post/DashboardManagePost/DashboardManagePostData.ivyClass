@@ -6,3 +6,5 @@ post ivy.trainingmanage.model.Post #field
 post PERSISTENT #fieldModifier
 eventFile org.primefaces.event.FileUploadEvent #field
 eventFile PERSISTENT #fieldModifier
+id Long #field
+id PERSISTENT #fieldModifier

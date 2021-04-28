@@ -1,2 +1,10 @@
 ManagePostData #class
 training.center.manage #namespace
+post ivy.trainingmanage.model.Post #field
+post PERSISTENT #fieldModifier
+comment String #field
+comment PERSISTENT #fieldModifier
+confirm Boolean #field
+confirm PERSISTENT #fieldModifier
+id Long #field
+id PERSISTENT #fieldModifier

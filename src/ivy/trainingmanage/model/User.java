@@ -1,5 +1,6 @@
 package ivy.trainingmanage.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -32,7 +33,7 @@ public class User extends BaseEntity {
 	private FilePost filePost;
 	
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "user", cascade = CascadeType.ALL)
-	private List<UserRoleDetail> userRoleDetail;
+	private List<UserRoleDetail> userRoleDetail = new ArrayList<UserRoleDetail>();
 
 	public Date getDeleted() {
 		return deleted;

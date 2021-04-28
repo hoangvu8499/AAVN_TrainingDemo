@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Criteria;
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Criterion;
@@ -25,6 +26,8 @@ public class UserDao extends BaseDao {
 		} catch (Exception e) {
 			transaction.rollback();
 			e.printStackTrace();
+		} finally {
+			session.close();
 		}
 		return users;
 	}
@@ -89,15 +92,15 @@ public class UserDao extends BaseDao {
 		return users;
 	}
 
-	public User getByUserName(String userName) {
+	public User findByUserName(String userName) {
 		User user = new User();
 		Session session = sessionFactory.openSession();
 		try {
 			session.beginTransaction();
 			Criteria cr = session.createCriteria(User.class);
 			cr.add(Restrictions.like("userName", userName));
-
 			user = (User) cr.list().get(0);
+			user.getUserRoleDetail().size();
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {

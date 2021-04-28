@@ -1,0 +1,14 @@
+EditPostData #class
+training.center.manage.post.EditPost #namespace
+post ivy.trainingmanage.model.Post #field
+post PERSISTENT #fieldModifier
+confirm Boolean #field
+confirm PERSISTENT #fieldModifier
+comment String #field
+comment PERSISTENT #fieldModifier
+categories java.util.List<ivy.trainingmanage.model.Category> #field
+categories PERSISTENT #fieldModifier
+id Long #field
+id PERSISTENT #fieldModifier
+eventFile org.primefaces.event.FileUploadEvent #field
+eventFile PERSISTENT #fieldModifier

@@ -17,17 +17,17 @@
 			</div>
 
 			<div id="content-create-user" class="ui-g-12 content-create-user">
-				<p:fieldset legend="Create New Post" styleClass="fieldset">
+				<p:fieldset legend="Edit Post" styleClass="fieldset">
 					<div class="logo">
 						<p:graphicImage styleClass="img-product"
 							name="layouts/images/logo.bmp" />
 					</div>
-					<h:form>
+					<h:form id="form-create">
 						<p:messages />
 						<div class="element-create">
 							<div class="title-element-create">Name:</div>
 							<div class="input-content-element">
-								<p:inputText styleClass="content-element" disabled="true"
+								<p:inputText styleClass="content-element"
 									value="#{data.post.name}" />
 							</div>
 						</div>
@@ -36,7 +36,7 @@
 							<div class="title-element-create">Category:</div>
 							<p:selectOneMenu styleClass="select-menu" id="group"
 								value="#{data.post.category}"
-								labelTemplate="#{data.post.category.name}" disabled="true"
+								labelTemplate="#{data.post.category.name}"
 								converter="pojoConverter">
 								<f:selectItems value="#{data.categories}" var="category"
 									itemLabel="#{category.name}" itemValue="#{category}" />
@@ -46,51 +46,52 @@
 						<div class="element-create">
 							<div class="title-element-create">Description:</div>
 							<div class="input-content-element">
-								<p:inputText styleClass="content-element" disabled="true"
+								<p:inputText styleClass="content-element"
 									value="#{data.post.description}" />
 							</div>
 						</div>
 						<div class="element-create">
 							<div class="title-element-create">Content:</div>
 							<div class="input-content-element">
-								<p:inputTextarea rows="5" cols="45" disabled="true"
+								<p:inputTextarea rows="5" cols="45"
 									value="#{data.post.content_post}" />
 							</div>
 						</div>
 
 						<div class="element-create">
 							<div class="title-element-create">Image:</div>
-							<div class="input-content-element"></div>
+							<div class="input-content-element-image">
+								<div class="img">
+									<p:graphicImage styleClass="img-post"
+										name="layouts/file-upload/#{data.post.img}" />
+								</div>
+								<div class="upload-img">
+									<p:fileUpload fileUploadListener="#{logic.handleFileUpload}"
+										auto="true" id="fileUpload" styleClass="content-element"
+										required="true" update="@form"/>
+								</div>
+								<!-- <p:fileUpload fileUploadListener="#{logic.handleFileUpload}"
+									auto="true" id="fileUpload" styleClass="content-element"
+									required="true" /> -->
+							</div>
 						</div>
 
 						<div class="element-create">
 							<div class="title-element-create">File Post:</div>
-							<div class="input-content-element"></div>
+							<div class="input-content-element">
+								<!-- <p:fileUpload fileUploadListener="#{logic.handleFileUpload2}"
+									auto="true" id="fileUploadMulti" styleClass="content-element"
+									required="true" /> -->
+							</div>
 						</div>
 
 						<div class="button-create">
 							<p:commandButton id="save" icon="fa fa-save"
-								value="Confirm Information" actionListener="#{logic.confirm}"
+								value="Confirm Information" actionListener="#{logic.create}"
 								update="@form" />
 						</div>
 					</h:form>
 				</p:fieldset>
-				<div class="commention">
-					<h:form id="form-comment">
-						<p:messages />
-						<div class="comment">
-							<p:outputLabel styleClass="label-comment" for="comment">Comment: </p:outputLabel>
-							<p:inputText styleClass="input-comment" value="#{data.comment}"
-								id="comment">
-							</p:inputText>
-						</div>
-
-						<p:commandButton icon="fa fa-plus" value="None Accept"
-							styleClass="button-non-accept" actionListener="#{logic.close}"
-							update="@form" />
-					</h:form>
-				</div>
-
 			</div>
 
 			<div>

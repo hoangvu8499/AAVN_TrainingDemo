@@ -25,6 +25,7 @@ Cy0 f0 requestEnabled true #txt
 Cy0 f0 triggerEnabled false #txt
 Cy0 f0 callSignature Dashboard() #txt
 Cy0 f0 caseData businessCase.attach=true #txt
+Cy0 f0 wfuser 1 #txt
 Cy0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -32,7 +33,7 @@ Cy0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cy0 f0 @C|.responsibility Everybody #txt
+Cy0 f0 @C|.responsibility Admin #txt
 Cy0 f0 49 49 30 30 -44 21 #rect
 Cy0 f0 @|StartRequestIcon #fIcon
 Cy0 f1 433 49 30 30 0 15 #rect
@@ -59,6 +60,7 @@ Cy0 f5 requestEnabled true #txt
 Cy0 f5 triggerEnabled false #txt
 Cy0 f5 callSignature ShowCategory() #txt
 Cy0 f5 caseData businessCase.attach=true #txt
+Cy0 f5 wfuser 1 #txt
 Cy0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -66,7 +68,7 @@ Cy0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cy0 f5 @C|.responsibility Everybody #txt
+Cy0 f5 @C|.responsibility Admin #txt
 Cy0 f5 49 153 30 30 -21 17 #rect
 Cy0 f5 @|StartRequestIcon #fIcon
 Cy0 f6 dialogId training.center.manage.category.Category #txt

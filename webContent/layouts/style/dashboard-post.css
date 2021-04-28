@@ -19,3 +19,37 @@
 .button-create {
 	margin-bottom: 2%;
 }
+
+.ui-datatable .ui-datatable-header, .ui-datatable .ui-datatable-footer {
+	text-align: right !important;
+}
+
+.ui-datatable thead th{
+	text-align: center !important;
+}
+
+.ui-column-title {
+	font-family: cursive;
+	font-size: 17px;
+	font-weight: bold;
+}
+
+.rowToggler {
+	width: 4%;
+}
+
+.action-column {
+	width: 10%;
+}
+
+.create {
+	width: 12%;
+}
+
+.update {
+	width: 12%;
+}
+
+.action-button {
+	text-align: center;
+}

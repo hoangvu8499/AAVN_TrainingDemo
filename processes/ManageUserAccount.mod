@@ -32,6 +32,7 @@ Mt0 f0 requestEnabled true #txt
 Mt0 f0 triggerEnabled false #txt
 Mt0 f0 callSignature createUser() #txt
 Mt0 f0 caseData businessCase.attach=true #txt
+Mt0 f0 wfuser 1 #txt
 Mt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -39,7 +40,7 @@ Mt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Mt0 f0 @C|.responsibility Everybody #txt
+Mt0 f0 @C|.responsibility Teacher #txt
 Mt0 f0 65 49 30 30 -21 17 #rect
 Mt0 f0 @|StartRequestIcon #fIcon
 Mt0 f1 545 145 30 30 0 15 #rect
@@ -144,6 +145,7 @@ Mt0 f14 requestEnabled true #txt
 Mt0 f14 triggerEnabled false #txt
 Mt0 f14 callSignature DashboardManageUser() #txt
 Mt0 f14 caseData businessCase.attach=true #txt
+Mt0 f14 wfuser 1 #txt
 Mt0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -151,7 +153,7 @@ Mt0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Mt0 f14 @C|.responsibility Everybody #txt
+Mt0 f14 @C|.responsibility Teacher #txt
 Mt0 f14 65 281 30 30 -21 17 #rect
 Mt0 f14 @|StartRequestIcon #fIcon
 Mt0 f15 dialogId training.center.manage.user.DashboardManageUser #txt

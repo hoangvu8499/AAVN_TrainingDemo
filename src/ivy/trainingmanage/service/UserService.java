@@ -44,8 +44,8 @@ public class UserService {
 	}
 
 	public void createUser(User user, Role role) {
-		securityContext.deleteUser("nacu22984");
-		securityContext.deleteUser("hoangvu8499");
+		//securityContext.deleteUser("nacu22984");
+		//securityContext.deleteUser("hoangvu8499");
 		try {
 			securityContext.createUser(user.getUserName(), user.getFullName(), user.getPassword(), Locale.JAPAN,
 					user.getEmail(), "");
@@ -118,7 +118,7 @@ public class UserService {
 
 	public void deleteUser(User user) {
 		String userName = Ivy.session().getSessionUserName();
-		User userLogin = userDao.getByUserName(userName);
+		User userLogin = userDao.findByUserName(userName);
 		user.setDeleted(new Date());
 		userDao.save(user);
 //		if (userLogin.getUserRoleDetail().size()==3) {

@@ -6,3 +6,7 @@ post ivy.trainingmanage.model.Post #field
 post PERSISTENT #fieldModifier
 comment String #field
 comment PERSISTENT #fieldModifier
+categories java.util.List<ivy.trainingmanage.model.Category> #field
+categories PERSISTENT #fieldModifier
+idPost Long #field
+idPost PERSISTENT #fieldModifier

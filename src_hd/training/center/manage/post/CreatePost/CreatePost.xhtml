@@ -35,7 +35,7 @@
 						<div class="element-create">
 							<div class="title-element-create">Category:</div>
 							<p:selectOneMenu styleClass="select-menu" id="group"
-								value="#{data.post.category}" converter="pojoConverter">
+								value="#{data.post.category}" labelTemplate="#{data.post.category.name}" converter="pojoConverter">
 								<f:selectItems value="#{data.categories}" var="category"
 									itemLabel="#{category.name}" itemValue="#{category}" />
 							</p:selectOneMenu>
@@ -68,8 +68,8 @@
 						<div class="element-create">
 							<div class="title-element-create">File Post:</div>
 							<div class="input-content-element">
-								<p:fileUpload fileUploadListener="#{logic.handleFileUpload}"
-									auto="true" id="fileUpload" styleClass="content-element"
+								<p:fileUpload fileUploadListener="#{logic.handleFileUpload2}"
+									auto="true" id="fileUploadMulti" styleClass="content-element"
 									required="true" />
 							</div>
 						</div>

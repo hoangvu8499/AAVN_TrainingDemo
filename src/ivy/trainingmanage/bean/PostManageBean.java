@@ -5,6 +5,7 @@ import javax.faces.bean.ViewScoped;
 
 import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.request.IHttpResponse;
+import ivy.trainingmanage.model.Post;
 import ivy.trainingmanage.util.LinkHelper;
 
 @ViewScoped
@@ -23,6 +24,11 @@ public class PostManageBean {
 	
 	public void moveCreateUserPage() throws java.io.IOException {
 		String link = LinkHelper.getFullLinkBySignature("createUser()");
+		redirect(link);
+	}
+	
+	public void moveCreatePostPage() throws java.io.IOException {
+		String link = LinkHelper.getFullLinkBySignature("createPost()");
 		redirect(link);
 	}
 	

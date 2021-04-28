@@ -20,30 +20,49 @@
 				<div class="title-manage-user">Post Manage</div>
 				<p:commandButton styleClass="button-create" value="Create New Post"
 					icon="fa fa-newspaper-o"
-					actionListener="#{postManageBean.moveCreateUserPage}" />
+					actionListener="#{postManageBean.moveCreatePostPage}" />
 
 				<h:form id="form-list-post">
 					<p:messages />
-					<p:dataTable id="theTable" value="#{data.postList}" var="post">
-						<p:column styleClass="name-column" headerText="Name">
+					<p:dataTable id="theTable" widgetVar="theTable" paginator="true"
+						paginatorPosition="bottom"
+						rowsPerPageTemplate="{ShowAll|'All'},10,20" filterEvent="enter"
+						value="#{data.postList}" var="post">
+
+						<f:facet name="header">
+							<p:outputPanel styleClass="search">
+								<h:outputText value="Find: " />
+								<p:inputText id="globalFilter" onkeyup="PF('theTable').filter()"
+									placeholder="Enter keyword" />
+							</p:outputPanel>
+						</f:facet>
+
+						<p:column styleClass="name-column" headerText="Name"
+							filterMatchMode="contains" filterBy="#{post.name}">
 							<p:outputLabel id="colName" value="#{post.name}" />
 						</p:column>
-						<p:column styleClass="email-column" headerText="Description">
+						<p:column styleClass="email-column" headerText="Description"
+							filterMatchMode="contains" filterBy="#{post.description}">
 							<p:outputLabel id="colEmail" value="#{post.description}" />
 						</p:column>
-						<p:column styleClass="username-column" headerText="Image">
-							<p:graphicImage styleClass="img-product"
-								name="layouts/images/#{product.image}" alt="#{product.image}" />
-
+						<p:column styleClass="create" headerText="CreateBy"
+							filterMatchMode="contains" filterBy="#{post.createBy}">
+							<p:outputLabel id="colCrBy" value="#{post.createBy}" />
 						</p:column>
-						<p:column styleClass="name-ip" headerText="CreateBy">
-							<p:outputLabel id="colIp" value="#{post.user.userName}" />
+						<p:column styleClass="update" headerText="UpdateBy"
+							filterMatchMode="contains" filterBy="#{post.updateBy}">
+							<p:outputLabel id="colUpBy" value="#{post.updateBy}" />
 						</p:column>
-
 						<p:column styleClass="action-column" headerText="Action">
-							<p:commandButton styleClass="action-button-delete"
-								update=":form-list-user" icon="fa fa-trash" id="deleteButton" />
+							<div class="action-button">
+								<p:commandButton styleClass="action-button-edit"
+									actionListener="#{logic.edit(post.id)}" icon="fa fa-pencil" />
+								<p:commandButton styleClass="action-button-delete"
+									actionListener="#{logic.delete(post)}" icon="fa fa-trash" update="@form" />
+							</div>
 						</p:column>
+
+
 					</p:dataTable>
 
 
