@@ -139,8 +139,9 @@ import ivy.trainingmanage.model.Category;
 
 CategoryDao categoryDao = new CategoryDao();
 CategoryService categoryService = new CategoryService();
-in.category.deleteAt = new Date();
-categoryDao.save(in.category);
+//in.category.deleteAt = new Date();
+//categoryDao.save(in.category);
+categoryService.deleteCategory(in.category);
 in.categories = categoryDao.getAll();
 in.category = new Category();' #txt
 Ss0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

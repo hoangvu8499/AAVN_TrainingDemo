@@ -1,7 +1,11 @@
+.class-content {
+	margin-left: 12%;
+}
+
 .content-dashboard-user {
 	margin-top: 20px;
 	margin-bottom: 20px;
-	width: 100%;
+	width: 81% !important;
 }
 
 .title-manage-user {
@@ -24,7 +28,7 @@
 	text-align: right !important;
 }
 
-.ui-datatable thead th{
+.ui-datatable thead th {
 	text-align: center !important;
 }
 
@@ -39,11 +43,11 @@
 }
 
 .action-column {
-	width: 10%;
+	width: 15%;
 }
 
 .create {
-	width: 12%;
+	width: 15%;
 }
 
 .update {
@@ -52,4 +56,8 @@
 
 .action-button {
 	text-align: center;
+}
+
+.name-column {
+	width: 25%;
 }

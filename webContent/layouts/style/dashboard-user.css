@@ -1,7 +1,11 @@
+.class-content {
+	margin-left: 12%;
+}
+
 .content-dashboard-user {
 	margin-top: 20px;
 	margin-bottom: 20px;
-	width: 100%;
+	width: 81% !important;
 }
 
 .title-manage-user {

@@ -1,6 +1,7 @@
 package ivy.trainingmanage.dao;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import org.hibernate.Hibernate;
@@ -9,7 +10,6 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
-import ch.ivyteam.ivy.environment.Ivy;
 import ivy.trainingmanage.model.Post;
 
 public class PostDao extends BaseDao {
@@ -23,6 +23,24 @@ public class PostDao extends BaseDao {
 			transaction = session.beginTransaction();
 			listPost = session.createCriteria(Post.class).add(Restrictions.isNull("deleted")).addOrder(Order.desc("id"))
 					.list();
+		} catch (Exception e) {
+			transaction.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return listPost;
+	}
+
+	@SuppressWarnings("unchecked")
+	public List<Post> getByIdCategory(Long idCategory) {
+		List<Post> listPost = new ArrayList<>();
+		Session session = sessionFactory.openSession();
+		Transaction transaction = null;
+		try {
+			transaction = session.beginTransaction();
+			listPost = session.createCriteria(Post.class).add(Restrictions.isNull("deleted")).add(Restrictions.eq("category.id", idCategory))
+					.addOrder(Order.desc("id")).list();
 		} catch (Exception e) {
 			transaction.rollback();
 			e.printStackTrace();
@@ -78,13 +96,29 @@ public class PostDao extends BaseDao {
 			idSaved = (Long) session.save(post);
 			transaction.commit();
 		} catch (Exception e) {
-			Ivy.log().error(e.getMessage());
 			transaction.rollback();
 			e.printStackTrace();
 		} finally {
 			session.close();
 		}
 		return idSaved;
+	}
+
+	public void deletePostCategory(Long id_category, Date dateDelete) {
+		Session session = sessionFactory.openSession();
+		Transaction transaction = null;
+		try {
+			transaction = session.beginTransaction();
+			String hql = "UPDATE post SET deleted = :dateDelete WHERE id_category = :id_category";
+			session.createSQLQuery(hql).addEntity(Post.class).setParameter("dateDelete", dateDelete)
+					.setParameter("id_category", id_category).executeUpdate();
+			transaction.commit();
+		} catch (Exception e) {
+			transaction.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
 	}
 
 }

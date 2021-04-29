@@ -40,6 +40,10 @@ public class PostService {
 	public List<Post> getAll() {
 		return postDao.getAll();
 	}
+	
+	public List<Post> getByIdCategory(Long idCategory) {
+		return postDao.getByIdCategory(idCategory);
+	}
 
 	public Post findById(Long id) {
 		Post post = new Post();
@@ -60,5 +64,9 @@ public class PostService {
 		}
 
 	}
-
+	
+	public void deleteListPost(Long idCategory) {
+		Date dateDelete = new Date();
+		postDao.deletePostCategory(idCategory, dateDelete);
+	}
 }

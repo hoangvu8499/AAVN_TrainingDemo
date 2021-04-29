@@ -5,7 +5,6 @@ import javax.faces.bean.ViewScoped;
 
 import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.request.IHttpResponse;
-import ivy.trainingmanage.model.Post;
 import ivy.trainingmanage.util.LinkHelper;
 
 @ViewScoped

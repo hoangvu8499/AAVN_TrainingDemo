@@ -1,12 +1,10 @@
 package ivy.trainingmanage.model;
 
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -29,16 +27,6 @@ public class Post extends BaseEntity {
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_category", nullable = false)
 	private Category category;
-
-	/*
-	 * @ManyToOne
-	 * 
-	 * @JoinColumn(name = "id_user", nullable = false) private User user;
-	 * 
-	 * @ManyToOne
-	 * 
-	 * @JoinColumn(name = "user_update") private User userUpdate;
-	 */
 	
 	private String createBy;
 	

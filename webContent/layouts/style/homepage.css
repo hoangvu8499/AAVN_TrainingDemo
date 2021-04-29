@@ -1,0 +1,65 @@
+.class-content {
+	margin-left: 12%;
+}
+
+.content-home {
+	margin-top: 20px;
+	margin-bottom: 20px;
+	width: 100%;
+	display: flex;
+}
+
+.side-bar {
+	width: 25%;
+	padding-right: 2%;
+}
+
+.content-post {
+	width: 65%;
+}
+
+.post-item {
+	padding: 5%;
+	display: flex;
+}
+
+.post-info {
+	width: 80% !important;
+}
+
+.img {
+	width: 80%;
+	height: 30% !important;
+}
+
+.img-post {
+	height: 30% !important;
+}
+
+.ui-column-title {
+	font-family: cursive;
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.title-post-detail {
+	font-family: cursive;
+	font-size: 20px;
+	font-weight: bold;
+	margin-left: 40%;
+}
+
+.img-post-detail {
+	margin-left: 20%;
+}
+
+.content-post-detail {
+	margin-bottom: 30px;
+	margin-left: 10%;
+}
+
+.title-form-create {
+	font-family: cursive;
+	font-size: 20px;
+	font-weight: bold;
+}

@@ -1,6 +1,7 @@
 package ivy.trainingmanage.service;
 
-import java.util.List; 
+import java.util.Date;
+import java.util.List;
 
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -12,6 +13,7 @@ import ivy.trainingmanage.util.MessageUtil;
 public class CategoryService {
 
 	private CategoryDao categoryDao = new CategoryDao();
+	private PostService postService = new PostService();
 
 	public void saveCategory(Category category) {
 		if (category.getName().isBlank()) {
@@ -21,9 +23,15 @@ public class CategoryService {
 			categoryDao.save(category);
 		}
 	}
-	
-	public List<Category> getAll(){
+
+	public List<Category> getAll() {
 		return categoryDao.getAll();
+	}
+
+	public void deleteCategory(Category category) {
+		category.setDeleteAt(new Date());
+		categoryDao.save(category);
+		postService.deleteListPost(category.getId());
 	}
 
 }

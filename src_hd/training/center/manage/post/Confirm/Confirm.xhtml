@@ -11,91 +11,105 @@
 		<ui:define name="title">Create User</ui:define>
 
 		<ui:define name="content">
-			<div class="ui-g-12">
+			<div class="ui-g-9 class-content">
+
 				<ic:training.center.manage.components.Header>
 				</ic:training.center.manage.components.Header>
-			</div>
 
-			<div id="content-create-user" class="ui-g-12 content-create-user">
-				<p:fieldset legend="Create New Post" styleClass="fieldset">
-					<div class="logo">
-						<p:graphicImage styleClass="img-product"
-							name="layouts/images/logo.bmp" />
-					</div>
-					<h:form>
-						<p:messages />
-						<div class="element-create">
-							<div class="title-element-create">Name:</div>
-							<div class="input-content-element">
-								<p:inputText styleClass="content-element" disabled="true"
-									value="#{data.post.name}" />
+				<div id="content-create-user" class="ui-g-12 content-create-user">
+					<p:fieldset legend="Create New Post" styleClass="fieldset">
+						<div class="logo">
+							<p:graphicImage styleClass="img-product"
+								name="layouts/images/logo.bmp" />
+						</div>
+						<h:form>
+							<p:messages />
+							<div class="element-create">
+								<div class="title-element-create">Name:</div>
+								<div class="input-content-element">
+									<p:inputText styleClass="content-element" disabled="true"
+										value="#{data.post.name}" />
+								</div>
 							</div>
-						</div>
 
-						<div class="element-create">
-							<div class="title-element-create">Category:</div>
-							<p:selectOneMenu styleClass="select-menu" id="group"
-								value="#{data.post.category}"
-								labelTemplate="#{data.post.category.name}" disabled="true"
-								converter="pojoConverter">
-								<f:selectItems value="#{data.categories}" var="category"
-									itemLabel="#{category.name}" itemValue="#{category}" />
-							</p:selectOneMenu>
-						</div>
-
-						<div class="element-create">
-							<div class="title-element-create">Description:</div>
-							<div class="input-content-element">
-								<p:inputText styleClass="content-element" disabled="true"
-									value="#{data.post.description}" />
+							<div class="element-create">
+								<div class="title-element-create">Category:</div>
+								<p:selectOneMenu styleClass="select-menu" id="group"
+									value="#{data.post.category}"
+									labelTemplate="#{data.post.category.name}" disabled="true"
+									converter="pojoConverter">
+									<f:selectItems value="#{data.categories}" var="category"
+										itemLabel="#{category.name}" itemValue="#{category}" />
+								</p:selectOneMenu>
 							</div>
-						</div>
-						<div class="element-create">
-							<div class="title-element-create">Content:</div>
-							<div class="input-content-element">
-								<p:inputTextarea rows="5" cols="45" disabled="true"
-									value="#{data.post.content_post}" />
+
+							<div class="element-create">
+								<div class="title-element-create">Description:</div>
+								<div class="input-content-element">
+									<p:inputText styleClass="content-element" disabled="true"
+										value="#{data.post.description}" />
+								</div>
 							</div>
-						</div>
+							<div class="element-create">
+								<div class="title-element-create">Content:</div>
+								<div class="input-content-element">
+									<p:inputTextarea rows="5" cols="45" disabled="true"
+										value="#{data.post.content_post}" />
+								</div>
+							</div>
 
-						<div class="element-create">
-							<div class="title-element-create">Image:</div>
-							<div class="input-content-element"></div>
-						</div>
+							<div class="element-create">
+								<div class="title-element-create">Image:</div>
+								<div class="input-content-element">
+									<p:graphicImage styleClass="img-post"
+										name="layouts/file-upload/#{data.post.img}" />
+								</div>
+							</div>
 
-						<div class="element-create">
-							<div class="title-element-create">File Post:</div>
-							<div class="input-content-element"></div>
-						</div>
+							<div class="element-create">
+								<div class="title-element-create">File Post:</div>
+								<div class="input-content-element">
 
-						<div class="button-create">
-							<p:commandButton id="save" icon="fa fa-save"
-								value="Confirm Information" actionListener="#{logic.confirm}"
+									<!-- <p:commandButton value="Download" ajax="false"
+										onclick="PrimeFaces.monitorDownload(start, stop);"
+										icon="pi pi-arrow-down" styleClass="p-mr-2">
+										<p:fileDownload value="#{fileDownloadBean.file}" />
+									</p:commandButton>  -->
+									<h:commandButton value="Download"
+										action="#{fileDownloadBean.downloadFile}" />
+
+								</div>
+							</div>
+
+							<div class="button-create">
+								<p:commandButton id="save" icon="fa fa-save"
+									value="Confirm Information" actionListener="#{logic.confirm}"
+									update="@form" />
+							</div>
+						</h:form>
+					</p:fieldset>
+					<div class="commention">
+						<h:form id="form-comment">
+							<p:messages />
+							<div class="comment">
+								<p:outputLabel styleClass="label-comment" for="comment">Comment: </p:outputLabel>
+								<p:inputText styleClass="input-comment" value="#{data.comment}"
+									id="comment">
+								</p:inputText>
+							</div>
+
+							<p:commandButton icon="fa fa-plus" value="None Accept"
+								styleClass="button-non-accept" actionListener="#{logic.close}"
 								update="@form" />
-						</div>
-					</h:form>
-				</p:fieldset>
-				<div class="commention">
-					<h:form id="form-comment">
-						<p:messages />
-						<div class="comment">
-							<p:outputLabel styleClass="label-comment" for="comment">Comment: </p:outputLabel>
-							<p:inputText styleClass="input-comment" value="#{data.comment}"
-								id="comment">
-							</p:inputText>
-						</div>
+						</h:form>
+					</div>
 
-						<p:commandButton icon="fa fa-plus" value="None Accept"
-							styleClass="button-non-accept" actionListener="#{logic.close}"
-							update="@form" />
-					</h:form>
 				</div>
 
-			</div>
-
-			<div>
-				<ic:training.center.manage.components.Footer>
-				</ic:training.center.manage.components.Footer>
+				<div>
+					<ic:training.center.manage.components.Footer>
+					</ic:training.center.manage.components.Footer>
+				</div>
 			</div>
 			<h:outputStylesheet name="layouts/style/create-post.css" />
 

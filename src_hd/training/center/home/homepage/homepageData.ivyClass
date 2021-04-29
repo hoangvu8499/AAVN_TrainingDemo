@@ -1,2 +1,14 @@
 homepageData #class
 training.center.home.homepage #namespace
+categories java.util.List<ivy.trainingmanage.model.Category> #field
+categories PERSISTENT #fieldModifier
+listPost java.util.List<ivy.trainingmanage.model.Post> #field
+listPost PERSISTENT #fieldModifier
+id Long #field
+id PERSISTENT #fieldModifier
+post ivy.trainingmanage.model.Post #field
+post PERSISTENT #fieldModifier
+idCategory Long #field
+idCategory PERSISTENT #fieldModifier
+category ivy.trainingmanage.model.Category #field
+category PERSISTENT #fieldModifier

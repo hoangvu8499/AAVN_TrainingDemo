@@ -1,16 +1,22 @@
- #main-area-panel {
+#main-area-panel {
 	background-color: #eeeeee
 }
- 
+
 .menu-header {
-	margin-left: 10%;
-	display: flex;
-	width: 80% !important;
+	margin-left: auto;
+	width: 100% !important;
 	text-align: center;
 	font-family: cursive;
 	font-size: 20px;
-	border-bottom: 1px solid;
 	font-weight: bold;
+}
+
+.border-header {
+	border-bottom: 1px solid;
+	display: flex;
+	width: 81%;
+	padding-left: 9%;
+	padding-right: 8%;
 }
 
 .footer {
@@ -18,7 +24,8 @@
 }
 
 .cate-header {
-	margin-left: 1%;
+	margin-left: 3%;
+	margin-right: 3%;
 	padding: 3% !important;
 }
 
@@ -30,4 +37,3 @@
 .img-welcome {
 	width: 100%;
 }
-

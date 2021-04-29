@@ -1,11 +1,16 @@
+.class-content {
+	margin-left: 12%;
+}
+
 .category-content {
 	display: flex;
 	font-family: cursive;
+	width: 95%;
 }
 
 .category-manage-list {
-	width: 65%;
-	padding: 2%;
+	width: 60%;
+	padding-right: 2%;
 }
 
 .category-manage-create {
@@ -43,7 +48,6 @@
 	font-size: 17px;
 	font-weight: bold;
 	font-family: cursive;
-
 }
 
 .name-column {

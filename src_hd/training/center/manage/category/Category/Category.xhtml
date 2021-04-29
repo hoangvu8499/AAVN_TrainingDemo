@@ -12,66 +12,68 @@
 		<ui:define name="title">ShowCategory</ui:define>
 
 		<ui:define name="content">
-		
-			<ic:training.center.manage.components.Header>
-			</ic:training.center.manage.components.Header>
-			
-			<div class="ui-g-12 category-content">
-				<div id="category-manage-list" class="category-manage-list">
-					<div class="title-list-category">LIST CATEGORY</div>
-					<div class="table-category">
-						<h:form id="form">
-							<p:messages id="message-form" />
-							<p:dataTable id="table-category" value="#{data.categories}"
-								var="category" editable="true" editMode="cell"
-								editInitEvent="dblclick">
-								<p:column headerText="Name" styleClass="name-column">
-									<p:cellEditor>
-										<f:facet name="output">
-											<h:outputText value="#{category.name}" />
-										</f:facet>
-										<f:facet name="input">
-											<p:inputText value="#{category.name}" />
-										</f:facet>
-									</p:cellEditor>
-								</p:column>
+			<div class="ui-g-9 class-content">
+				<ic:training.center.manage.components.Header>
+				</ic:training.center.manage.components.Header>
 
-								<p:column headerText="Action" styleClass="action-column">
-									<p:commandButton styleClass="action-button-edit"
-										icon="fa fa-edit" id="editButton"
-										actionListener="#{logic.update(category)}" />
-									<p:commandButton styleClass="action-button-delete"
-										icon="fa fa-trash" id="deleteButton"
-										actionListener="#{logic.delete(category)}"
-										update=":form:table-category" />
-								</p:column>
-							</p:dataTable>
+				<div class="ui-g-12 category-content">
+					<div id="category-manage-list"
+						class="category-manage-list">
+						<div class="title-list-category">LIST CATEGORY</div>
+						<div class="table-category">
+							<h:form id="form">
+								<p:messages id="message-form" />
+								<p:dataTable id="table-category" value="#{data.categories}"
+									var="category" editable="true" editMode="cell"
+									editInitEvent="dblclick">
+									<p:column headerText="Name" styleClass="name-column">
+										<p:cellEditor>
+											<f:facet name="output">
+												<h:outputText value="#{category.name}" />
+											</f:facet>
+											<f:facet name="input">
+												<p:inputText value="#{category.name}" />
+											</f:facet>
+										</p:cellEditor>
+									</p:column>
+
+									<p:column headerText="Action" styleClass="action-column">
+										<p:commandButton styleClass="action-button-edit"
+											icon="fa fa-edit" id="editButton"
+											actionListener="#{logic.update(category)}" />
+										<p:commandButton styleClass="action-button-delete"
+											icon="fa fa-trash" id="deleteButton"
+											actionListener="#{logic.delete(category)}"
+											update=":form:table-category" />
+									</p:column>
+								</p:dataTable>
+							</h:form>
+						</div>
+					</div>
+
+					<div class="category-manage-create">
+						<div class="title-create-category">CREATE NEW CATEGORY</div>
+						<h:form id="createForm" enctype="multipart/form-data">
+							<p:messages />
+							<div class="create-name">
+								<p:outputLabel for="nameCreate">Name: </p:outputLabel>
+								<p:inputText value="#{data.category.name}" id="nameCreate"
+									styleClass="input-text-dialog" />
+							</div>
+
+							<div class="button-create">
+								<p:commandButton id="save" icon="fa fa-save" value="Save"
+									actionListener="#{logic.save(data.category)}"
+									update=":form:table-category" />
+							</div>
 						</h:form>
 					</div>
+
 				</div>
 
-				<div class="category-manage-create">
-					<div class="title-create-category">CREATE NEW CATEGORY</div>
-					<h:form id="createForm" enctype="multipart/form-data">
-						<p:messages />
-						<div class="create-name">
-							<p:outputLabel for="nameCreate">Name: </p:outputLabel>
-							<p:inputText value="#{data.category.name}" id="nameCreate"
-								styleClass="input-text-dialog" />
-						</div>
-
-						<div class="button-create">
-							<p:commandButton id="save" icon="fa fa-save" value="Save"
-								actionListener="#{logic.save(data.category)}"
-								update=":form:table-category" />
-						</div>
-					</h:form>
-				</div>
-
-			</div>
-			
 				<ic:training.center.manage.components.Footer>
 				</ic:training.center.manage.components.Footer>
+			</div>
 			<h:outputStylesheet name="layouts/style/category-manage.css" />
 		</ui:define>
 	</ui:composition>

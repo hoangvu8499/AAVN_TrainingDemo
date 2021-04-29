@@ -1,0 +1,4 @@
+SideBarCategoryData #class
+training.center.manage.components.SideBarCategory #namespace
+categories java.util.List<ivy.trainingmanage.model.Category> #field
+categories PERSISTENT #fieldModifier

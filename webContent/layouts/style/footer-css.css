@@ -2,11 +2,13 @@
 	padding: 3px 0;
 	color: #f0f9ff;
 	font-family: cursive !important;
-	height: 5% !important;	
+	height: 5% !important;
 	background-color: #282d32;
-	margin-left: 3%;
 }
 
+.ui-g-9 {
+	width: 90% !important;
+}
 
 .container-footer-row {
 	padding-left: 5%;

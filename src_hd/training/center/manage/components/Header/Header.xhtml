@@ -11,19 +11,25 @@
 
 <cc:implementation>
 
-	<div class="ui-g-12 menu-header">
-		<div class="cate-header">
-			<a class="url" href="">HOME PAGE </a>
+	<div class="ui-g-8 menu-header">
+		<div class="border-header">
+			<div class="cate-header">
+				<p:commandLink actionListener="#{movePageBean.moveHomePage}"> HOME PAGE </p:commandLink>
+			</div>
+
+			<div class="cate-header">
+				<p:commandLink actionListener="#{movePageBean.moveManageCategory}"> CATEGORY MANAGE  </p:commandLink>
+			</div>
+
+			<div class="cate-header">
+				<p:commandLink actionListener="#{movePageBean.moveManagePost}"> POST MANAGE </p:commandLink>
+			</div>
+
+			<div class="cate-header">
+				<p:commandLink actionListener="#{movePageBean.moveManageUser}"> USER MANAGE </p:commandLink>
+			</div>
 		</div>
-		<div class="cate-header">
-			<a class="url" href="">CATEGORY MANAGE </a>
-		</div>
-		<div class="cate-header">
-			<a class="url" href="">POST MANAGE </a>
-		</div>
-		<div class="cate-header">
-			<a class="url" href="">USER MANAGE </a>
-		</div>
+		
 	</div>
 
 </cc:implementation>
