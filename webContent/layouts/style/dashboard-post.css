@@ -61,3 +61,7 @@
 .name-column {
 	width: 25%;
 }
+
+.post-data {
+	height: 700px !important;
+}

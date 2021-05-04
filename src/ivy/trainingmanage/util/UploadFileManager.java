@@ -92,10 +92,6 @@ public class UploadFileManager {
 
 			InputStream inputStream = uploadedFile.getInputstream();
 			File tempFile = File.createTempFile(prefix, suffix, new File(Constant.URL_UPLOAD_FILE));
-
-			String absolutePath = tempFile.getAbsolutePath();
-			String tempFilePath = absolutePath.substring(0, absolutePath.lastIndexOf(File.separator));
-
 			tempFile.deleteOnExit();
 			FileOutputStream out = new FileOutputStream(tempFile);
 			IOUtils.copy(inputStream, out);

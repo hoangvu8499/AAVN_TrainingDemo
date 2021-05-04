@@ -11,7 +11,22 @@
 
 <cc:implementation>
 
-	<div class="ui-g-8 menu-header">
+<div class="ui-g-12 category-header">
+	<div class="ui-g-12 ui-md-6 ui-lg-3 cate-header">
+		<p:commandLink actionListener="#{movePageBean.moveHomePage}"> HOME PAGE </p:commandLink>
+	</div>
+	<div class="ui-g-12 ui-md-6 ui-lg-3 cate-header">
+		<p:commandLink actionListener="#{movePageBean.moveManageCategory}"> CATEGORY MANAGE  </p:commandLink>
+	</div>
+	<div class="ui-g-12 ui-md-6 ui-lg-3 cate-header">
+		<p:commandLink actionListener="#{movePageBean.moveManagePost}"> POST MANAGE </p:commandLink>
+	</div>
+	<div class="ui-g-12 ui-md-6 ui-lg-3 cate-header">
+		<p:commandLink actionListener="#{movePageBean.moveManageUser}"> USER MANAGE </p:commandLink>
+	</div>
+
+</div>
+	<!-- <div class="ui-g-8 menu-header">
 		<div class="border-header">
 			<div class="cate-header">
 				<p:commandLink actionListener="#{movePageBean.moveHomePage}"> HOME PAGE </p:commandLink>
@@ -26,11 +41,10 @@
 			</div>
 
 			<div class="cate-header">
-				<p:commandLink actionListener="#{movePageBean.moveManageUser}"> USER MANAGE </p:commandLink>
 			</div>
 		</div>
-		
-	</div>
 
+	</div>
+ -->
 </cc:implementation>
 </html>

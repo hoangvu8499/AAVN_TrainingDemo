@@ -1,3 +1,7 @@
+.post-data {
+	margin-left: 4%;
+}
+
 .class-content {
 	margin-left: 12%;
 }
@@ -27,9 +31,9 @@
 	font-family: cursive;
 	font-size: 17px;
 	background-color: white;
-	border: 1px solid;
 	font-weight: bold;
-	border-radius: 15px !important;
+/* 	border: 1px solid;
+	border-radius: 15px !important; */
 }
 
 .ui-fieldset-legend {
@@ -70,7 +74,6 @@
 
 .select-menu {
 	width: 48%;
-	text-align: center;
 }
 
 .ui-selectonemenu-label {

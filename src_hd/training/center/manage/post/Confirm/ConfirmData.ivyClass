@@ -10,3 +10,5 @@ categories java.util.List<ivy.trainingmanage.model.Category> #field
 categories PERSISTENT #fieldModifier
 idPost Long #field
 idPost PERSISTENT #fieldModifier
+filePost ivy.trainingmanage.model.FilePost #field
+filePost PERSISTENT #fieldModifier

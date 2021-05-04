@@ -11,7 +11,141 @@
 		<ui:define name="title">Confirm User</ui:define>
 
 		<ui:define name="content">
-			<div class="ui-g-9 class-content">
+
+			<div class="ui-g">
+				<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
+				<div class="ui-g-12 ui-md-6 ui-lg-6 borders">
+					<ic:training.center.manage.components.Header />
+				</div>
+				<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
+
+			</div>
+			<div class="ui-g">
+				<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
+				<div class="ui-g-12 ui-md-6 ui-lg-6 borders user-data">
+					<div id="content-create-user" class="ui-g-12 content-create-user">
+						<div>
+							<p:fieldset legend="Confirm Information User / For: Admin"
+								styleClass="fieldset">
+								<div class="logo">
+									<p:graphicImage styleClass="img-product"
+										name="layouts/images/logo.bmp" alt="#{product.image}" />
+								</div>
+								<h:form id="form-create">
+									<p:messages />
+									<div class="element-create">
+										<div class="title-element-create">Your Name:</div>
+										<div class="input-content-element">
+											<p:inputText styleClass="content-element"
+												value="#{data.user.fullName}" />
+										</div>
+									</div>
+									<div class="element-create">
+										<div class="title-element-create">Email:</div>
+										<div class="input-content-element">
+											<p:inputText styleClass="content-element"
+												value="#{data.user.email}" />
+										</div>
+									</div>
+									<div class="element-create">
+										<div class="title-element-create">UserName:</div>
+										<div class="input-content-element">
+											<p:inputText styleClass="content-element"
+												value="#{data.user.userName}" />
+										</div>
+									</div>
+									<div class="element-create">
+										<div class="title-element-create">Password:</div>
+										<div class="input-content-element">
+											<p:password id="turkishFeedback" feedback="true"
+												weakLabel="Yếu" goodLabel="Trung Bình"
+												strongLabel="Siêu Bảo Mật" value="#{data.user.password}"
+												redisplay="true" styleClass="content-element"
+												toggeleMask="true" />
+										</div>
+									</div>
+
+									<div class="element-create">
+										<div class="title-element-create">IP Card:</div>
+										<div class="input-content-element">
+											<p:inputText styleClass="content-element"
+												value="#{data.user.ipCard}" />
+										</div>
+									</div>
+
+									<div class="element-create">
+										<div class="title-element-create">File Post:</div>
+										<div class="input-content-element">
+											<h:commandButton value="Download"
+												action="#{fileDownload.download(data.user.filePost.url)}" />
+
+										</div>
+									</div>
+									
+									<div class="button-create">
+										<p:commandButton onclick="PF('dlg-role').show();" id="save"
+											icon="fa fa-save" value="Confirm Information">
+
+										</p:commandButton>
+									</div>
+
+								</h:form>
+							</p:fieldset>
+						</div>
+						<div class="commention">
+							<h:form id="form-comment">
+								<p:messages />
+								<div class="comment">
+									<p:outputLabel styleClass="label-comment" for="comment">Comment: </p:outputLabel>
+									<p:inputText styleClass="input-comment" value="#{data.comment}"
+										id="comment">
+										<p:ajax event="blur" />
+									</p:inputText>
+								</div>
+
+								<p:commandButton icon="fa fa-plus" value="None Accept"
+									styleClass="button-non-accept" actionListener="#{logic.close}"
+									update=":form-comment" />
+							</h:form>
+						</div>
+
+
+						<p:dialog id="setup-role" widgetVar="dlg-role" modal="true"
+							styleClass="dlg-role" appendTo="@(body)">
+							<h:form id="setupRole" enctype="multipart/form-data">
+								<div class="title-form-create">Setup Role</div>
+								<p:messages />
+
+								<div class="select-role">
+									<div class="title-select">Select Role:</div>
+									<p:selectOneMenu styleClass="select-menu"
+										value="#{data.userRole}" converter="pojoConverter">
+										<f:selectItems value="#{data.roles}" var="role"
+											itemLabel="#{role.name}" itemValue="#{role}" />
+									</p:selectOneMenu>
+								</div>
+
+
+								<div class="button-create">
+									<p:commandButton id="save" value="Save"
+										actionListener="#{logic.confirm}">
+									</p:commandButton>
+								</div>
+							</h:form>
+						</p:dialog>
+					</div>
+				</div>
+				<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
+
+			</div>
+			<div class="ui-g">
+				<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
+				<div class="ui-g-12 ui-md-6 ui-lg-6 borders">
+					<ic:training.center.manage.components.Footer />
+				</div>
+				<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
+			</div>
+			<!-- <div class="ui-g-9 class-content">
 
 				<div class="ui-g-12">
 					<ic:training.center.manage.components.Header>
@@ -64,45 +198,53 @@
 									<div class="title-element-create">IP Card:</div>
 									<div class="input-content-element">
 										<p:inputText styleClass="content-element"
-											value="#{data.user.filePost.url}" />
+											value="#{data.user.ipCard}" />
 									</div>
 								</div>
 
 								<div class="element-create">
+									<div class="title-element-create">File Post:</div>
 									<div class="input-content-element">
-										<!--  <p:tabView>
+										<h:commandButton value="Download"
+											action="#{fileDownload.download(data.user.filePost.url)}" />
+
+									</div>
+								</div>
+								<div class="element-create">
+									<div class="input-content-element">
+										 <p:tabView>
 
 									<p:tab title="CV Of New User">
 										<pe:documentViewer height="500"
 											url="file:///D:/LaunchFolder2/TrainingManage/webContent/layouts/file-upload/#{data.user.filePost.url}" />
 									</p:tab>
-								</p:tabView>  -->
+								</p:tabView> 
 
-										<!-- 	 <p:media
+											 <p:media
 									value="/LaunchFolder2/TrainingManage/webContent/layouts/file-upload/#{data.user.filePost.url}" cache="false" player="pdf"
 									width="100%" height="300px">
-								</p:media>  -->
+								</p:media> 
 
-										<!-- 		<p:media
+												<p:media
 									value="#{readContentFile.getTempPdfFile(data.user.filePost.url)}"
 									cache="false" player="pdf" width="100%" height="300px">
 								</p:media>
  
 								<pe:documentViewer  value="#{readContentFile.getTempPdfFile(data.user.filePost.url)}" 
-									width="600px" height="300px"/> -->
-										<!-- <f:param name="id"
-										value="#{readContentFile.getTempPdfFile(data.user.filePost.url)}" /> -->
-										<!-- 								</pe>>
- -->
-										<!-- 		<p:commandButton value="Download" ajax="false">
+									width="600px" height="300px"/>
+										<f:param name="id"
+										value="#{readContentFile.getTempPdfFile(data.user.filePost.url)}" />
+																		</pe>>
+
+												<p:commandButton value="Download" ajax="false">
 										<p:fileDownload value="#{fileBean.getFile(data.user.filePost.url)}" />
 									</p:commandButton>
- -->
 
-										<!-- <p:media
+
+										<p:media
 										value="#{readContentFile.getTempPdfFile(data.user.filePost.url)}"
 										player="pdf" width="100%" height="300px" />
- -->
+
 									</div>
 								</div>
 								<div class="button-create">
@@ -164,7 +306,7 @@
 					<ic:training.center.manage.components.Footer>
 					</ic:training.center.manage.components.Footer>
 				</div>
-			</div>
+			</div> -->
 
 			<h:outputStylesheet name="layouts/style/confirm-create-user.css" />
 

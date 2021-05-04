@@ -6,10 +6,6 @@
 	background-color: #282d32;
 }
 
-.ui-g-9 {
-	width: 90% !important;
-}
-
 .container-footer-row {
 	padding-left: 5%;
 }
@@ -20,4 +16,8 @@
 
 .item {
 	padding-left: 20%;
+}
+
+.w-footer {
+	width: 100% !important;
 }

@@ -17,8 +17,6 @@ Ss0 @GridStep f6 '' #zField
 Ss0 @PushWFArc f7 '' #zField
 Ss0 @PushWFArc f2 '' #zField
 Ss0 @UdProcessEnd f9 '' #zField
-Ss0 @GridStep f10 '' #zField
-Ss0 @PushWFArc f12 '' #zField
 Ss0 @GridStep f14 '' #zField
 Ss0 @UdProcessEnd f15 '' #zField
 Ss0 @UdProcessEnd f17 '' #zField
@@ -30,7 +28,14 @@ Ss0 @PushWFArc f18 '' #zField
 Ss0 @UdMethod f23 '' #zField
 Ss0 @PushWFArc f16 '' #zField
 Ss0 @UdMethod f22 '' #zField
-Ss0 @PushWFArc f8 '' #zField
+Ss0 @GridStep f8 '' #zField
+Ss0 @PushWFArc f10 '' #zField
+Ss0 @PushWFArc f11 '' #zField
+Ss0 @UdEvent f12 '' #zField
+Ss0 @GridStep f24 '' #zField
+Ss0 @UdProcessEnd f25 '' #zField
+Ss0 @PushWFArc f26 '' #zField
+Ss0 @PushWFArc f27 '' #zField
 >Proto Ss0 Ss0 CategoryProcess #zField
 Ss0 f0 guid 178B089A13F5B504 #txt
 Ss0 f0 method start() #txt
@@ -57,11 +62,11 @@ Ss0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f3 451 51 26 26 15 4 #rect
+Ss0 f3 83 515 26 26 15 4 #rect
 Ss0 f3 @|UdEventIcon #fIcon
-Ss0 f4 451 275 26 26 0 12 #rect
+Ss0 f4 347 515 26 26 0 12 #rect
 Ss0 f4 @|UdExitEndIcon #fIcon
-Ss0 f5 464 77 464 275 #arcP
+Ss0 f5 109 528 347 528 #arcP
 Ss0 f6 actionTable 'out=in;
 ' #txt
 Ss0 f6 actionCode 'import ivy.trainingmanage.model.Category;
@@ -83,28 +88,6 @@ Ss0 f7 109 64 168 64 #arcP
 Ss0 f2 280 64 339 64 #arcP
 Ss0 f9 339 147 26 26 0 12 #rect
 Ss0 f9 @|UdProcessEndIcon #fIcon
-Ss0 f10 actionTable 'out=in;
-' #txt
-Ss0 f10 actionCode 'import ivy.trainingmanage.model.Category;
-import ivy.trainingmanage.service.CategoryService;
-import ivy.trainingmanage.dao.CategoryDao;
-
-CategoryDao categoryDao = new CategoryDao();
-CategoryService categoryService = new CategoryService();
-
-categoryDao.save(in.category);
-in.categories = categoryDao.getAll();
-in.category = new Category();' #txt
-Ss0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>save</name>
-    </language>
-</elementInfo>
-' #txt
-Ss0 f10 168 138 112 44 -13 -8 #rect
-Ss0 f10 @|StepIcon #fIcon
-Ss0 f12 280 160 339 160 #arcP
 Ss0 f14 actionTable 'out=in;
 ' #txt
 Ss0 f14 actionCode 'import ivy.trainingmanage.service.CategoryService;
@@ -133,7 +116,8 @@ Ss0 f17 @|UdProcessEndIcon #fIcon
 Ss0 f19 280 256 339 256 #arcP
 Ss0 f21 actionTable 'out=in;
 ' #txt
-Ss0 f21 actionCode 'import ivy.trainingmanage.service.CategoryService;
+Ss0 f21 actionCode 'import org.primefaces.context.RequestContext;
+import ivy.trainingmanage.service.CategoryService;
 import ivy.trainingmanage.dao.CategoryDao;
 import ivy.trainingmanage.model.Category;
 
@@ -143,7 +127,9 @@ CategoryService categoryService = new CategoryService();
 //categoryDao.save(in.category);
 categoryService.deleteCategory(in.category);
 in.categories = categoryDao.getAll();
-in.category = new Category();' #txt
+in.category = new Category();
+RequestContext.getCurrentInstance().execute("PF(''dlg-delete-post'').hide()");
+' #txt
 Ss0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -201,7 +187,60 @@ Ss0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ss0 f22 83 147 26 26 -25 15 #rect
 Ss0 f22 @|UdMethodIcon #fIcon
-Ss0 f8 109 160 168 160 #arcP
+Ss0 f8 actionTable 'out=in;
+' #txt
+Ss0 f8 actionCode 'import ivy.trainingmanage.model.Category;
+import org.primefaces.context.RequestContext;
+import ivy.trainingmanage.service.CategoryService;
+
+CategoryService categoryService = new CategoryService();
+categoryService.saveCategory(in.category);
+in.categories = categoryService.getAll();
+in.category = new Category();
+RequestContext.getCurrentInstance().update(":createForm");
+' #txt
+Ss0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>save</name>
+    </language>
+</elementInfo>
+' #txt
+Ss0 f8 168 138 112 44 -13 -8 #rect
+Ss0 f8 @|StepIcon #fIcon
+Ss0 f10 109 160 168 160 #arcP
+Ss0 f11 280 160 339 160 #arcP
+Ss0 f12 guid 1793674F3447DF69 #txt
+Ss0 f12 actionTable 'out=in;
+' #txt
+Ss0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>deleteNo</name>
+    </language>
+</elementInfo>
+' #txt
+Ss0 f12 83 435 26 26 -14 15 #rect
+Ss0 f12 @|UdEventIcon #fIcon
+Ss0 f24 actionTable 'out=in;
+' #txt
+Ss0 f24 actionCode 'import org.primefaces.context.RequestContext;
+
+RequestContext.getCurrentInstance().execute("PF(''dlg-delete-post'').hide()");
+' #txt
+Ss0 f24 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>close dialog</name>
+    </language>
+</elementInfo>
+' #txt
+Ss0 f24 168 426 112 44 -33 -8 #rect
+Ss0 f24 @|StepIcon #fIcon
+Ss0 f25 339 435 26 26 0 12 #rect
+Ss0 f25 @|UdProcessEndIcon #fIcon
+Ss0 f26 109 448 168 448 #arcP
+Ss0 f27 280 448 339 448 #arcP
 >Proto Ss0 .type training.center.manage.category.Category.CategoryData #txt
 >Proto Ss0 .processKind HTML_DIALOG #txt
 >Proto Ss0 -8 -8 16 16 16 26 #rect
@@ -212,8 +251,6 @@ Ss0 f0 mainOut f7 tail #connect
 Ss0 f7 head f6 mainIn #connect
 Ss0 f6 mainOut f2 tail #connect
 Ss0 f2 head f1 mainIn #connect
-Ss0 f10 mainOut f12 tail #connect
-Ss0 f12 head f9 mainIn #connect
 Ss0 f14 mainOut f19 tail #connect
 Ss0 f19 head f15 mainIn #connect
 Ss0 f21 mainOut f20 tail #connect
@@ -222,5 +259,11 @@ Ss0 f13 mainOut f18 tail #connect
 Ss0 f18 head f14 mainIn #connect
 Ss0 f23 mainOut f16 tail #connect
 Ss0 f16 head f21 mainIn #connect
-Ss0 f22 mainOut f8 tail #connect
-Ss0 f8 head f10 mainIn #connect
+Ss0 f22 mainOut f10 tail #connect
+Ss0 f10 head f8 mainIn #connect
+Ss0 f8 mainOut f11 tail #connect
+Ss0 f11 head f9 mainIn #connect
+Ss0 f12 mainOut f26 tail #connect
+Ss0 f26 head f24 mainIn #connect
+Ss0 f24 mainOut f27 tail #connect
+Ss0 f27 head f25 mainIn #connect

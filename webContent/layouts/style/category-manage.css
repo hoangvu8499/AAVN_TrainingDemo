@@ -3,20 +3,19 @@
 }
 
 .category-content {
-	display: flex;
 	font-family: cursive;
-	width: 95%;
+	height: 700px !important;
 }
 
 .category-manage-list {
-	width: 60%;
+	width: 100%;
 	padding-right: 2%;
+	height: 100% !important;
+	border-right: 1px solid;
 }
 
 .category-manage-create {
-	width: 30%;
-	padding: 2%;
-	border-left: 1px solid;
+	width: 100%;
 }
 
 .title-list-category {
@@ -28,7 +27,7 @@
 .title-create-category {
 	font-size: 15px;
 	font-weight: bold;
-	padding: 10%;
+	padding-left: 10%;
 }
 
 .create-name {
@@ -48,6 +47,7 @@
 	font-size: 17px;
 	font-weight: bold;
 	font-family: cursive;
+	padding-left: 35%;
 }
 
 .name-column {
@@ -55,5 +55,28 @@
 }
 
 .action-column {
-	padding-left: 20% !important;
+	width: 30%;
+	text-align: center;
 }
+
+.title-form-delete {
+	text-align: center;
+	font-family: sans-serif;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.content-form-delete {
+	text-align: center;
+}
+
+.action-button-delete {
+	margin-left: 30%;
+}
+
+.ui-cell-editor-output {
+	font-size: 17px;
+	font-weight: bold;
+}
+
+

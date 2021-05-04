@@ -10,3 +10,5 @@ roles java.util.List<ivy.trainingmanage.model.Role> #field
 roles PERSISTENT #fieldModifier
 userRole ivy.trainingmanage.model.Role #field
 userRole PERSISTENT #fieldModifier
+filePost ivy.trainingmanage.model.FilePost #field
+filePost PERSISTENT #fieldModifier

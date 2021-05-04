@@ -1,4 +1,3 @@
-
 .button-category {
 	margin-bottom: 5%;
 	border: 1px solid;
@@ -9,6 +8,14 @@
 	font-family: cursive;
 	font-size: 15px;
 	padding-left: 20%;
+	width: 100%;
+	
+}
+
+.ui-widget {
+	font-family: cursive !important;
+	font-size: 15px;
+	font-weight: bold;
 }
 
 .title-category {

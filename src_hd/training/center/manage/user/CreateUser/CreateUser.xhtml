@@ -11,7 +11,96 @@
 		<ui:define name="title">Create User</ui:define>
 
 		<ui:define name="content">
-			<div class="ui-g-9 class-content">
+
+			<div class="ui-g">
+				<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
+				<div class="ui-g-12 ui-md-6 ui-lg-6 borders">
+					<ic:training.center.manage.components.Header />
+				</div>
+				<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
+
+			</div>
+			<div class="ui-g">
+				<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
+				<div class="ui-g-12 ui-md-6 ui-lg-6 borders user-data">
+					<div id="content-create-user" class="ui-g-9 content-create-user">
+						<p:fieldset legend="Create New User Account" styleClass="fieldset">
+							<div class="logo">
+								<p:graphicImage styleClass="img-product"
+									name="layouts/images/logo.bmp" alt="#{product.image}" />
+							</div>
+							<h:form id="form-create">
+								<p:messages />
+								<div class="element-create">
+									<div class="title-element-create">Your Name:</div>
+									<div class="input-content-element">
+										<p:inputText styleClass="content-element"
+											value="#{data.user.fullName}" />
+									</div>
+								</div>
+								<div class="element-create">
+									<div class="title-element-create">Email:</div>
+									<div class="input-content-element">
+										<p:inputText styleClass="content-element"
+											value="#{data.user.email}" />
+									</div>
+								</div>
+								<div class="element-create">
+									<div class="title-element-create">UserName:</div>
+									<div class="input-content-element">
+										<p:inputText styleClass="content-element"
+											value="#{data.user.userName}" />
+									</div>
+								</div>
+								<div class="element-create">
+									<div class="title-element-create">Password:</div>
+									<div class="input-content-element">
+										<p:password id="turkishFeedback" feedback="true"
+											weakLabel="Yếu" goodLabel="Trung Bình"
+											strongLabel="Siêu Bảo Mật" value="#{data.user.password}"
+											redisplay="true" styleClass="content-element"
+											toggeleMask="true" />
+									</div>
+								</div>
+
+								<div class="element-create">
+									<div class="title-element-create">IP Card:</div>
+									<div class="input-content-element">
+										<p:inputText styleClass="content-element"
+											value="#{data.user.ipCard}" />
+									</div>
+								</div>
+
+								<div class="element-create">
+									<div class="title-element-create">Import CV:</div>
+									<div class="input-content-element">
+										<p:fileUpload fileUploadListener="#{logic.handleFileUpload}"
+											auto="true" id="fileUpload" styleClass="content-element"
+											required="true" />
+									</div>
+								</div>
+
+								<div class="button-create">
+									<p:commandButton id="save" icon="fa fa-save"
+										value="Confirm Information" actionListener="#{logic.create}"
+										update="@form" />
+								</div>
+							</h:form>
+						</p:fieldset>
+					</div>
+
+				</div>
+				<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
+
+			</div>
+			<div class="ui-g">
+				<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
+				<div class="ui-g-12 ui-md-6 ui-lg-6 borders">
+					<ic:training.center.manage.components.Footer />
+				</div>
+				<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
+			</div>
+			<!-- <div class="ui-g-9 class-content">
 
 				<div class="ui-g-12">
 					<ic:training.center.manage.components.Header>
@@ -88,7 +177,7 @@
 					<ic:training.center.manage.components.Footer>
 					</ic:training.center.manage.components.Footer>
 				</div>
-			</div>
+			</div> -->
 
 			<h:outputStylesheet name="layouts/style/create-user.css" />
 

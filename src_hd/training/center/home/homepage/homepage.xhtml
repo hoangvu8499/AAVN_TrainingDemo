@@ -11,10 +11,104 @@
 		<ui:define name="title">Show Post</ui:define>
 
 		<ui:define name="content">
-			<div class="ui-g-9 class-content">
+			<div class="main">
+				<div class="ui-g">
+					<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
 
-				<ic:training.center.manage.components.Header>
-				</ic:training.center.manage.components.Header>
+					<div class="ui-g-12 ui-md-6 ui-lg-6 borders">
+						<ic:training.center.manage.components.Header />
+					</div>
+					<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
+
+				</div>
+				<div class="ui-g">
+					<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
+
+					<div class="ui-g-12 ui-md-6 ui-lg-6 borders">
+						<div class="ui-g-12 ui-md-9 ui-lg-3">
+							<ic:training.center.manage.components.SideBarCategory
+								buttonGetDataCategory="#{logic.getDataCategory}"
+								listCategory="#{data.categories}" />
+						</div>
+						<div class="ui-g-12 ui-md-3 ui-lg-9 content-post">
+							<div class="content-post">
+								<h:form id="form" styleClass="form-product">
+									<p:dataTable id="theTable" widgetVar="theTable"
+										paginator="true" styleClass="table" paginatorPosition="bottom"
+										rows="3" rowsPerPageTemplate="{ShowAll|'All'},3,5"
+										value="#{data.listPost}" var="post">
+
+										<p:column headerText="NEWS">
+											<div class="post-item">
+												<div class="ui-g-12 ui-md-4 ui-lg-8 post-item-content">
+													<div class="post-name">
+														<i class="fa fa-paper-plane" />
+														<p:commandLink onclick="PF('dlg-show-post').show();"
+															update=":showPost" value="#{post.name}">
+															<f:setPropertyActionListener value="#{post}"
+																target="#{data.post}" />
+														</p:commandLink>
+
+													</div>
+													<div class="post-description">
+														<i class="fa fa-google-wallet" /> <span>#{post.description}
+														</span>
+													</div>
+												</div>
+
+												<div class="ui-g-12 ui-md-8 ui-lg-4">
+														<p:graphicImage styleClass="img-post" style="width: 80%;"
+															name="layouts/file-upload/#{post.img}" />
+												</div>
+											</div>
+										</p:column>
+									</p:dataTable>
+								</h:form>
+
+							</div>
+
+
+						</div>
+
+					</div>
+					<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
+
+				</div>
+				<div class="ui-g">
+					<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
+					<div class="ui-g-12 ui-md-6 ui-lg-6 borders">
+						<ic:training.center.manage.components.Footer />
+					</div>
+					<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
+				</div>
+
+				<p:dialog id="dlg-show-post" widgetVar="dlg-show-post" modal="true"
+					styleClass="product-dialog" appendTo="@(body)" width="60%">
+					<h:form id="showPost" enctype="multipart/form-data">
+						<div class="title-form-create">Post Detail</div>
+						<div class="create-name">
+							<div class="title-post-detail">
+								<p:outputLabel>#{data.post.name}</p:outputLabel>
+							</div>
+							<div class="img-post-detail">
+								<p:graphicImage styleClass="img-post" style="width: 60%;"
+									name="layouts/file-upload/#{data.post.img}" />
+							</div>
+							<div class="content-post-detail">
+								<p:outputLabel>#{data.post.content_post}</p:outputLabel>
+							</div>
+						</div>
+					</h:form>
+				</p:dialog>
+
+			</div>
+
+			<!-- 			<div class="ui-g-9 class-content">
+				<div class="ui-g-9 header-component">
+					<ic:training.center.manage.components.Header>
+					</ic:training.center.manage.components.Header>
+				</div>
+
 
 				<div class="ui-g-9 content-home">
 					<div class="side-bar">
@@ -25,7 +119,7 @@
 					<div class="content-post">
 						<h:form id="form" styleClass="form-product">
 							<p:dataTable id="theTable" widgetVar="theTable" paginator="true"
-								styleClass="table" paginatorPosition="bottom" rows="4"
+								styleClass="table" paginatorPosition="bottom" rows="2"
 								rowsPerPageTemplate="{ShowAll|'All'},2,4"
 								value="#{data.listPost}" var="post">
 
@@ -33,15 +127,16 @@
 									<div class="post">
 										<div class="post-item">
 											<div class="post-info">
-												<div class="product-name">
-													<i class="fa fa-paper-plane" /><p:commandLink onclick="PF('dlg-show-post').show();" update=":showPost"
-														value="#{post.name}">
+												<div class="post-name">
+													<i class="fa fa-paper-plane" />
+													<p:commandLink onclick="PF('dlg-show-post').show();"
+														update=":showPost" value="#{post.name}">
 														<f:setPropertyActionListener value="#{post}"
 															target="#{data.post}" />
 													</p:commandLink>
 
 												</div>
-												<div class="product-description">
+												<div class="post-description">
 													<i class="fa fa-google-wallet" /> <span>#{post.description}
 													</span>
 												</div>
@@ -59,7 +154,7 @@
 					</div>
 				</div>
 
-				<div class="ui-g-12">
+				<div class="ui-g-9 footer">
 					<ic:training.center.manage.components.Footer>
 					</ic:training.center.manage.components.Footer>
 				</div>
@@ -83,7 +178,7 @@
 						</div>
 					</h:form>
 				</p:dialog>
-			</div>
+			</div> -->
 			<h:outputStylesheet name="layouts/style/homepage.css" />
 
 		</ui:define>

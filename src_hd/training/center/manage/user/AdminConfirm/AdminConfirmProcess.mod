@@ -169,7 +169,6 @@ import ivy.trainingmanage.dao.RoleDao;
 RoleDao  roleDao = new RoleDao();
 in.roles = roleDao.getAll();
 
-Ivy.log().error("Category: "+in.roles.size());
 ' #txt
 As0 f17 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

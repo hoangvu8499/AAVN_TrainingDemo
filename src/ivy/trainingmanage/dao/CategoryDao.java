@@ -3,8 +3,6 @@ package ivy.trainingmanage.dao;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Query;
-
 import org.hibernate.Criteria;
 import org.hibernate.Hibernate;
 import org.hibernate.Session;
@@ -55,6 +53,22 @@ public class CategoryDao extends BaseDao {
 			session.close();
 		}
 		return categories;
+	}
+	
+	public Category findByName(String name) {
+		Category category = new Category();
+		Session session = sessionFactory.openSession();
+		try {
+			session.beginTransaction();
+			Criteria cr = session.createCriteria(Category.class);
+			cr.add(Restrictions.like("name", name));
+			category = (Category) cr.list().get(0);
+		} catch (Exception e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return category;
 	}
 
 }

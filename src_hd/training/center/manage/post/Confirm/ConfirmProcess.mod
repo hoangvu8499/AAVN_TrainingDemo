@@ -60,6 +60,7 @@ CategoryDao categoryDao = new CategoryDao();
 in.categories = categoryDao.getAll();
 in.confirm = true;
 in.post = postService.findById(in.idPost);
+in.filePost = in.post.filePost.get(in.post.filePost.size()-1);
 ' #txt
 Cs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

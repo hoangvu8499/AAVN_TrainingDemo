@@ -23,7 +23,6 @@ import ivy.trainingmanage.util.MessageUtil;
 public class UserService {
 	private UserDao userDao = new UserDao();
 	private RoleDao roleDao = new RoleDao();
-	private UserDetailDao userDetailDao = new UserDetailDao();
 
 	private ISecurityContext securityContext = Ivy.wf().getApplication().getSecurityContext();
 
@@ -38,6 +37,12 @@ public class UserService {
 		if (userDao.checkExistsUser(user).size() > 0) {
 			FacesContext.getCurrentInstance().addMessage(":form-create", new FacesMessage(FacesMessage.SEVERITY_ERROR,
 					MessageUtil.MESSAGE_EXISTS_EMAIL_USERNAME, MessageUtil.MESSAGE_EXISTS_EMAIL_USERNAME));
+			return false;
+		}
+		
+		if(user.getUserName().indexOf(" ") != -1) {
+			FacesContext.getCurrentInstance().addMessage(":form-create", new FacesMessage(FacesMessage.SEVERITY_ERROR,
+					MessageUtil.MESSAGE_HAVE_SPACE_EMAIL_USERNAME, MessageUtil.MESSAGE_HAVE_SPACE_EMAIL_USERNAME));
 			return false;
 		}
 		return true;

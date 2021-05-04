@@ -11,8 +11,85 @@
 		<ui:define name="title">Show Lis Post</ui:define>
 
 		<ui:define name="content">
-			<div class="ui-g-9 class-content">
+			<div class="ui-g">
+				<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
+				<div class="ui-g-12 ui-md-6 ui-lg-6 borders">
+					<ic:training.center.manage.components.Header />
+				</div>
+				<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
 
+			</div>
+			<div class="ui-g">
+				<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
+				<div class="ui-g-12 ui-md-6 ui-lg-6 borders post-data">
+					<p:commandButton styleClass="button-create" value="Create New Post"
+						icon="fa fa-newspaper-o"
+						actionListener="#{postManageBean.moveCreatePostPage}" />
+
+					<h:form id="form-list-post">
+						<p:messages />
+						<p:dataTable id="theTable" widgetVar="theTable" paginator="true"
+							paginatorPosition="bottom" rows="4"
+							rowsPerPageTemplate="{ShowAll|'All'},4,10" filterEvent="enter"
+							value="#{data.postList}" var="post">
+
+							<f:facet name="header">
+								<p:outputPanel styleClass="search">
+									<h:outputText value="Find: " />
+									<p:inputText id="globalFilter"
+										onkeyup="PF('theTable').filter()" placeholder="Enter keyword" />
+								</p:outputPanel>
+							</f:facet>
+
+							<p:column styleClass="name-column" headerText="Name"
+								filterMatchMode="contains" filterBy="#{post.name}">
+								<p:outputLabel id="colName" value="#{post.name}" />
+							</p:column>
+							<p:column styleClass="email-column" headerText="Description"
+								filterMatchMode="contains" filterBy="#{post.description}">
+								<p:outputLabel id="colEmail" value="#{post.description}" />
+							</p:column>
+							<p:column styleClass="create" headerText="CreateBy"
+								filterMatchMode="contains" filterBy="#{post.createBy}">
+								<p:outputLabel id="colCrBy" value="#{post.createBy}" />
+							</p:column>
+							<p:column styleClass="update" headerText="UpdateBy"
+								filterMatchMode="contains" filterBy="#{post.updateBy}">
+								<p:outputLabel id="colUpBy" value="#{post.updateBy}" />
+							</p:column>
+							<p:column styleClass="action-column" headerText="Action">
+								<div class="action-button">
+									<p:commandButton styleClass="action-button-edit"
+										actionListener="#{logic.edit(post.id)}" icon="fa fa-pencil" />
+									<p:commandButton styleClass="action-button-delete"
+										actionListener="#{logic.delete(post)}" icon="fa fa-trash"
+										update="@form" />
+								</div>
+							</p:column>
+
+
+						</p:dataTable>
+
+
+					</h:form>
+
+
+				</div>
+				<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
+
+			</div>
+			<div class="ui-g">
+				<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
+				<div class="ui-g-12 ui-md-6 ui-lg-6 borders">
+					<ic:training.center.manage.components.Footer />
+				</div>
+				<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
+			</div>
+
+
+
+
+			<!-- <div class="ui-g-9 class-content">
 				<div class="ui-g-12">
 					<ic:training.center.manage.components.Header>
 					</ic:training.center.manage.components.Header>
@@ -75,7 +152,7 @@
 					<ic:training.center.manage.components.Footer>
 					</ic:training.center.manage.components.Footer>
 				</div>
-			</div>
+			</div> -->
 			<h:outputStylesheet name="layouts/style/dashboard-post.css" />
 
 		</ui:define>

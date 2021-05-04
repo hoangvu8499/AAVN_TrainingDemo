@@ -105,7 +105,8 @@ Cs0 f31 459 243 26 26 0 12 #rect
 Cs0 f31 @|UdProcessEndIcon #fIcon
 Cs0 f29 actionTable 'out=in;
 ' #txt
-Cs0 f29 actionCode 'import ivy.trainingmanage.dao.FilePostDao;
+Cs0 f29 actionCode 'import org.primefaces.context.RequestContext;
+import ivy.trainingmanage.dao.FilePostDao;
 import ivy.trainingmanage.model.FilePost;
 import ivy.trainingmanage.util.UploadFileManager;
 import ch.ivyteam.ivy.environment.Ivy;
@@ -118,6 +119,9 @@ import ch.ivyteam.ivy.cm.IContentObjectValue;
 UploadedFile uploadedFile = in.eventFile.getFile();
 UploadFileManager ufManager = new UploadFileManager();
 in.post.img = ufManager.uploadFile(uploadedFile);
+
+RequestContext.getCurrentInstance().update(":form-create");
+
 
 ' #txt
 Cs0 f29 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

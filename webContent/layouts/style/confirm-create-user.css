@@ -3,9 +3,9 @@
 }
 
 .content-create-user {
-	margin: 3%;
-	width: 70%;
-	margin-left: 6%;
+	margin: 5%;
+	width: 70% !important;
+	margin-left: 15%;
 	border-radius: 15px;
 }
 
@@ -25,9 +25,9 @@
 	font-family: cursive;
 	font-size: 17px;
 	background-color: white;
-	border: 1px solid;
 	font-weight: bold;
-	border-radius: 15px !important;
+/* 	border: 1px solid;
+	border-radius: 15px !important; */
 }
 
 .ui-fieldset-legend {
@@ -98,7 +98,6 @@
 
 .dlg-role {
 	width: 30% !important;
-	
 }
 
 .title-form-create {
@@ -112,9 +111,9 @@
 
 .select-role {
 	width: 150%;
-    padding-left: 25%;
-    padding-bottom: 5%;
-    display: flex !important;
+	padding-left: 25%;
+	padding-bottom: 5%;
+	display: flex !important;
 }
 
 .title-select {
@@ -122,16 +121,3 @@
 	font-size: 15px;
 	font-weight: bold;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

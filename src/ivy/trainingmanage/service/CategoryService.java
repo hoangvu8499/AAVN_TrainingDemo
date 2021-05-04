@@ -16,8 +16,8 @@ public class CategoryService {
 	private PostService postService = new PostService();
 
 	public void saveCategory(Category category) {
-		if (category.getName().isBlank()) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR,
+		if (category.getName().isEmpty()) {
+			FacesContext.getCurrentInstance().addMessage(":form", new FacesMessage(FacesMessage.SEVERITY_ERROR,
 					MessageUtil.MESSAGE_CATEGORY_IS_NULL, MessageUtil.MESSAGE_CATEGORY_IS_NULL));
 		} else {
 			categoryDao.save(category);
@@ -32,6 +32,16 @@ public class CategoryService {
 		category.setDeleteAt(new Date());
 		categoryDao.save(category);
 		postService.deleteListPost(category.getId());
+	}
+	
+	public boolean checking(Category category) {
+		if(category.getName().isBlank()) {
+			return false;
+		}
+		if(categoryDao.findByName(category.getName()) != null) {
+			return false;
+		}
+		return true;
 	}
 
 }
