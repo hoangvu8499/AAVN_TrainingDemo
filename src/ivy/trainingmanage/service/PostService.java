@@ -18,7 +18,7 @@ public class PostService {
 	private UserDao userDao = new UserDao();
 
 	public Boolean checkPostCreate(Post post) {
-		if (post.getContent_post().isBlank() || post.getDescription().isBlank() || post.getName().isBlank()) {
+		if (post.getContent_post().isEmpty() || post.getDescription().isEmpty() || post.getName().isEmpty()) {
 			FacesContext.getCurrentInstance().addMessage(":form-create", new FacesMessage(FacesMessage.SEVERITY_ERROR,
 					MessageUtil.MESSAGE_FIELD_NULL, MessageUtil.MESSAGE_FIELD_NULL));
 			return false;

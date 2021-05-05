@@ -37,6 +37,9 @@ Cs0 @PushWFArc f21 '' #zField
 Cs0 @GridStep f23 '' #zField
 Cs0 @PushWFArc f24 '' #zField
 Cs0 @PushWFArc f19 '' #zField
+Cs0 @UdEvent f22 '' #zField
+Cs0 @UdProcessEnd f25 '' #zField
+Cs0 @PushWFArc f26 '' #zField
 >Proto Cs0 Cs0 CreatePostProcess #zField
 Cs0 f0 guid 178FDF8717F7923F #txt
 Cs0 f0 method start(Long,String) #txt
@@ -119,8 +122,10 @@ UploadedFile uploadedFile = in.eventFile.getFile();
 UploadFileManager ufManager = new UploadFileManager();
 in.post.img = ufManager.uploadFile(uploadedFile);
 
+RequestContext.getCurrentInstance().update(":form-create:form-img");
 
-' #txt
+
+//update="form-create:form-img"' #txt
 Cs0 f29 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -273,6 +278,21 @@ Cs0 f23 432 370 112 44 -26 -8 #rect
 Cs0 f23 @|StepIcon #fIcon
 Cs0 f24 376 392 432 392 #arcP
 Cs0 f19 544 392 619 392 #arcP
+Cs0 f22 guid 1793C156858BCFD6 #txt
+Cs0 f22 actionTable 'out=in;
+' #txt
+Cs0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>updateForm</name>
+    </language>
+</elementInfo>
+' #txt
+Cs0 f22 147 563 26 26 -14 15 #rect
+Cs0 f22 @|UdEventIcon #fIcon
+Cs0 f25 339 563 26 26 0 12 #rect
+Cs0 f25 @|UdProcessEndIcon #fIcon
+Cs0 f26 173 576 339 576 #arcP
 >Proto Cs0 .type training.center.manage.post.CreatePost.CreatePostData #txt
 >Proto Cs0 .processKind HTML_DIALOG #txt
 >Proto Cs0 -8 -8 16 16 16 26 #rect
@@ -301,3 +321,5 @@ Cs0 f14 out f24 tail #connect
 Cs0 f24 head f23 mainIn #connect
 Cs0 f23 mainOut f19 tail #connect
 Cs0 f19 head f13 mainIn #connect
+Cs0 f22 mainOut f26 tail #connect
+Cs0 f26 head f25 mainIn #connect

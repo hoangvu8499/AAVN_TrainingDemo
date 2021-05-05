@@ -23,6 +23,9 @@ public class PostDao extends BaseDao {
 			transaction = session.beginTransaction();
 			listPost = session.createCriteria(Post.class).add(Restrictions.isNull("deleted")).addOrder(Order.desc("id"))
 					.list();
+			for (Post post : listPost) {
+				Hibernate.initialize(post.getFilePost());
+			}
 		} catch (Exception e) {
 			transaction.rollback();
 			e.printStackTrace();
@@ -39,8 +42,8 @@ public class PostDao extends BaseDao {
 		Transaction transaction = null;
 		try {
 			transaction = session.beginTransaction();
-			listPost = session.createCriteria(Post.class).add(Restrictions.isNull("deleted")).add(Restrictions.eq("category.id", idCategory))
-					.addOrder(Order.desc("id")).list();
+			listPost = session.createCriteria(Post.class).add(Restrictions.isNull("deleted"))
+					.add(Restrictions.eq("category.id", idCategory)).addOrder(Order.desc("id")).list();
 		} catch (Exception e) {
 			transaction.rollback();
 			e.printStackTrace();

@@ -12,3 +12,5 @@ idCategory Long #field
 idCategory PERSISTENT #fieldModifier
 category ivy.trainingmanage.model.Category #field
 category PERSISTENT #fieldModifier
+filePost ivy.trainingmanage.model.FilePost #field
+filePost PERSISTENT #fieldModifier

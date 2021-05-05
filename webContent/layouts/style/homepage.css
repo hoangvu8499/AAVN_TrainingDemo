@@ -6,7 +6,7 @@
 	margin-top: 20px;
 	margin-bottom: 20px;
 	display: flex;
-	height: 700px !important;
+	height: 800px !important;
 }
 
 .side-bar {
@@ -16,7 +16,7 @@
 }
 
 .content-post {
-	height: 750px;
+	height: 800px;
 }
 
 .post-item-content {
@@ -92,6 +92,12 @@
 
 .ui-state-active {
 	background-color: #eeeeee !important;
+}
+
+.download-file {
+		margin-left: 20%;
+		margin-bottom: 20px;
+	
 }
 
 

@@ -3,10 +3,16 @@ package ivy.trainingmanage.dao;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.hibernate.Criteria;
+import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 
+import ivy.trainingmanage.model.Category;
 import ivy.trainingmanage.model.FilePost;
+import ivy.trainingmanage.model.Post;
 
 public class FilePostDao extends BaseDao {
 
@@ -43,6 +49,25 @@ public class FilePostDao extends BaseDao {
 		return file;
 	}
 	
+	public FilePost findByIdPost(Long id) {
+		FilePost filePost = new FilePost();
+		Session session = sessionFactory.openSession();
+		Transaction transaction = null;
+		try {
+			transaction = session.beginTransaction();
+			Criteria cr = session.createCriteria(FilePost.class);
+			cr.add(Restrictions.eq("post.id", id));
+			cr.addOrder(Order.desc("id"));
+			filePost = (FilePost) cr.list().get(0);
+		} catch (Exception e) {
+			transaction.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return filePost;
+	}
+
 	public void save(FilePost filePost) {
 		Session session = sessionFactory.openSession();
 		Transaction transaction = null;

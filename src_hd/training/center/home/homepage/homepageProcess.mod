@@ -21,6 +21,11 @@ hs0 @GridStep f15 '' #zField
 hs0 @UdMethod f13 '' #zField
 hs0 @PushWFArc f16 '' #zField
 hs0 @PushWFArc f17 '' #zField
+hs0 @UdMethod f8 '' #zField
+hs0 @GridStep f9 '' #zField
+hs0 @UdProcessEnd f10 '' #zField
+hs0 @PushWFArc f11 '' #zField
+hs0 @PushWFArc f12 '' #zField
 >Proto hs0 hs0 homepageProcess #zField
 hs0 f0 guid 179176CBCCF87560 #txt
 hs0 f0 method start() #txt
@@ -111,6 +116,45 @@ hs0 f13 @|UdMethodIcon #fIcon
 hs0 f16 109 168 216 168 #arcP
 hs0 f16 0 0.7072745572953059 0 0 #arcLabel
 hs0 f17 328 168 427 168 #arcP
+hs0 f8 guid 1793ACCAE9FA1BA4 #txt
+hs0 f8 method download(ivy.trainingmanage.model.Post) #txt
+hs0 f8 inParameterDecl '<ivy.trainingmanage.model.Post post> param;' #txt
+hs0 f8 inParameterMapAction 'out.post=param.post;
+' #txt
+hs0 f8 outParameterDecl '<> result;' #txt
+hs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>download(Post)</name>
+    </language>
+</elementInfo>
+' #txt
+hs0 f8 83 339 26 26 -25 15 #rect
+hs0 f8 @|UdMethodIcon #fIcon
+hs0 f9 actionTable 'out=in;
+' #txt
+hs0 f9 actionCode 'import ivy.trainingmanage.dao.FilePostDao;
+import ivy.trainingmanage.service.PostService;
+import ivy.trainingmanage.bean.FileDownload;
+
+FilePostDao filePostDao = new ivy.trainingmanage.dao.FilePostDao();
+in.filePost = filePostDao.findByIdPost(in.post.id);
+PostService postService = new PostService();
+FileDownload fileDownload = new ivy.trainingmanage.bean.FileDownload();
+fileDownload.download(in.filePost.url);' #txt
+hs0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<elementInfo>
+    <language>
+        <name>download</name>
+    </language>
+</elementInfo>
+' #txt
+hs0 f9 200 330 112 44 -27 -8 #rect
+hs0 f9 @|StepIcon #fIcon
+hs0 f10 403 339 26 26 0 12 #rect
+hs0 f10 @|UdProcessEndIcon #fIcon
+hs0 f11 109 352 200 352 #arcP
+hs0 f12 312 352 403 352 #arcP
 >Proto hs0 .type training.center.home.homepage.homepageData #txt
 >Proto hs0 .processKind HTML_DIALOG #txt
 >Proto hs0 -8 -8 16 16 16 26 #rect
@@ -125,3 +169,7 @@ hs0 f13 mainOut f16 tail #connect
 hs0 f16 head f15 mainIn #connect
 hs0 f15 mainOut f17 tail #connect
 hs0 f17 head f14 mainIn #connect
+hs0 f8 mainOut f11 tail #connect
+hs0 f11 head f9 mainIn #connect
+hs0 f9 mainOut f12 tail #connect
+hs0 f12 head f10 mainIn #connect

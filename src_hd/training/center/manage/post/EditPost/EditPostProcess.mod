@@ -41,7 +41,8 @@ Es0 @PushWFArc f18 '' #zField
 Es0 f0 guid 1790D77BDD51355A #txt
 Es0 f0 method EditPost(Boolean,String,Long) #txt
 Es0 f0 inParameterDecl '<Boolean confirm,String comment,Long id> param;' #txt
-Es0 f0 inParameterMapAction 'out.id=param.id;
+Es0 f0 inParameterMapAction 'out.comment=param.comment;
+out.id=param.id;
 ' #txt
 Es0 f0 outParameterDecl '<Long idPost,Boolean confirm,String comment> result;' #txt
 Es0 f0 outParameterMapAction 'result.idPost=in.id;

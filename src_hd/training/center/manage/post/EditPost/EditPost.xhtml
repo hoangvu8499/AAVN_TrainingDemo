@@ -4,6 +4,7 @@
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
 	xmlns:ic="http://ivyteam.ch/jsf/component"
 	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
 	xmlns:pe="http://primefaces.org/ui/extensions">
 <h:body>
 	<ui:composition
@@ -113,15 +114,85 @@
 			<div class="ui-g">
 				<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
 				<div class="ui-g-12 ui-md-6 ui-lg-6 borders post-data">
-					<div id="content-create-user" class="ui-g-9 content-create-user">
+					<div id="content-create-user"
+						class="ui-g-12 ui-md-9 ui-lg-6 content-create-user">
 						<p:fieldset legend="Edit Post" styleClass="fieldset">
-							<div class="logo">
+							<div class="ui-g logo">
 								<p:graphicImage styleClass="img-product"
 									name="layouts/images/logo.bmp" />
 							</div>
 							<h:form id="form-create">
 								<p:messages />
-								<div class="element-create">
+								<div class="ui-g-12 ui-md-8 ui-lg-1 borders" />
+								<div class="ui-g-12 ui-md-8 ui-lg-3 title">Name:</div>
+								<div class="ui-g-12 ui-md-4 ui-lg-8 borders">
+									<p:inputText styleClass="content-element" style="width: 90%;"
+										value="#{data.post.name}" />
+								</div>
+								<div class="ui-g-12 ui-md-8 ui-lg-1 borders" />
+								<div class="ui-g-12 ui-md-8 ui-lg-3 title">Category:</div>
+								<div class="ui-g-12 ui-md-4 ui-lg-8 borders">
+									<p:selectOneMenu styleClass="select-menu" id="group"
+										style="width: 90%;" value="#{data.post.category}"
+										labelTemplate="#{data.post.category.name}"
+										converter="pojoConverter">
+										<f:selectItems value="#{data.categories}" var="category"
+											itemLabel="#{category.name}" itemValue="#{category}" />
+									</p:selectOneMenu>
+								</div>
+								<div class="ui-g-12 ui-md-8 ui-lg-1 borders" />
+								<div class="ui-g-12 ui-md-8 ui-lg-3 title">Description:</div>
+								<div class="ui-g-12 ui-md-4 ui-lg-8 borders">
+									<p:inputText styleClass="content-element" style="width: 90%;"
+										value="#{data.post.description}" />
+								</div>
+								<div class="ui-g-12 ui-md-8 ui-lg-1 borders" />
+								<div class="ui-g-12 ui-md-8 ui-lg-3 title">Content:</div>
+								<div class="ui-g-12 ui-md-4 ui-lg-8 borders">
+									<p:inputTextarea style="width:90%" rows="2" cols="30"
+										autoResize="false" styleClass="text-area-content"
+										value="#{data.post.content_post}" />
+								</div>
+								<div class="ui-g-12 ui-md-8 ui-lg-1 borders" />
+								<div class="ui-g-12 ui-md-8 ui-lg-3 title">Image:</div>
+								<div class="ui-g-12 ui-md-4 ui-lg-8 borders">
+									<div class="ui-g-12 ui-md-8 ui-lg-3 img">
+										<p:graphicImage styleClass="img-post" style="width: 90%;"
+											name="layouts/file-upload/#{data.post.img}" />
+									</div>
+									<div class="ui-g-12 ui-md-3 ui-lg-8 upload-img">
+										<p:fileUpload fileUploadListener="#{logic.handleFileUpload}"
+											auto="true" id="fileUpload" styleClass="content-element"
+											style="width: 90%;" required="true" update="@form" />
+									</div>
+								</div>
+								<div class="ui-g-12 ui-md-8 ui-lg-1 borders" />
+								<div class="ui-g-12 ui-md-8 ui-lg-3 title">File Post:</div>
+								<div class="ui-g-12 ui-md-4 ui-lg-8 borders">
+									<div class="ui-g-12 ui-md-8 ui-lg-3 img">
+										<c:if test="${data.post.filePost.size() > 0}">
+											<div class="element-create">
+												<div class="input-content-element">
+													<h:commandButton value="Download"
+														action="#{fileDownload.download(data.filePost.url)}" />
+												</div>
+											</div>
+										</c:if>
+
+									</div>
+									<div class="ui-g-12 ui-md-3 ui-lg-8 upload-img">
+										<p:fileUpload fileUploadListener="#{logic.handleFileUpload2}"
+											style="width: 90%;" auto="true" id="fileUploadMulti"
+											styleClass="content-element" required="true" />
+									</div>
+
+								</div>
+								<div class="ui-g button-create">
+									<p:commandButton id="save" icon="fa fa-save"
+										value="Confirm Information" actionListener="#{logic.create}"
+										update="@form" />
+								</div>
+								<!-- <div class="element-create">
 									<div class="title-element-create">Name:</div>
 									<div class="input-content-element">
 										<p:inputText styleClass="content-element"
@@ -150,7 +221,7 @@
 								<div class="element-create">
 									<div class="title-element-create">Content:</div>
 									<div class="input-content-element">
-										<p:inputTextarea rows="5" cols="45"
+										<p:inputTextarea rows="2" cols="40" autoResize="false"
 											value="#{data.post.content_post}" />
 									</div>
 								</div>
@@ -167,9 +238,9 @@
 												auto="true" id="fileUpload" styleClass="content-element"
 												required="true" update="@form" />
 										</div>
-										<!-- <p:fileUpload fileUploadListener="#{logic.handleFileUpload}"
+										<p:fileUpload fileUploadListener="#{logic.handleFileUpload}"
 											auto="true" id="fileUpload" styleClass="content-element"
-											required="true" /> -->
+											required="true" />
 									</div>
 								</div>
 
@@ -180,13 +251,14 @@
 											auto="true" id="fileUploadMulti" styleClass="content-element"
 											required="true" />
 									</div>
-								</div>
+								</div> 
 
 								<div class="button-create">
 									<p:commandButton id="save" icon="fa fa-save"
 										value="Confirm Information" actionListener="#{logic.create}"
 										update="@form" />
 								</div>
+								-->
 							</h:form>
 						</p:fieldset>
 					</div>
