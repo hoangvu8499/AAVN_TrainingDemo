@@ -2,6 +2,10 @@
 	margin-left: 12%;
 }
 
+.ui-state-highlight {
+	background-color: #eeeeee !important;
+}
+
 .category-content {
 	font-family: cursive;
 	height: 700px !important;
@@ -11,7 +15,7 @@
 	width: 100%;
 	padding-right: 2%;
 	height: 100% !important;
-	border-right: 1px solid;
+	border-right: 1px solid #c8c9c9;
 }
 
 .category-manage-create {
@@ -71,7 +75,7 @@
 }
 
 .action-button-delete {
-	margin-left: 30%;
+	margin-left: 23%;
 }
 
 .ui-cell-editor-output {

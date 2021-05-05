@@ -19,6 +19,9 @@ public class CategoryService {
 		if (category.getName().isEmpty()) {
 			FacesContext.getCurrentInstance().addMessage(":form", new FacesMessage(FacesMessage.SEVERITY_ERROR,
 					MessageUtil.MESSAGE_CATEGORY_IS_NULL, MessageUtil.MESSAGE_CATEGORY_IS_NULL));
+		} else if (categoryDao.findByName(category.getName()).getName() != null) {
+			FacesContext.getCurrentInstance().addMessage(":form", new FacesMessage(FacesMessage.SEVERITY_ERROR,
+					MessageUtil.MESSAGE_CATEGORY_EXISTS, MessageUtil.MESSAGE_CATEGORY_EXISTS));
 		} else {
 			categoryDao.save(category);
 		}
@@ -33,12 +36,12 @@ public class CategoryService {
 		categoryDao.save(category);
 		postService.deleteListPost(category.getId());
 	}
-	
+
 	public boolean checking(Category category) {
-		if(category.getName().isBlank()) {
+		if (category.getName().isBlank()) {
 			return false;
 		}
-		if(categoryDao.findByName(category.getName()) != null) {
+		if (categoryDao.findByName(category.getName()) != null) {
 			return false;
 		}
 		return true;

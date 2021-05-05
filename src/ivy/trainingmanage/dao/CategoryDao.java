@@ -62,6 +62,7 @@ public class CategoryDao extends BaseDao {
 			session.beginTransaction();
 			Criteria cr = session.createCriteria(Category.class);
 			cr.add(Restrictions.like("name", name));
+			cr.add(Restrictions.isNull("deleteAt"));
 			category = (Category) cr.list().get(0);
 		} catch (Exception e) {
 			e.printStackTrace();

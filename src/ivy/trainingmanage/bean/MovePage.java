@@ -15,8 +15,8 @@ public class MovePage {
 		httpResponse.sendRedirect(uri);
 	}
 
-	public void moveHomePage() throws java.io.IOException {
-		String link = LinkHelper.getFullLinkBySignature("homePage()");
+	public void moveToHomePage() throws java.io.IOException {
+		String link = LinkHelper.getFullLinkBySignature("homePageGeneral()");
 		redirect(link);
 	}
 	

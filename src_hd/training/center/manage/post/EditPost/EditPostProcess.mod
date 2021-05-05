@@ -54,9 +54,9 @@ Es0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Es0 f0 83 51 26 26 -60 23 #rect
+Es0 f0 59 51 26 26 -60 23 #rect
 Es0 f0 @|UdInitIcon #fIcon
-Es0 f1 339 51 26 26 0 12 #rect
+Es0 f1 467 51 26 26 0 12 #rect
 Es0 f1 @|UdProcessEndIcon #fIcon
 Es0 f3 guid 1790D77BDE24F4D9 #txt
 Es0 f3 actionTable 'out=in;
@@ -68,11 +68,11 @@ Es0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Es0 f3 75 611 26 26 -15 15 #rect
+Es0 f3 59 595 26 26 -15 15 #rect
 Es0 f3 @|UdEventIcon #fIcon
-Es0 f4 203 611 26 26 0 12 #rect
+Es0 f4 243 595 26 26 0 12 #rect
 Es0 f4 @|UdExitEndIcon #fIcon
-Es0 f5 101 624 203 624 #arcP
+Es0 f5 85 608 243 608 #arcP
 Es0 f6 actionTable 'out=in;
 ' #txt
 Es0 f6 actionCode 'import ivy.trainingmanage.service.CategoryService;
@@ -91,10 +91,10 @@ Es0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Es0 f6 168 42 112 44 -22 -8 #rect
+Es0 f6 216 42 112 44 -22 -8 #rect
 Es0 f6 @|StepIcon #fIcon
-Es0 f7 109 64 168 64 #arcP
-Es0 f2 280 64 339 64 #arcP
+Es0 f7 85 64 216 64 #arcP
+Es0 f2 328 64 467 64 #arcP
 Es0 f31 467 155 26 26 0 12 #rect
 Es0 f31 @|UdProcessEndIcon #fIcon
 Es0 f9 467 275 26 26 0 12 #rect
@@ -112,7 +112,7 @@ Es0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Es0 f10 84 276 24 24 -42 36 #rect
+Es0 f10 60 276 24 24 -42 36 #rect
 Es0 f10 @|UdMethodIcon #fIcon
 Es0 f29 actionTable 'out=in;
 ' #txt
@@ -138,7 +138,7 @@ Es0 f29 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Es0 f29 200 146 112 44 -21 -8 #rect
+Es0 f29 216 146 112 44 -21 -8 #rect
 Es0 f29 @|StepIcon #fIcon
 Es0 f8 actionTable 'out=in;
 ' #txt
@@ -169,7 +169,7 @@ Es0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Es0 f8 200 266 112 44 -21 -8 #rect
+Es0 f8 216 266 112 44 -21 -8 #rect
 Es0 f8 @|StepIcon #fIcon
 Es0 f28 guid 179111900B2A730D #txt
 Es0 f28 method handleFileUpload(org.primefaces.event.FileUploadEvent) #txt
@@ -184,12 +184,12 @@ Es0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Es0 f28 84 156 24 24 -42 36 #rect
+Es0 f28 60 156 24 24 -42 36 #rect
 Es0 f28 @|UdMethodIcon #fIcon
-Es0 f32 312 168 467 168 #arcP
-Es0 f12 312 288 467 288 #arcP
-Es0 f30 108 168 200 168 #arcP
-Es0 f11 108 288 200 288 #arcP
+Es0 f32 328 168 467 168 #arcP
+Es0 f12 328 288 467 288 #arcP
+Es0 f30 84 168 216 168 #arcP
+Es0 f11 84 288 216 288 #arcP
 Es0 f16 guid 179172D5D518EE50 #txt
 Es0 f16 actionTable 'out=in;
 ' #txt
@@ -202,9 +202,9 @@ Es0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Es0 f16 59 427 26 26 -14 15 #rect
 Es0 f16 @|UdEventIcon #fIcon
-Es0 f13 619 427 26 26 0 12 #rect
+Es0 f13 603 427 26 26 0 12 #rect
 Es0 f13 @|UdExitEndIcon #fIcon
-Es0 f17 459 515 26 26 0 12 #rect
+Es0 f17 443 515 26 26 0 12 #rect
 Es0 f17 @|UdProcessEndIcon #fIcon
 Es0 f15 actionTable 'out=in;
 ' #txt
@@ -226,9 +226,9 @@ Es0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Es0 f15 176 418 112 44 -32 -8 #rect
+Es0 f15 160 418 112 44 -32 -8 #rect
 Es0 f15 @|StepIcon #fIcon
-Es0 f14 328 424 32 32 0 16 #rect
+Es0 f14 312 424 32 32 0 16 #rect
 Es0 f14 @|AlternativeIcon #fIcon
 Es0 f23 actionTable 'out=in;
 ' #txt
@@ -236,7 +236,7 @@ Es0 f23 actionCode 'import ch.ivyteam.ivy.environment.Ivy;
 import ivy.trainingmanage.service.PostService;
 
 PostService postService = new PostService();
-in.post.createBy =  Ivy.session().getSessionUserName();
+in.post.updateBy =  Ivy.session().getSessionUserName();
 postService.save(in.post);
 
 ' #txt
@@ -247,9 +247,9 @@ Es0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Es0 f23 416 418 112 44 -26 -8 #rect
+Es0 f23 400 418 112 44 -26 -8 #rect
 Es0 f23 @|StepIcon #fIcon
-Es0 f21 85 440 176 440 #arcP
+Es0 f21 85 440 160 440 #arcP
 Es0 f20 expr in #txt
 Es0 f20 outCond 'in.confirm == false' #txt
 Es0 f20 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -259,12 +259,12 @@ Es0 f20 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Es0 f20 344 456 459 528 #arcP
-Es0 f20 1 344 528 #addKink
+Es0 f20 328 456 443 528 #arcP
+Es0 f20 1 328 528 #addKink
 Es0 f20 1 0.41739130434782606 0 -12 #arcLabel
-Es0 f19 528 440 619 440 #arcP
-Es0 f24 360 440 416 440 #arcP
-Es0 f18 288 440 328 440 #arcP
+Es0 f19 512 440 603 440 #arcP
+Es0 f24 344 440 400 440 #arcP
+Es0 f18 272 440 312 440 #arcP
 >Proto Es0 .type training.center.manage.post.EditPost.EditPostData #txt
 >Proto Es0 .processKind HTML_DIALOG #txt
 >Proto Es0 -8 -8 16 16 16 26 #rect

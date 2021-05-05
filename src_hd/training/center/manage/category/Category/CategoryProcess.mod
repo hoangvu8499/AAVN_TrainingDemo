@@ -50,7 +50,7 @@ Ss0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ss0 f0 83 51 26 26 -16 15 #rect
 Ss0 f0 @|UdInitIcon #fIcon
-Ss0 f1 339 51 26 26 0 12 #rect
+Ss0 f1 403 51 26 26 0 12 #rect
 Ss0 f1 @|UdProcessEndIcon #fIcon
 Ss0 f3 guid 178B089A14D83901 #txt
 Ss0 f3 actionTable 'out=in;
@@ -62,11 +62,11 @@ Ss0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f3 83 515 26 26 15 4 #rect
+Ss0 f3 83 579 26 26 15 4 #rect
 Ss0 f3 @|UdEventIcon #fIcon
-Ss0 f4 347 515 26 26 0 12 #rect
+Ss0 f4 411 579 26 26 0 12 #rect
 Ss0 f4 @|UdExitEndIcon #fIcon
-Ss0 f5 109 528 347 528 #arcP
+Ss0 f5 109 592 411 592 #arcP
 Ss0 f6 actionTable 'out=in;
 ' #txt
 Ss0 f6 actionCode 'import ivy.trainingmanage.model.Category;
@@ -82,11 +82,11 @@ Ss0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f6 168 42 112 44 -16 -8 #rect
+Ss0 f6 200 42 112 44 -16 -8 #rect
 Ss0 f6 @|StepIcon #fIcon
-Ss0 f7 109 64 168 64 #arcP
-Ss0 f2 280 64 339 64 #arcP
-Ss0 f9 339 147 26 26 0 12 #rect
+Ss0 f7 109 64 200 64 #arcP
+Ss0 f2 312 64 403 64 #arcP
+Ss0 f9 403 155 26 26 0 12 #rect
 Ss0 f9 @|UdProcessEndIcon #fIcon
 Ss0 f14 actionTable 'out=in;
 ' #txt
@@ -107,13 +107,13 @@ Ss0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f14 168 234 112 44 -19 -8 #rect
+Ss0 f14 200 258 112 44 -19 -8 #rect
 Ss0 f14 @|StepIcon #fIcon
-Ss0 f15 339 243 26 26 0 12 #rect
+Ss0 f15 403 267 26 26 0 12 #rect
 Ss0 f15 @|UdProcessEndIcon #fIcon
-Ss0 f17 339 339 26 26 0 12 #rect
+Ss0 f17 403 371 26 26 0 12 #rect
 Ss0 f17 @|UdProcessEndIcon #fIcon
-Ss0 f19 280 256 339 256 #arcP
+Ss0 f19 312 280 403 280 #arcP
 Ss0 f21 actionTable 'out=in;
 ' #txt
 Ss0 f21 actionCode 'import org.primefaces.context.RequestContext;
@@ -137,9 +137,9 @@ Ss0 f21 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f21 168 330 112 44 -17 -8 #rect
+Ss0 f21 200 362 112 44 -17 -8 #rect
 Ss0 f21 @|StepIcon #fIcon
-Ss0 f20 280 352 339 352 #arcP
+Ss0 f20 312 384 403 384 #arcP
 Ss0 f13 guid 178CAA40D48F6CC0 #txt
 Ss0 f13 method update(ivy.trainingmanage.model.Category) #txt
 Ss0 f13 inParameterDecl '<ivy.trainingmanage.model.Category category> param;' #txt
@@ -153,9 +153,9 @@ Ss0 f13 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f13 83 243 26 26 -25 15 #rect
+Ss0 f13 83 267 26 26 -25 15 #rect
 Ss0 f13 @|UdMethodIcon #fIcon
-Ss0 f18 109 256 168 256 #arcP
+Ss0 f18 109 280 200 280 #arcP
 Ss0 f23 guid 178CE9DFE976F878 #txt
 Ss0 f23 method delete(ivy.trainingmanage.model.Category) #txt
 Ss0 f23 inParameterDecl '<ivy.trainingmanage.model.Category category> param;' #txt
@@ -169,9 +169,9 @@ Ss0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f23 83 339 26 26 -25 15 #rect
+Ss0 f23 83 371 26 26 -25 15 #rect
 Ss0 f23 @|UdMethodIcon #fIcon
-Ss0 f16 109 352 168 352 #arcP
+Ss0 f16 109 384 200 384 #arcP
 Ss0 f22 guid 178CEAB136384D40 #txt
 Ss0 f22 method save(ivy.trainingmanage.model.Category) #txt
 Ss0 f22 inParameterDecl '<ivy.trainingmanage.model.Category category> param;' #txt
@@ -185,7 +185,7 @@ Ss0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f22 83 147 26 26 -25 15 #rect
+Ss0 f22 83 155 26 26 -25 15 #rect
 Ss0 f22 @|UdMethodIcon #fIcon
 Ss0 f8 actionTable 'out=in;
 ' #txt
@@ -206,10 +206,10 @@ Ss0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f8 168 138 112 44 -13 -8 #rect
+Ss0 f8 200 146 112 44 -13 -8 #rect
 Ss0 f8 @|StepIcon #fIcon
-Ss0 f10 109 160 168 160 #arcP
-Ss0 f11 280 160 339 160 #arcP
+Ss0 f10 109 168 200 168 #arcP
+Ss0 f11 312 168 403 168 #arcP
 Ss0 f12 guid 1793674F3447DF69 #txt
 Ss0 f12 actionTable 'out=in;
 ' #txt
@@ -220,7 +220,7 @@ Ss0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f12 83 435 26 26 -14 15 #rect
+Ss0 f12 83 483 26 26 -14 15 #rect
 Ss0 f12 @|UdEventIcon #fIcon
 Ss0 f24 actionTable 'out=in;
 ' #txt
@@ -235,12 +235,12 @@ Ss0 f24 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ss0 f24 168 426 112 44 -33 -8 #rect
+Ss0 f24 200 474 112 44 -33 -8 #rect
 Ss0 f24 @|StepIcon #fIcon
-Ss0 f25 339 435 26 26 0 12 #rect
+Ss0 f25 403 483 26 26 0 12 #rect
 Ss0 f25 @|UdProcessEndIcon #fIcon
-Ss0 f26 109 448 168 448 #arcP
-Ss0 f27 280 448 339 448 #arcP
+Ss0 f26 109 496 200 496 #arcP
+Ss0 f27 312 496 403 496 #arcP
 >Proto Ss0 .type training.center.manage.category.Category.CategoryData #txt
 >Proto Ss0 .processKind HTML_DIALOG #txt
 >Proto Ss0 -8 -8 16 16 16 26 #rect

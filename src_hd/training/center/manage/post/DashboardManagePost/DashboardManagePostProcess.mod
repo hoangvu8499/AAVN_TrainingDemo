@@ -56,9 +56,9 @@ Ds0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ds0 f3 83 395 26 26 -15 15 #rect
 Ds0 f3 @|UdEventIcon #fIcon
-Ds0 f4 299 395 26 26 0 12 #rect
+Ds0 f4 403 395 26 26 0 12 #rect
 Ds0 f4 @|UdExitEndIcon #fIcon
-Ds0 f5 109 408 299 408 #arcP
+Ds0 f5 109 408 403 408 #arcP
 Ds0 f6 actionTable 'out=in;
 ' #txt
 Ds0 f6 actionCode 'import ivy.trainingmanage.service.PostService;
@@ -76,7 +76,7 @@ Ds0 f6 192 42 112 44 -23 -8 #rect
 Ds0 f6 @|StepIcon #fIcon
 Ds0 f7 109 64 192 64 #arcP
 Ds0 f2 304 64 403 64 #arcP
-Ds0 f9 299 147 26 26 0 12 #rect
+Ds0 f9 403 147 26 26 0 12 #rect
 Ds0 f9 @|UdExitEndIcon #fIcon
 Ds0 f11 guid 1790DBD8BBF40F63 #txt
 Ds0 f11 method edit(Long) #txt
@@ -93,7 +93,7 @@ Ds0 f11 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ds0 f11 83 147 26 26 -12 18 #rect
 Ds0 f11 @|UdMethodIcon #fIcon
-Ds0 f8 109 160 299 160 #arcP
+Ds0 f8 109 160 403 160 #arcP
 Ds0 f10 guid 179174510F8CE59B #txt
 Ds0 f10 method delete(ivy.trainingmanage.model.Post) #txt
 Ds0 f10 inParameterDecl '<ivy.trainingmanage.model.Post post> param;' #txt

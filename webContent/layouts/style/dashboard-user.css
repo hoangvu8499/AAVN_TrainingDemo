@@ -27,3 +27,14 @@
 .user-data {
 	height: 700px !important;
 }
+
+.ui-column-title {
+	font-family: cursive;
+	font-size: 17px;
+	font-weight: bold;
+	margin-left: 30%;
+}
+
+.action-column {
+	text-align: center;
+}

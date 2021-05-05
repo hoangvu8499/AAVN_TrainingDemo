@@ -14,18 +14,18 @@ He0 @UserDialog f3 '' #zField
 He0 @PushWFArc f4 '' #zField
 He0 @PushWFArc f2 '' #zField
 >Proto He0 He0 HomePage #zField
-He0 f0 outLink homePage.ivp #txt
+He0 f0 outLink homePageGeneral.ivp #txt
 He0 f0 inParamDecl '<> param;' #txt
 He0 f0 requestEnabled true #txt
 He0 f0 triggerEnabled false #txt
-He0 f0 callSignature homePage() #txt
+He0 f0 callSignature homePageGeneral() #txt
 He0 f0 caseData businessCase.attach=true #txt
 He0 f0 wfuser 1 #txt
 He0 f0 showInStartList 1 #txt
 He0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
-        <name>homePage.ivp</name>
+        <name>homePageGeneral.ivp</name>
     </language>
 </elementInfo>
 ' #txt

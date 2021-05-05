@@ -8,5 +8,6 @@
         <role>Admin</role>
         <role>Teacher</role>
         <role>Student</role>
+        <role>AXONIVY_PORTAL_ADMIN</role>
     </user>
 </userConfig>

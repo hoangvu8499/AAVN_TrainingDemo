@@ -34,7 +34,6 @@ Cs0 @UdProcessEnd f17 '' #zField
 Cs0 @PushWFArc f18 '' #zField
 Cs0 @PushWFArc f20 '' #zField
 Cs0 @PushWFArc f21 '' #zField
-Cs0 @GridStep f22 '' #zField
 Cs0 @GridStep f23 '' #zField
 Cs0 @PushWFArc f24 '' #zField
 Cs0 @PushWFArc f19 '' #zField
@@ -59,7 +58,7 @@ Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Cs0 f0 75 51 26 26 -16 15 #rect
 Cs0 f0 @|UdInitIcon #fIcon
-Cs0 f1 387 51 26 26 0 12 #rect
+Cs0 f1 459 51 26 26 0 12 #rect
 Cs0 f1 @|UdProcessEndIcon #fIcon
 Cs0 f3 guid 178FDF87193FC404 #txt
 Cs0 f3 actionTable 'out=in;
@@ -71,11 +70,11 @@ Cs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f3 75 147 26 26 -15 15 #rect
+Cs0 f3 91 515 26 26 -15 15 #rect
 Cs0 f3 @|UdEventIcon #fIcon
-Cs0 f4 211 147 26 26 0 12 #rect
+Cs0 f4 227 515 26 26 0 12 #rect
 Cs0 f4 @|UdExitEndIcon #fIcon
-Cs0 f5 101 160 211 160 #arcP
+Cs0 f5 117 528 227 528 #arcP
 Cs0 f6 actionTable 'out=in;
 ' #txt
 Cs0 f6 actionCode 'import ivy.trainingmanage.model.Post;
@@ -100,8 +99,8 @@ Cs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Cs0 f6 192 42 112 44 -16 -8 #rect
 Cs0 f6 @|StepIcon #fIcon
 Cs0 f7 101 64 192 64 #arcP
-Cs0 f2 304 64 387 64 #arcP
-Cs0 f31 459 243 26 26 0 12 #rect
+Cs0 f2 304 64 459 64 #arcP
+Cs0 f31 459 147 26 26 0 12 #rect
 Cs0 f31 @|UdProcessEndIcon #fIcon
 Cs0 f29 actionTable 'out=in;
 ' #txt
@@ -120,8 +119,6 @@ UploadedFile uploadedFile = in.eventFile.getFile();
 UploadFileManager ufManager = new UploadFileManager();
 in.post.img = ufManager.uploadFile(uploadedFile);
 
-RequestContext.getCurrentInstance().update(":form-create");
-
 
 ' #txt
 Cs0 f29 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -131,7 +128,7 @@ Cs0 f29 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f29 192 234 112 44 -21 -8 #rect
+Cs0 f29 192 138 112 44 -21 -8 #rect
 Cs0 f29 @|StepIcon #fIcon
 Cs0 f28 guid 1790BB22D206C2D1 #txt
 Cs0 f28 method handleFileUpload(org.primefaces.event.FileUploadEvent) #txt
@@ -146,10 +143,10 @@ Cs0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f28 76 244 24 24 -42 36 #rect
+Cs0 f28 76 148 24 24 -42 36 #rect
 Cs0 f28 @|UdMethodIcon #fIcon
-Cs0 f30 100 256 192 256 #arcP
-Cs0 f32 304 256 459 256 #arcP
+Cs0 f30 100 160 192 160 #arcP
+Cs0 f32 304 160 459 160 #arcP
 Cs0 f8 actionTable 'out=in;
 ' #txt
 Cs0 f8 actionCode 'import ivy.trainingmanage.dao.FilePostDao;
@@ -180,9 +177,9 @@ Cs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f8 192 354 112 44 -21 -8 #rect
+Cs0 f8 192 258 112 44 -21 -8 #rect
 Cs0 f8 @|StepIcon #fIcon
-Cs0 f9 459 363 26 26 0 12 #rect
+Cs0 f9 459 267 26 26 0 12 #rect
 Cs0 f9 @|UdProcessEndIcon #fIcon
 Cs0 f10 guid 1790BF786A1EDFC6 #txt
 Cs0 f10 method handleFileUpload2(org.primefaces.event.FileUploadEvent) #txt
@@ -197,13 +194,13 @@ Cs0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f10 76 364 24 24 -42 36 #rect
+Cs0 f10 76 268 24 24 -42 36 #rect
 Cs0 f10 @|UdMethodIcon #fIcon
-Cs0 f11 100 376 192 376 #arcP
-Cs0 f12 304 376 459 376 #arcP
-Cs0 f13 635 475 26 26 0 12 #rect
+Cs0 f11 100 280 192 280 #arcP
+Cs0 f12 304 280 459 280 #arcP
+Cs0 f13 619 379 26 26 0 12 #rect
 Cs0 f13 @|UdExitEndIcon #fIcon
-Cs0 f14 344 472 32 32 0 16 #rect
+Cs0 f14 344 376 32 32 0 16 #rect
 Cs0 f14 @|AlternativeIcon #fIcon
 Cs0 f15 actionTable 'out=in;
 ' #txt
@@ -225,7 +222,7 @@ Cs0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f15 192 466 112 44 -32 -8 #rect
+Cs0 f15 192 370 112 44 -32 -8 #rect
 Cs0 f15 @|StepIcon #fIcon
 Cs0 f16 guid 1790BFBF6AED0E77 #txt
 Cs0 f16 actionTable 'out=in;
@@ -237,11 +234,11 @@ Cs0 f16 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f16 75 475 26 26 -14 15 #rect
+Cs0 f16 75 379 26 26 -14 15 #rect
 Cs0 f16 @|UdEventIcon #fIcon
-Cs0 f17 475 563 26 26 0 12 #rect
+Cs0 f17 475 467 26 26 0 12 #rect
 Cs0 f17 @|UdProcessEndIcon #fIcon
-Cs0 f18 304 488 344 488 #arcP
+Cs0 f18 304 392 344 392 #arcP
 Cs0 f20 expr in #txt
 Cs0 f20 outCond 'in.confirm == false' #txt
 Cs0 f20 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -251,34 +248,10 @@ Cs0 f20 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f20 360 504 475 576 #arcP
-Cs0 f20 1 360 576 #addKink
+Cs0 f20 360 408 475 480 #arcP
+Cs0 f20 1 360 480 #addKink
 Cs0 f20 1 0.41739130434782606 0 -12 #arcLabel
-Cs0 f21 101 488 192 488 #arcP
-Cs0 f22 actionTable 'out=in;
-' #txt
-Cs0 f22 actionCode 'import ivy.trainingmanage.model.UserRoleDetail;
-import ch.ivyteam.ivy.environment.Ivy;
-import ivy.trainingmanage.model.User;
-import ivy.trainingmanage.dao.UserDao;
-
-UserDao userDao = new UserDao();
-
-String userName = Ivy.session().getSessionUserName();
-User userLogin = userDao.findByUserName(userName);
-
-//in.post.user = userLogin;
-//Ivy.log().error("ERRROR"+ userLogin.getUserRoleDetail().size());
-//in.post.user.setUserRoleDetail(userLogin.getUserRoleDetail());' #txt
-Cs0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>Set User</name>
-    </language>
-</elementInfo>
-' #txt
-Cs0 f22 568 290 112 44 -24 -8 #rect
-Cs0 f22 @|StepIcon #fIcon
+Cs0 f21 101 392 192 392 #arcP
 Cs0 f23 actionTable 'out=in;
 ' #txt
 Cs0 f23 actionCode 'import ch.ivyteam.ivy.environment.Ivy;
@@ -296,10 +269,10 @@ Cs0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f23 432 466 112 44 -26 -8 #rect
+Cs0 f23 432 370 112 44 -26 -8 #rect
 Cs0 f23 @|StepIcon #fIcon
-Cs0 f24 376 488 432 488 #arcP
-Cs0 f19 544 488 635 488 #arcP
+Cs0 f24 376 392 432 392 #arcP
+Cs0 f19 544 392 619 392 #arcP
 >Proto Cs0 .type training.center.manage.post.CreatePost.CreatePostData #txt
 >Proto Cs0 .processKind HTML_DIALOG #txt
 >Proto Cs0 -8 -8 16 16 16 26 #rect

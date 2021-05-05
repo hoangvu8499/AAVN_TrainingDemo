@@ -48,7 +48,7 @@ Cs0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Cs0 f0 67 51 26 26 -16 15 #rect
 Cs0 f0 @|UdInitIcon #fIcon
-Cs0 f1 323 51 26 26 0 12 #rect
+Cs0 f1 419 51 26 26 0 12 #rect
 Cs0 f1 @|UdProcessEndIcon #fIcon
 Cs0 f3 guid 0178CF7C88CBCB59 #txt
 Cs0 f3 actionTable 'out=in;
@@ -95,7 +95,7 @@ Cs0 f29 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f29 176 290 112 44 -21 -8 #rect
+Cs0 f29 176 266 112 44 -21 -8 #rect
 Cs0 f29 @|StepIcon #fIcon
 Cs0 f28 guid 178CFDBBE53DC104 #txt
 Cs0 f28 method handleFileUpload(org.primefaces.event.FileUploadEvent) #txt
@@ -110,12 +110,12 @@ Cs0 f28 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f28 68 300 24 24 -42 36 #rect
+Cs0 f28 68 276 24 24 -42 36 #rect
 Cs0 f28 @|UdMethodIcon #fIcon
-Cs0 f31 443 299 26 26 0 12 #rect
+Cs0 f31 419 275 26 26 0 12 #rect
 Cs0 f31 @|UdProcessEndIcon #fIcon
-Cs0 f32 288 312 443 312 #arcP
-Cs0 f30 92 312 176 312 #arcP
+Cs0 f32 288 288 419 288 #arcP
+Cs0 f30 92 288 176 288 #arcP
 Cs0 f10 355 483 26 26 0 12 #rect
 Cs0 f10 @|UdProcessEndIcon #fIcon
 Cs0 f8 actionTable 'out=in;
@@ -194,10 +194,10 @@ Cs0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Cs0 f14 152 42 112 44 -15 -8 #rect
+Cs0 f14 176 42 112 44 -15 -8 #rect
 Cs0 f14 @|StepIcon #fIcon
-Cs0 f15 93 64 152 64 #arcP
-Cs0 f2 264 64 323 64 #arcP
+Cs0 f15 93 64 176 64 #arcP
+Cs0 f2 288 64 419 64 #arcP
 >Proto Cs0 .type training.center.manage.user.CreateUser.CreateUserData #txt
 >Proto Cs0 .processKind HTML_DIALOG #txt
 >Proto Cs0 -8 -8 16 16 16 26 #rect

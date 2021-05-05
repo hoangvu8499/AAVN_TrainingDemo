@@ -47,11 +47,11 @@ hs0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-hs0 f3 83 387 26 26 -15 15 #rect
+hs0 f3 83 243 26 26 -15 15 #rect
 hs0 f3 @|UdEventIcon #fIcon
-hs0 f4 211 387 26 26 0 12 #rect
+hs0 f4 211 243 26 26 0 12 #rect
 hs0 f4 @|UdExitEndIcon #fIcon
-hs0 f5 109 400 211 400 #arcP
+hs0 f5 109 256 211 256 #arcP
 hs0 f6 actionTable 'out=in;
 ' #txt
 hs0 f6 actionCode 'import ivy.trainingmanage.service.PostService;

@@ -28,7 +28,6 @@
 						<div id="category-manage-list" class="category-manage-list">
 							<div class="table-category">
 								<h:form id="form">
-									<p:messages />
 									<p:dataTable id="table-category" value="#{data.categories}"
 										var="category" editable="true" editMode="cell"
 										editInitEvent="dblclick">
@@ -96,7 +95,7 @@
 
 			<p:dialog id="dlg-delete-post" widgetVar="dlg-delete-post"
 				modal="true" styleClass="dlg-delete-post" appendTo="@(body)"
-				width="30%">
+				width="15%">
 				<h:form id="showPost" enctype="multipart/form-data">
 					<div class="title-form-delete">Delete Category</div>
 					<div class="content-form-delete">All post of this category will delete If you delete this

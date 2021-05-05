@@ -50,7 +50,7 @@ Mt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Mt0 f0 @C|.responsibility Teacher #txt
-Mt0 f0 89 225 30 30 -61 26 #rect
+Mt0 f0 81 233 30 30 -61 26 #rect
 Mt0 f0 @|StartRequestIcon #fIcon
 Mt0 f3 dialogId training.center.manage.post.DashboardManagePost #txt
 Mt0 f3 startMethod start(Long) #txt
@@ -65,10 +65,10 @@ Mt0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Mt0 f3 32 146 144 44 -65 -8 #rect
+Mt0 f3 24 154 144 44 -65 -8 #rect
 Mt0 f3 @|UserDialogIcon #fIcon
-Mt0 f4 104 225 104 190 #arcP
-Mt0 f7 480 456 32 32 0 16 #rect
+Mt0 f4 96 233 96 198 #arcP
+Mt0 f7 472 464 32 32 0 16 #rect
 Mt0 f7 @|AlternativeIcon #fIcon
 Mt0 f5 dialogId training.center.manage.post.CreatePost #txt
 Mt0 f5 startMethod start(Long,String) #txt
@@ -88,7 +88,7 @@ Mt0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Mt0 f5 200 378 112 44 -31 -8 #rect
+Mt0 f5 192 362 112 44 -31 -8 #rect
 Mt0 f5 @|UserDialogIcon #fIcon
 Mt0 f6 outLink createPost.ivp #txt
 Mt0 f6 inParamDecl '<> param;' #txt
@@ -105,7 +105,7 @@ Mt0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Mt0 f6 @C|.responsibility Teacher #txt
-Mt0 f6 89 385 30 30 -21 17 #rect
+Mt0 f6 81 369 30 30 -21 17 #rect
 Mt0 f6 @|StartRequestIcon #fIcon
 Mt0 f9 actionTable 'out=in1;
 out.comment=in1.comment;
@@ -127,9 +127,9 @@ Mt0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Mt0 f9 241 457 30 30 -20 16 #rect
+Mt0 f9 233 465 30 30 -20 16 #rect
 Mt0 f9 @|TaskSwitchSimpleIcon #fIcon
-Mt0 f8 625 457 30 30 0 15 #rect
+Mt0 f8 617 465 30 30 0 15 #rect
 Mt0 f8 @|EndIcon #fIcon
 Mt0 f10 dialogId training.center.manage.post.Confirm #txt
 Mt0 f10 startMethod start(Long,String) #txt
@@ -156,10 +156,10 @@ Mt0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Mt0 f10 440 378 112 44 -22 -8 #rect
+Mt0 f10 432 362 112 44 -22 -8 #rect
 Mt0 f10 @|UserTaskIcon #fIcon
-Mt0 f11 119 400 200 400 #arcP
-Mt0 f13 496 422 496 456 #arcP
+Mt0 f11 111 384 192 384 #arcP
+Mt0 f13 488 406 488 464 #arcP
 Mt0 f14 expr in #txt
 Mt0 f14 outCond 'in.confirm == false' #txt
 Mt0 f14 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -170,7 +170,7 @@ Mt0 f14 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Mt0 f14 480 472 271 472 #arcP
+Mt0 f14 472 480 263 480 #arcP
 Mt0 f14 0 0.23668639053254437 1 22 #arcLabel
 Mt0 f15 expr in #txt
 Mt0 f15 outCond 'in.confirm == true' #txt
@@ -182,8 +182,8 @@ Mt0 f15 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Mt0 f15 512 472 625 472 #arcP
-Mt0 f16 256 457 256 422 #arcP
+Mt0 f15 504 480 617 480 #arcP
+Mt0 f16 248 465 248 406 #arcP
 Mt0 f16 0 0.27872104218182414 0 0 #arcLabel
 Mt0 f19 dialogId training.center.manage.post.EditPost #txt
 Mt0 f19 startMethod EditPost(Boolean,String,Long) #txt
@@ -209,7 +209,7 @@ Mt0 f19 232 74 128 44 -40 -16 #rect
 Mt0 f19 @|UserDialogIcon #fIcon
 Mt0 f24 504 160 32 32 0 16 #rect
 Mt0 f24 @|AlternativeIcon #fIcon
-Mt0 f1 104 146 232 96 #arcP
+Mt0 f1 96 154 232 96 #arcP
 Mt0 f1 1 136 96 #addKink
 Mt0 f1 0 0.6481481481481481 0 0 #arcLabel
 Mt0 f2 641 161 30 30 0 15 #rect
@@ -217,7 +217,7 @@ Mt0 f2 @|EndIcon #fIcon
 Mt0 f17 expr in #txt
 Mt0 f17 outCond 'in.confirm == true' #txt
 Mt0 f17 536 176 641 176 #arcP
-Mt0 f12 312 400 440 400 #arcP
+Mt0 f12 304 384 432 384 #arcP
 Mt0 f18 dialogId training.center.manage.post.Confirm #txt
 Mt0 f18 startMethod start(Long,String) #txt
 Mt0 f18 requestActionDecl '<Long idPost,String comment> param;' #txt
@@ -230,9 +230,9 @@ out.confirm=result.confirm;
 out.id=result.idPost;
 ' #txt
 Mt0 f18 caseData 'case.description=user send information to Admin confirm
-case.name=createPost' #txt
-Mt0 f18 taskData 'TaskA.DESC=Admin Accept Create Post or None Accept
-TaskA.NAM=Accept Create New Post
+case.name=update post' #txt
+Mt0 f18 taskData 'TaskA.DESC=Admin Accept Edit Post or None Accept
+TaskA.NAM=Accept Edit Post
 TaskA.ROL=Admin
 TaskA.TYPE=0
 TaskA.customFields.STRING.embedInFrame="false"' #txt
@@ -254,8 +254,8 @@ out.id=in1.id;
 ' #txt
 Mt0 f22 caseData 'case.description=user send information to Admin confirm
 case.name=update post' #txt
-Mt0 f22 taskData 'TaskA.DESC=Update Information Post to Admin confirm to Create
-TaskA.NAM=Update Information Post to Create
+Mt0 f22 taskData 'TaskA.DESC=Update Information Post to Admin confirm to Edit
+TaskA.NAM=Update Information Post to Edit
 TaskA.ROL=Teacher
 TaskA.TYPE=0
 TaskA.customFields.STRING.embedInFrame="false"' #txt

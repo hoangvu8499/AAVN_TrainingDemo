@@ -13,7 +13,6 @@ import ch.ivyteam.ivy.security.ISecurityContext;
 import ch.ivyteam.ivy.security.IUser;
 import ivy.trainingmanage.dao.RoleDao;
 import ivy.trainingmanage.dao.UserDao;
-import ivy.trainingmanage.dao.UserDetailDao;
 import ivy.trainingmanage.model.Role;
 import ivy.trainingmanage.model.User;
 import ivy.trainingmanage.model.UserRoleDetail;
@@ -39,8 +38,8 @@ public class UserService {
 					MessageUtil.MESSAGE_EXISTS_EMAIL_USERNAME, MessageUtil.MESSAGE_EXISTS_EMAIL_USERNAME));
 			return false;
 		}
-		
-		if(user.getUserName().indexOf(" ") != -1) {
+
+		if (user.getUserName().indexOf(" ") != -1) {
 			FacesContext.getCurrentInstance().addMessage(":form-create", new FacesMessage(FacesMessage.SEVERITY_ERROR,
 					MessageUtil.MESSAGE_HAVE_SPACE_EMAIL_USERNAME, MessageUtil.MESSAGE_HAVE_SPACE_EMAIL_USERNAME));
 			return false;
@@ -49,8 +48,8 @@ public class UserService {
 	}
 
 	public void createUser(User user, Role role) {
-		//securityContext.deleteUser("nacu22984");
-		//securityContext.deleteUser("hoangvu8499");
+		// securityContext.deleteUser("nacu22984");
+		// securityContext.deleteUser("hoangvu8499");
 		try {
 			securityContext.createUser(user.getUserName(), user.getFullName(), user.getPassword(), Locale.JAPAN,
 					user.getEmail(), "");
@@ -123,16 +122,23 @@ public class UserService {
 
 	public void deleteUser(User user) {
 		String userName = Ivy.session().getSessionUserName();
-		User userLogin = userDao.findByUserName(userName);
-		user.setDeleted(new Date());
-		userDao.save(user);
-//		if (userLogin.getUserRoleDetail().size()==3) {
-//			user.setDeleted(new Date());
-//			userDao.save(user);
-//		} else {
-//			FacesContext.getCurrentInstance().addMessage(":form-list-user", new FacesMessage(FacesMessage.SEVERITY_ERROR,
-//					MessageUtil.MESSAGE_NONE_ACCEPT_ROLE, MessageUtil.MESSAGE_NONE_ACCEPT_ROLE));
-//		}
+		if (user.getUserName().equalsIgnoreCase(userName)) {
+			FacesContext.getCurrentInstance().addMessage(":form-list-user",
+					new FacesMessage(FacesMessage.SEVERITY_ERROR, MessageUtil.MESSAGE_CANT_DELETE_YOUR_ACCOUNT,
+							MessageUtil.MESSAGE_CANT_DELETE_YOUR_ACCOUNT));
+		} else {
+//			User userLogin = userDao.findByUserName(userName);
+//			int countRole = userLogin.getUserRoleDetail().size();
+//			if (countRole == 3) {
+				user.setDeleted(new Date());
+				userDao.save(user);
+//			} else {
+//				FacesContext.getCurrentInstance().addMessage(":form-list-user",
+//						new FacesMessage(FacesMessage.SEVERITY_ERROR, MessageUtil.MESSAGE_NONE_ACCEPT_ROLE,
+//								MessageUtil.MESSAGE_NONE_ACCEPT_ROLE));
+//			}
+		}
+
 	}
 
 }

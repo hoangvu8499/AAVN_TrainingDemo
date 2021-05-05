@@ -42,9 +42,9 @@ Ss0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 ' #txt
 Ss0 f3 83 147 26 26 -15 15 #rect
 Ss0 f3 @|UdEventIcon #fIcon
-Ss0 f4 211 147 26 26 0 12 #rect
+Ss0 f4 339 147 26 26 0 12 #rect
 Ss0 f4 @|UdExitEndIcon #fIcon
-Ss0 f5 109 160 211 160 #arcP
+Ss0 f5 109 160 339 160 #arcP
 Ss0 f2 109 64 339 64 #arcP
 >Proto Ss0 .type training.center.manage.components.SideBarCategory.SideBarCategoryData #txt
 >Proto Ss0 .processKind HTML_DIALOG #txt
