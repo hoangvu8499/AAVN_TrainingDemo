@@ -4,15 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.Criteria;
-import org.hibernate.Hibernate;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
-import ivy.trainingmanage.model.Category;
 import ivy.trainingmanage.model.FilePost;
-import ivy.trainingmanage.model.Post;
 
 public class FilePostDao extends BaseDao {
 

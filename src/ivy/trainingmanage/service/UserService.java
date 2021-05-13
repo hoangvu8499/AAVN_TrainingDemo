@@ -140,5 +140,17 @@ public class UserService {
 		}
 
 	}
+	
+	public Integer checkRoleUserLogin() {
+		String userName = Ivy.session().getSessionUserName();
+		User userLogin = userDao.findByUserName(userName);
+		int countRole = userLogin.getUserRoleDetail().size();
+		Ivy.log().error(userName);
+		Ivy.log().error(countRole);
+		if (userName.equals("Developer")) {
+			return 3;
+		}
+		return countRole;
+	}
 
 }

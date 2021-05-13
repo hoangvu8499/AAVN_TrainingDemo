@@ -59,13 +59,17 @@ hs0 f4 @|UdExitEndIcon #fIcon
 hs0 f5 109 256 211 256 #arcP
 hs0 f6 actionTable 'out=in;
 ' #txt
-hs0 f6 actionCode 'import ivy.trainingmanage.service.PostService;
+hs0 f6 actionCode 'import ivy.trainingmanage.service.UserService;
+import ivy.trainingmanage.service.PostService;
 import ivy.trainingmanage.service.CategoryService;
 
 PostService postService = new PostService();
+UserService userService = new UserService();
 CategoryService categoryService = new CategoryService();
 in.categories = categoryService.getAll();
 in.listPost = postService.getAll();
+in.checkRoleUserLogin = userService.checkRoleUserLogin();
+
 ' #txt
 hs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>

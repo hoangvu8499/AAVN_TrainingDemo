@@ -20,3 +20,7 @@ userLogin ivy.trainingmanage.model.User #field
 userLogin PERSISTENT #fieldModifier
 idPost Long #field
 idPost PERSISTENT #fieldModifier
+dateCreateNote String #field
+dateCreateNote PERSISTENT #fieldModifier
+indexProcessChain Integer #field
+indexProcessChain PERSISTENT #fieldModifier

@@ -19,6 +19,7 @@ He0 f0 inParamDecl '<> param;' #txt
 He0 f0 requestEnabled true #txt
 He0 f0 triggerEnabled false #txt
 He0 f0 callSignature homePageGeneral() #txt
+He0 f0 taskData TaskTriggered.customFields.STRING.embedInFrame="false" #txt
 He0 f0 caseData businessCase.attach=true #txt
 He0 f0 wfuser 1 #txt
 He0 f0 showInStartList 1 #txt

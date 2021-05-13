@@ -76,15 +76,30 @@ Es0 f4 @|UdExitEndIcon #fIcon
 Es0 f5 85 608 243 608 #arcP
 Es0 f6 actionTable 'out=in;
 ' #txt
-Es0 f6 actionCode 'import ivy.trainingmanage.service.CategoryService;
+Es0 f6 actionCode 'import ivy.trainingmanage.util.FormatDateTime;
+import ch.ivyteam.ivy.workflow.INote;
+import ch.ivyteam.ivy.environment.Ivy;
+import ch.ivyteam.ivy.workflow.ICase;
+import ivy.trainingmanage.service.CategoryService;
 import ivy.trainingmanage.service.PostService;
 
+FormatDateTime formatDateTime = new FormatDateTime();
 CategoryService categoryService = new CategoryService();
 PostService postService = new PostService();
 if(in.post.name.isBlank()){
 	in.post = postService.findById(in.id);
 }
-in.categories = categoryService.getAll();' #txt
+
+in.categories = categoryService.getAll();
+Long idCategory = in.post.category.id;
+in.post.category = categoryService.findById(idCategory);
+categoryService.resetCategory(in.categories, in.post.category);
+	ICase currentCase = Ivy.wfCase();
+	List<INote> listNote = currentCase.getNotes();
+	if(listNote.size() >0 ){
+		in.dateCreateNote = formatDateTime.FormatDateTime(listNote.get(listNote.size()-1).getCreationTimestamp());
+	}
+' #txt
 Es0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

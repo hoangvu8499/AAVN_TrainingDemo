@@ -37,9 +37,6 @@ Cs0 @PushWFArc f21 '' #zField
 Cs0 @GridStep f23 '' #zField
 Cs0 @PushWFArc f24 '' #zField
 Cs0 @PushWFArc f19 '' #zField
-Cs0 @UdEvent f22 '' #zField
-Cs0 @UdProcessEnd f25 '' #zField
-Cs0 @PushWFArc f26 '' #zField
 >Proto Cs0 Cs0 CreatePostProcess #zField
 Cs0 f0 guid 178FDF8717F7923F #txt
 Cs0 f0 method start(Long,String) #txt
@@ -80,18 +77,33 @@ Cs0 f4 @|UdExitEndIcon #fIcon
 Cs0 f5 117 528 227 528 #arcP
 Cs0 f6 actionTable 'out=in;
 ' #txt
-Cs0 f6 actionCode 'import ivy.trainingmanage.model.Post;
+Cs0 f6 actionCode 'import ivy.trainingmanage.util.FormatDateTime;
+import java.text.SimpleDateFormat;
+import ch.ivyteam.ivy.environment.Ivy;
+import ch.ivyteam.ivy.workflow.ICase;
+import ch.ivyteam.ivy.workflow.INoteable;
+import ch.ivyteam.ivy.workflow.INote;
+
+import ivy.trainingmanage.model.Post;
 import ivy.trainingmanage.service.PostService;
 import ivy.trainingmanage.dao.CategoryDao;
 import ivy.trainingmanage.model.Category;
 
+FormatDateTime formatDateTime = new FormatDateTime();
 PostService postService = new PostService();
 CategoryDao categoryDao = new CategoryDao();
 	in.post = new Post();
 if(in.idPost != null){
 	in.post = postService.findById(in.idPost);
 }
-in.categories = categoryDao.getAll();' #txt
+in.categories = categoryDao.getAll();
+in.indexProcessChain = 0;
+	ICase currentCase = Ivy.wfCase();
+	List<INote> listNote = currentCase.getNotes();
+	if(listNote.size() >0 ){
+		in.dateCreateNote = formatDateTime.FormatDateTime(listNote.get(listNote.size()-1).getCreationTimestamp());
+	}
+' #txt
 Cs0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -107,7 +119,8 @@ Cs0 f31 459 147 26 26 0 12 #rect
 Cs0 f31 @|UdProcessEndIcon #fIcon
 Cs0 f29 actionTable 'out=in;
 ' #txt
-Cs0 f29 actionCode 'import org.primefaces.context.RequestContext;
+Cs0 f29 actionCode 'import ivy.trainingmanage.service.PostService;
+import org.primefaces.context.RequestContext;
 import ivy.trainingmanage.dao.FilePostDao;
 import ivy.trainingmanage.model.FilePost;
 import ivy.trainingmanage.util.UploadFileManager;
@@ -118,14 +131,14 @@ import ch.ivyteam.ivy.cm.CoType;
 import ch.ivyteam.ivy.cm.IContentObject;
 import ch.ivyteam.ivy.cm.IContentObjectValue;
 
+PostService postService = new PostService();
 UploadedFile uploadedFile = in.eventFile.getFile();
-UploadFileManager ufManager = new UploadFileManager();
+UploadFileManager ufManager = new UploadFileManager(); 
 in.post.img = ufManager.uploadFile(uploadedFile);
-
-RequestContext.getCurrentInstance().update(":form-create:form-img");
-
-
-//update="form-create:form-img"' #txt
+if(in.post.id != null){
+	postService.save(in.post);
+}
+' #txt
 Cs0 f29 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -154,7 +167,8 @@ Cs0 f30 100 160 192 160 #arcP
 Cs0 f32 304 160 459 160 #arcP
 Cs0 f8 actionTable 'out=in;
 ' #txt
-Cs0 f8 actionCode 'import ivy.trainingmanage.dao.FilePostDao;
+Cs0 f8 actionCode 'import ivy.trainingmanage.service.PostService;
+import ivy.trainingmanage.dao.FilePostDao;
 import ivy.trainingmanage.model.FilePost;
 import ivy.trainingmanage.util.UploadFileManager;
 import ch.ivyteam.ivy.environment.Ivy;
@@ -164,6 +178,7 @@ import ch.ivyteam.ivy.cm.CoType;
 import ch.ivyteam.ivy.cm.IContentObject;
 import ch.ivyteam.ivy.cm.IContentObjectValue;
 
+PostService postService = new PostService();
 UploadedFile uploadedFile = in.eventFile.getFile();
 UploadFileManager ufManager = new UploadFileManager();
 FilePostDao filePostDao = new FilePostDao();
@@ -171,9 +186,10 @@ FilePostDao filePostDao = new FilePostDao();
 FilePost filePost = new FilePost();
 filePost.post = in.post;
 filePost.url =  ufManager.uploadFile(uploadedFile);
-//filePostDao.save(filePost);
-
 out.post.filePost.add(filePost);
+if(in.post.id != null){
+	postService.save(in.post);
+}
 ' #txt
 Cs0 f8 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
@@ -203,7 +219,7 @@ Cs0 f10 76 268 24 24 -42 36 #rect
 Cs0 f10 @|UdMethodIcon #fIcon
 Cs0 f11 100 280 192 280 #arcP
 Cs0 f12 304 280 459 280 #arcP
-Cs0 f13 619 379 26 26 0 12 #rect
+Cs0 f13 603 451 26 26 0 12 #rect
 Cs0 f13 @|UdExitEndIcon #fIcon
 Cs0 f14 344 376 32 32 0 16 #rect
 Cs0 f14 @|AlternativeIcon #fIcon
@@ -259,12 +275,16 @@ Cs0 f20 1 0.41739130434782606 0 -12 #arcLabel
 Cs0 f21 101 392 192 392 #arcP
 Cs0 f23 actionTable 'out=in;
 ' #txt
-Cs0 f23 actionCode 'import ch.ivyteam.ivy.environment.Ivy;
+Cs0 f23 actionCode 'import ivy.trainingmanage.util.Constant;
+import ch.ivyteam.ivy.environment.Ivy;
 import ivy.trainingmanage.service.PostService;
 
 PostService postService = new PostService();
 in.post.createBy =  Ivy.session().getSessionUserName();
-in.idPost = postService.createNoneAcept(in.post);
+if(in.idPost == 0){
+	in.idPost = postService.createNoneAcept(in.post);
+}
+
 
 ' #txt
 Cs0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -277,22 +297,9 @@ Cs0 f23 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 Cs0 f23 432 370 112 44 -26 -8 #rect
 Cs0 f23 @|StepIcon #fIcon
 Cs0 f24 376 392 432 392 #arcP
-Cs0 f19 544 392 619 392 #arcP
-Cs0 f22 guid 1793C156858BCFD6 #txt
-Cs0 f22 actionTable 'out=in;
-' #txt
-Cs0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<elementInfo>
-    <language>
-        <name>updateForm</name>
-    </language>
-</elementInfo>
-' #txt
-Cs0 f22 147 563 26 26 -14 15 #rect
-Cs0 f22 @|UdEventIcon #fIcon
-Cs0 f25 339 563 26 26 0 12 #rect
-Cs0 f25 @|UdProcessEndIcon #fIcon
-Cs0 f26 173 576 339 576 #arcP
+Cs0 f19 544 392 616 451 #arcP
+Cs0 f19 1 616 392 #addKink
+Cs0 f19 0 0.8938436225234334 0 0 #arcLabel
 >Proto Cs0 .type training.center.manage.post.CreatePost.CreatePostData #txt
 >Proto Cs0 .processKind HTML_DIALOG #txt
 >Proto Cs0 -8 -8 16 16 16 26 #rect
@@ -321,5 +328,3 @@ Cs0 f14 out f24 tail #connect
 Cs0 f24 head f23 mainIn #connect
 Cs0 f23 mainOut f19 tail #connect
 Cs0 f19 head f13 mainIn #connect
-Cs0 f22 mainOut f26 tail #connect
-Cs0 f26 head f25 mainIn #connect

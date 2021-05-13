@@ -1,5 +1,6 @@
 package ivy.trainingmanage.service;
 
+import java.text.SimpleDateFormat; 
 import java.util.Date;
 import java.util.List;
 
@@ -7,10 +8,15 @@ import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
 
 import ch.ivyteam.ivy.environment.Ivy;
+import ch.ivyteam.ivy.persistence.PersistencyException;
+import ch.ivyteam.ivy.workflow.INote;
+import ch.ivyteam.ivy.workflow.INoteable;
+import ch.ivyteam.ivy.workflow.IWorkflowSession;
 import ivy.trainingmanage.dao.PostDao;
 import ivy.trainingmanage.dao.UserDao;
 import ivy.trainingmanage.model.Post;
 import ivy.trainingmanage.model.User;
+import ivy.trainingmanage.util.Constant;
 import ivy.trainingmanage.util.MessageUtil;
 
 public class PostService {
@@ -27,8 +33,11 @@ public class PostService {
 		return true;
 	}
 
-	public Long createNoneAcept(Post post) {
-		post.setDeleted(new Date());
+	public Long createNoneAcept(Post post) {		
+		Date currentDate = new Date();
+		String dateFormat = new SimpleDateFormat(Constant.DATE_FORMAT).format(currentDate);
+		post.setDeleted(currentDate);
+		post.setCreateAt(currentDate);
 		return postDao.savePost(post);
 	}
 

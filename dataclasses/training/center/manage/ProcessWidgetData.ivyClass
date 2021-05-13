@@ -1,0 +1,3 @@
+ProcessWidgetData #class
+training.center.manage #namespace
+defaultUserProcesses java.util.List<ch.ivy.addon.portalkit.persistence.domain.UserProcess> #field

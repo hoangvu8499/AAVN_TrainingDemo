@@ -1,0 +1,4 @@
+LoadsubMenuItemsOverrideData #class
+training.center.manage #namespace
+subMenuItems java.util.List<ch.addon.portal.generic.menu.SubMenuItem> #field
+subMenuItems PERSISTENT #fieldModifier

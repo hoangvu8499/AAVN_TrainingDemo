@@ -31,6 +31,7 @@ Mt0 f0 inParamDecl '<> param;' #txt
 Mt0 f0 requestEnabled true #txt
 Mt0 f0 triggerEnabled false #txt
 Mt0 f0 callSignature createUser() #txt
+Mt0 f0 taskData TaskTriggered.customFields.STRING.embedInFrame="false" #txt
 Mt0 f0 caseData businessCase.attach=true #txt
 Mt0 f0 wfuser 1 #txt
 Mt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -73,10 +74,10 @@ out.accept=result.accept;
 out.comment=result.comment;
 out.user=result.user;
 ' #txt
-Mt0 f5 caseData 'case.description=New person send information to Admin confirm
-case.name=createUser' #txt
-Mt0 f5 taskData 'TaskA.DESC=Admin Accept Create User or None Accept
-TaskA.NAM=Accept Create User
+Mt0 f5 caseData 'case.description=<%\=ivy.cms.co("/PostManage/ManageUser/DescriptionCaseCreateUser")%>
+case.name=<%\=ivy.cms.co("/PostManage/ManageUser/CaseCreateUser")%>' #txt
+Mt0 f5 taskData 'TaskA.DESC=<%\=ivy.cms.co("/PostManage/ManageUser/DescriptionTaskConfirm")%>
+TaskA.NAM=<%\=ivy.cms.co("/PostManage/ManageUser/TaskConfirmCreateUser")%>
 TaskA.ROL=Admin
 TaskA.TYPE=0
 TaskA.customFields.STRING.embedInFrame="false"' #txt
@@ -109,10 +110,10 @@ out.accept=in1.accept;
 out.comment=in1.comment;
 out.user=in1.user;
 ' #txt
-Mt0 f9 caseData 'case.description=New person send information to Admin confirm
-case.name=createUser' #txt
-Mt0 f9 taskData 'TaskA.DESC=Update Information User to Admin confirm to Create
-TaskA.NAM=Update Information User to Create
+Mt0 f9 caseData 'case.description=<%\=ivy.cms.co("/PostManage/ManageUser/DescriptionCaseCreateUser")%>
+case.name=<%\=ivy.cms.co("/PostManage/ManageUser/CaseCreateUser")%>' #txt
+Mt0 f9 taskData 'TaskA.DESC=<%\=ivy.cms.co("/PostManage/ManageUser/DescriptionTaskUpdateData")%>
+TaskA.NAM=<%\=ivy.cms.co("/PostManage/ManageUser/TaskUpdateData")%>
 TaskA.ROL=Teacher
 TaskA.TYPE=0
 TaskA.customFields.STRING.embedInFrame="false"' #txt
@@ -144,6 +145,7 @@ Mt0 f14 inParamDecl '<> param;' #txt
 Mt0 f14 requestEnabled true #txt
 Mt0 f14 triggerEnabled false #txt
 Mt0 f14 callSignature DashboardManageUser() #txt
+Mt0 f14 taskData TaskTriggered.customFields.STRING.embedInFrame="false" #txt
 Mt0 f14 caseData businessCase.attach=true #txt
 Mt0 f14 wfuser 1 #txt
 Mt0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -154,7 +156,7 @@ Mt0 f14 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Mt0 f14 @C|.responsibility Teacher #txt
-Mt0 f14 65 281 30 30 -21 17 #rect
+Mt0 f14 89 281 30 30 -21 17 #rect
 Mt0 f14 @|StartRequestIcon #fIcon
 Mt0 f15 dialogId training.center.manage.user.DashboardManageUser #txt
 Mt0 f15 startMethod start() #txt
@@ -168,12 +170,12 @@ Mt0 f15 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Mt0 f15 192 274 144 44 -66 -8 #rect
+Mt0 f15 216 274 144 44 -66 -8 #rect
 Mt0 f15 @|UserDialogIcon #fIcon
-Mt0 f16 95 296 192 296 #arcP
-Mt0 f17 417 281 30 30 0 15 #rect
+Mt0 f16 119 296 216 296 #arcP
+Mt0 f17 441 281 30 30 0 15 #rect
 Mt0 f17 @|EndIcon #fIcon
-Mt0 f18 336 296 417 296 #arcP
+Mt0 f18 360 296 441 296 #arcP
 Mt0 f4 95 64 192 64 #arcP
 >Proto Mt0 .type training.center.manage.ManageUserAccountData #txt
 >Proto Mt0 .processKind NORMAL #txt

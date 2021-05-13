@@ -10,6 +10,7 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
 
 import ivy.trainingmanage.model.Category;
+import ivy.trainingmanage.model.Post;
 
 public class CategoryDao extends BaseDao {
 
@@ -44,7 +45,7 @@ public class CategoryDao extends BaseDao {
 			cr.add(Restrictions.isNull("deleteAt"));
 			categories = cr.list();
 			for(Category category: categories) {
-				Hibernate.initialize(category.getPostList());
+				Hibernate.initialize(category.getPostList()); 
 			}
 		} catch (Exception e) {
 			transaction.rollback();
@@ -71,5 +72,21 @@ public class CategoryDao extends BaseDao {
 		}
 		return category;
 	}
+	
+	public Category findById(Long id) {
+		Category category = new Category();
+		Session session = sessionFactory.openSession();
+		Transaction transaction = null;
+		try {
+			transaction = session.beginTransaction();
+			category = (Category) session.get(Category.class, id);
+		} catch (Exception e) {
+			transaction.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return category;
+	} 
 
 }

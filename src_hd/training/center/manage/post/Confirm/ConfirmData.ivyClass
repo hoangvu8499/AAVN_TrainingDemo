@@ -12,3 +12,5 @@ idPost Long #field
 idPost PERSISTENT #fieldModifier
 filePost ivy.trainingmanage.model.FilePost #field
 filePost PERSISTENT #fieldModifier
+indexProcessChain Integer #field
+indexProcessChain PERSISTENT #fieldModifier

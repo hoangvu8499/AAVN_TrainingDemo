@@ -10,6 +10,8 @@ import org.hibernate.Transaction;
 import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
 
+import ch.ivyteam.ivy.environment.Ivy;
+import ivy.trainingmanage.model.Category;
 import ivy.trainingmanage.model.Post;
 
 public class PostDao extends BaseDao {
@@ -25,6 +27,9 @@ public class PostDao extends BaseDao {
 					.list();
 			for (Post post : listPost) {
 				Hibernate.initialize(post.getFilePost());
+				Hibernate.initialize(post.getCategory());
+				String descriptin = post.getContent_post();
+				post.setDescription(descriptin.substring(0, 10) + "..."); 
 			}
 		} catch (Exception e) {
 			transaction.rollback();
@@ -44,6 +49,9 @@ public class PostDao extends BaseDao {
 			transaction = session.beginTransaction();
 			listPost = session.createCriteria(Post.class).add(Restrictions.isNull("deleted"))
 					.add(Restrictions.eq("category.id", idCategory)).addOrder(Order.desc("id")).list();
+			for (Post post : listPost) {
+				Hibernate.initialize(post.getFilePost());
+			}
 		} catch (Exception e) {
 			transaction.rollback();
 			e.printStackTrace();
@@ -61,6 +69,7 @@ public class PostDao extends BaseDao {
 			transaction = session.beginTransaction();
 			post = (Post) session.get(Post.class, id);
 			Hibernate.initialize(post.getFilePost());
+			Hibernate.initialize(post.getCategory());
 		} catch (Exception e) {
 			transaction.rollback();
 			e.printStackTrace();
@@ -79,7 +88,7 @@ public class PostDao extends BaseDao {
 				session.save(post);
 				transaction.commit();
 			} else {
-				session.merge(post);
+				session.update(post);
 				transaction.commit();
 			}
 		} catch (Exception e) {

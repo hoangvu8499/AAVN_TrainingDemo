@@ -39,5 +39,10 @@ public class MovePage {
 		String link = LinkHelper.getFullLinkBySignature("createUser()");
 		redirect(link);
 	}
+	
+	public void moveTaskHome() throws java.io.IOException {
+		String link = LinkHelper.getFullLinkBySignature("TaskAnalusis/start()");
+		redirect(link);
+	}
 
 }

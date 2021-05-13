@@ -19,6 +19,7 @@ Cy0 f5 inParamDecl '<> param;' #txt
 Cy0 f5 requestEnabled true #txt
 Cy0 f5 triggerEnabled false #txt
 Cy0 f5 callSignature ShowCategory() #txt
+Cy0 f5 taskData TaskTriggered.customFields.STRING.embedInFrame="false" #txt
 Cy0 f5 caseData businessCase.attach=true #txt
 Cy0 f5 wfuser 1 #txt
 Cy0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>

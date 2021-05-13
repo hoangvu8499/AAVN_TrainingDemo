@@ -14,5 +14,8 @@ public class Constant {
 	public static final Long AdminRoleId = 1L;
 	public static final Long TeacherRoleId = 2L;
 	public static final Long StudentRoleId = 3L;
+	
+	public static final String DATE_FORMAT = "dd-MM-yyyy";
+
 
 }

@@ -17,6 +17,8 @@ public class Post extends BaseEntity {
 	private String name;
 
 	private String description;
+	
+	private Date createAt;
 
 	private String content_post;
 	
@@ -34,6 +36,14 @@ public class Post extends BaseEntity {
 	
 	@OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
 	private List<FilePost> filePost;
+
+	public Date getCreateAt() {
+		return createAt;
+	}
+
+	public void setCreateAt(Date createAt) {
+		this.createAt = createAt;
+	}
 
 	public String getName() {
 		return name;
@@ -109,5 +119,19 @@ public class Post extends BaseEntity {
 
 	public Post() {
 	}
+	
+	@Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Post post = (Post) o;
+        return this.getId() == post.getId() &&
+                name.equals(post.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return  1;
+    }
 
 }

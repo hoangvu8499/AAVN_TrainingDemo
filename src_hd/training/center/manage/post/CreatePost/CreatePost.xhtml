@@ -20,6 +20,19 @@
 				<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
 
 			</div>
+			<div class="ui-g">
+				<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
+				<div class="ui-g-12 ui-md-6 ui-lg-6 process-chain">
+					<ic:ch.ivy.addon.portalkit.singleapp.process.ProcessChain
+						id="process-chain-circle-horizontal"
+						componentId="component-circle-horizontal" shape="CIRCLE"
+						direction="HORIZONTAL" isShowAllSteps="false"
+						actualStepIndex="#{data.indexProcessChain}"
+						steps="#{['New','Confirm','Done']}" />
+				</div>
+				<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
+
+			</div>
 			<div id="content-page" class="ui-g set-hight">
 				<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
 				<div class="ui-g-12 ui-md-6 ui-lg-6 borders post-data">
@@ -58,48 +71,88 @@
 									<div class="ui-g-12 ui-md-8 ui-lg-1 borders" />
 									<div class="ui-g-12 ui-md-8 ui-lg-3 title">Content:</div>
 									<div class="ui-g-12 ui-md-4 ui-lg-8 borders">
-										<p:inputTextarea style="width:90%" rows="2" cols="30"
+										<p:inputTextarea style="width:90%" rows="4" cols="30"
 											autoResize="false" styleClass="text-area-content"
 											value="#{data.post.content_post}" />
 									</div>
-									<div class="ui-g-12 ui-md-8 ui-lg-1 borders" />
-									<div class="ui-g-12 ui-md-8 ui-lg-3 title">Image:</div>
-									<div class="ui-g-12 ui-md-4 ui-lg-8 borders">
-										<div class="ui-g-12 ui-md-3 ui-lg-8 upload-img">
-											<p:fileUpload fileUploadListener="#{logic.handleFileUpload}"
-												auto="true" id="fileUpload" styleClass="content-element"
-												style="width: 90%;" required="true" update="@form"
-												process="@this">
-											</p:fileUpload>
-										</div>
-										<div class="ui-g-12 ui-md-8 ui-lg-3 img">
-											<c:if test="${data.post.img != null}">
-												<div class="element-create">Loaded Image!</div>
-											</c:if>
+									<!-- 									<h:form id="form-img" enctype="multipart/form-data">
+ -->
+									<h:panelGroup id="loadimg" layout="block">
+										<div class="ui-g-12 ui-md-8 ui-lg-1 borders" />
+										<div class="ui-g-12 ui-md-8 ui-lg-3 title title-load">Image:</div>
+										<div class="ui-g-12 ui-md-4 ui-lg-8 borders">
+											<div class="ui-g-12 ui-md-3 ui-lg-8 upload-img">
+												<p:fileUpload fileUploadListener="#{logic.handleFileUpload}"
+													auto="true" id="fileUpload" styleClass="content-element"
+													style="width: 90%;" required="true"
+													update=":form-create:loadimg" />
+												<c:if test="${data.post.img != null}">
+													<div class="loaded-file2">Loaded Image!</div>
+												</c:if>
 
-										</div>
-									</div>
-									<div class="ui-g-12 ui-md-8 ui-lg-1 borders" />
-									<div class="ui-g-12 ui-md-8 ui-lg-3 title">File Post:</div>
-									<div class="ui-g-12 ui-md-4 ui-lg-8 borders">
+											</div>
 
-										<div class="ui-g-12 ui-md-3 ui-lg-8 upload-img">
-											<p:fileUpload fileUploadListener="#{logic.handleFileUpload2}"
-												style="width: 90%;" auto="true" id="fileUploadMulti"
-												styleClass="content-element" required="true" update="@form" />
+											<div class="ui-g-12 ui-md-8 ui-lg-3 img loaded-file-img">
+												<c:if test="${data.comment.length() >0 }">
+													<p:graphicImage styleClass="img-post" style="width: 90%;"
+														name="layouts/file-upload/#{data.post.img}" />
+												</c:if>
+											</div>
 										</div>
-										<div class="ui-g-12 ui-md-8 ui-lg-3 img">
-											<c:if test="${data.post.filePost.size() > 0}">
-												<div class="element-create">Loaded File!</div>
-											</c:if>
-
+									</h:panelGroup>
+									<!-- 									</h:form>
+ -->
+									<h:panelGroup id="loadfile" layout="block">
+										<div class="ui-g-12 ui-md-8 ui-lg-1 borders" />
+										<div class="ui-g-12 ui-md-8 ui-lg-3 title title-load">File Post:</div>
+										<div class="ui-g-12 ui-md-4 ui-lg-8 borders">
+											<div class="ui-g-12 ui-md-3 ui-lg-8 upload-img">
+												<p:fileUpload
+													fileUploadListener="#{logic.handleFileUpload2}"
+													style="width: 90%;" auto="true" id="fileUploadMulti"
+													styleClass="content-element" required="true"
+													update=":form-create:loadfile" />
+												<c:if test="${data.post.filePost.size() > 0}">
+													<div class="loaded-file2">Loaded File!</div>
+												</c:if>
+											</div>
+											<div class="ui-g-12 ui-md-8 ui-lg-3">
+												<div class="loaded-file">
+													<c:if test="${data.post.filePost.size() >0 }">
+														<h:commandButton value="Download"
+															action="#{fileDownload.download(data.post.filePost[data.post.filePost.size()-1].url)}" />
+													</c:if>
+												</div>
+											</div>
 										</div>
+									</h:panelGroup>
 
-									</div>
+									<c:if test="${data.comment.length() >0 }">
+										<div class="ui-g-12 ui-md-8 ui-lg-1 borders" />
+										<div class="ui-g-12 ui-md-8 ui-lg-3 title">
+											<p:outputLabel for="content-comment" value="INote: "/>
+										</div>
+										<div class="ui-g-12 ui-md-4 ui-lg-8 borders">
+											<p:inputText id="content-comment"
+												styleClass="content-element" required="true"
+												style="width: 90%;color: red; font-weight: bold" value="#{data.comment}" disabled="true" />
+										</div>
+										<div class="ui-g-12 ui-md-8 ui-lg-1 borders" />
+										<div class="ui-g-12 ui-md-8 ui-lg-3 title">
+											<p:outputLabel for="timeCreate-comment" value="Creation Date" />
+										</div>
+										<div class="ui-g-12 ui-md-4 ui-lg-8 borders">
+											<p:inputText id="timeCreate-comment"
+												styleClass="content-element" required="true"
+												style="width: 90%; color: red; font-weight: bold" value="#{data.dateCreateNote}"
+												disabled="true" />
+										</div>
+									</c:if>
+
 								</div>
-								<div class="ui-g button-create">
+								<div class="ui-g-12 button-create">
 									<p:commandButton id="save" icon="fa fa-save"
-										value="Confirm Information" actionListener="#{logic.create}"
+										value="Submit" actionListener="#{logic.create}"
 										update="@form" />
 								</div>
 							</h:form>
@@ -113,7 +166,8 @@
 			<div class="ui-g">
 				<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
 				<div class="ui-g-12 ui-md-6 ui-lg-6 borders">
-					<ic:training.center.manage.components.Footer />
+					<!-- 					<ic:training.center.manage.components.Footer />
+ -->
 				</div>
 				<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
 			</div>

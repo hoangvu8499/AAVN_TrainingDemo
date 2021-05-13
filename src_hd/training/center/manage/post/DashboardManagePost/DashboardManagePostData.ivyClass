@@ -8,3 +8,11 @@ eventFile org.primefaces.event.FileUploadEvent #field
 eventFile PERSISTENT #fieldModifier
 id Long #field
 id PERSISTENT #fieldModifier
+categories java.util.List<ivy.trainingmanage.model.Category> #field
+categories PERSISTENT #fieldModifier
+labelCategories java.util.List<String> #field
+labelCategories PERSISTENT #fieldModifier
+listPost1 java.util.List<ivy.trainingmanage.model.Post1> #field
+listPost1 PERSISTENT #fieldModifier
+postListFilter java.util.List<ivy.trainingmanage.model.Post> #field
+postListFilter PERSISTENT #fieldModifier

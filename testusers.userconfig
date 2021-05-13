@@ -10,4 +10,11 @@
         <role>Student</role>
         <role>AXONIVY_PORTAL_ADMIN</role>
     </user>
+    <user>
+        <username>user1</username>
+        <password>123456</password>
+        <fullName>Tôi test Download</fullName>
+        <emailAddress>user22@gmail.com	</emailAddress>
+        <role>Student</role>
+    </user>
 </userConfig>

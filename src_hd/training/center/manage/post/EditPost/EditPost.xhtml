@@ -12,96 +12,6 @@
 		<ui:define name="title">Create User</ui:define>
 
 		<ui:define name="content">
-			<!-- <div class="ui-g-9 class-content">
-
-				<div class="ui-g-12">
-					<ic:training.center.manage.components.Header>
-					</ic:training.center.manage.components.Header>
-				</div>
-
-				<div id="content-create-user" class="ui-g-9 content-create-user">
-					<p:fieldset legend="Edit Post" styleClass="fieldset">
-						<div class="logo">
-							<p:graphicImage styleClass="img-product"
-								name="layouts/images/logo.bmp" />
-						</div>
-						<h:form id="form-create">
-							<p:messages />
-							<div class="element-create">
-								<div class="title-element-create">Name:</div>
-								<div class="input-content-element">
-									<p:inputText styleClass="content-element"
-										value="#{data.post.name}" />
-								</div>
-							</div>
-
-							<div class="element-create">
-								<div class="title-element-create">Category:</div>
-								<p:selectOneMenu styleClass="select-menu" id="group"
-									value="#{data.post.category}"
-									labelTemplate="#{data.post.category.name}"
-									converter="pojoConverter">
-									<f:selectItems value="#{data.categories}" var="category"
-										itemLabel="#{category.name}" itemValue="#{category}" />
-								</p:selectOneMenu>
-							</div>
-
-							<div class="element-create">
-								<div class="title-element-create">Description:</div>
-								<div class="input-content-element">
-									<p:inputText styleClass="content-element"
-										value="#{data.post.description}" />
-								</div>
-							</div>
-							<div class="element-create">
-								<div class="title-element-create">Content:</div>
-								<div class="input-content-element">
-									<p:inputTextarea rows="5" cols="45"
-										value="#{data.post.content_post}" />
-								</div>
-							</div>
-
-							<div class="element-create">
-								<div class="title-element-create">Image:</div>
-								<div class="input-content-element-image">
-									<div class="img">
-										<p:graphicImage styleClass="img-post"
-											name="layouts/file-upload/#{data.post.img}" />
-									</div>
-									<div class="upload-img">
-										<p:fileUpload fileUploadListener="#{logic.handleFileUpload}"
-											auto="true" id="fileUpload" styleClass="content-element"
-											required="true" update="@form" />
-									</div>
-									<p:fileUpload fileUploadListener="#{logic.handleFileUpload}"
-									auto="true" id="fileUpload" styleClass="content-element"
-									required="true" />
-								</div>
-							</div>
-
-							<div class="element-create">
-								<div class="title-element-create">File Post:</div>
-								<div class="input-content-element">
-									<p:fileUpload fileUploadListener="#{logic.handleFileUpload2}"
-									auto="true" id="fileUploadMulti" styleClass="content-element"
-									required="true" />
-								</div>
-							</div>
-
-							<div class="button-create">
-								<p:commandButton id="save" icon="fa fa-save"
-									value="Confirm Information" actionListener="#{logic.create}"
-									update="@form" />
-							</div>
-						</h:form>
-					</p:fieldset>
-				</div>
-
-				<div>
-					<ic:training.center.manage.components.Footer>
-					</ic:training.center.manage.components.Footer>
-				</div>
-			</div> -->
 
 			<div class="ui-g">
 				<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
@@ -121,6 +31,29 @@
 								<p:graphicImage styleClass="img-product"
 									name="layouts/images/logo.bmp" />
 							</div>
+							<c:if test="${data.comment.length() >0 }">
+								<div class="ui-g-12 ui-md-8 ui-lg-1 borders" />
+								<div class="ui-g-12 ui-md-8 ui-lg-3 title">
+									<p:outputLabel for="content-comment" value="INote: "
+										style="color: red" />
+								</div>
+								<div class="ui-g-12 ui-md-4 ui-lg-8 borders">
+									<p:inputText id="content-comment" styleClass="content-element"
+										required="true" style="width: 90%;" value="#{data.comment}"
+										disabled="true" />
+								</div>
+								<div class="ui-g-12 ui-md-8 ui-lg-1 borders" />
+								<div class="ui-g-12 ui-md-8 ui-lg-3 title">
+									<p:outputLabel for="timeCreate-comment" value="Creation Date"
+										style="color: red" />
+								</div>
+								<div class="ui-g-12 ui-md-4 ui-lg-8 borders">
+									<p:inputText id="timeCreate-comment"
+										styleClass="content-element" required="true"
+										style="width: 90%;" value="#{data.dateCreateNote}"
+										disabled="true" />
+								</div>
+							</c:if>
 							<h:form id="form-create">
 								<p:messages />
 								<div class="ui-g-12 ui-md-8 ui-lg-1 borders" />
@@ -133,9 +66,8 @@
 								<div class="ui-g-12 ui-md-8 ui-lg-3 title">Category:</div>
 								<div class="ui-g-12 ui-md-4 ui-lg-8 borders">
 									<p:selectOneMenu styleClass="select-menu" id="group"
-										style="width: 90%;" value="#{data.post.category}"
-										labelTemplate="#{data.post.category.name}"
-										converter="pojoConverter">
+										value="#{data.post.category}" converter="pojoConverter"
+										style="width: 90%;">
 										<f:selectItems value="#{data.categories}" var="category"
 											itemLabel="#{category.name}" itemValue="#{category}" />
 									</p:selectOneMenu>
@@ -153,40 +85,80 @@
 										autoResize="false" styleClass="text-area-content"
 										value="#{data.post.content_post}" />
 								</div>
-								<div class="ui-g-12 ui-md-8 ui-lg-1 borders" />
-								<div class="ui-g-12 ui-md-8 ui-lg-3 title">Image:</div>
-								<div class="ui-g-12 ui-md-4 ui-lg-8 borders">
-									<div class="ui-g-12 ui-md-8 ui-lg-3 img">
-										<p:graphicImage styleClass="img-post" style="width: 90%;"
-											name="layouts/file-upload/#{data.post.img}" />
+
+
+								<h:panelGroup id="loadimg" layout="block">
+									<div class="ui-g-12 ui-md-8 ui-lg-1 borders" />
+									<div class="ui-g-12 ui-md-8 ui-lg-3 title">Image:</div>
+									<div class="ui-g-12 ui-md-4 ui-lg-8 borders">
+										<div class="ui-g-12 ui-md-3 ui-lg-8 upload-img">
+											<p:fileUpload fileUploadListener="#{logic.handleFileUpload}"
+												auto="true" id="fileUpload" styleClass="content-element"
+												style="width: 90%;" required="true"
+												update=":form-create:loadimg" />
+											<c:if test="${data.post.img != null}">
+												<div class="loaded-file2">Loaded Image!</div>
+											</c:if>
+										</div>
+
+										<div class="ui-g-12 ui-md-8 ui-lg-3 img">
+											<c:if test="${data.post.img != null}">
+												<p:graphicImage styleClass="img-post" style="width: 90%;"
+													name="layouts/file-upload/#{data.post.img}" />
+											</c:if>
+										</div>
 									</div>
-									<div class="ui-g-12 ui-md-3 ui-lg-8 upload-img">
-										<p:fileUpload fileUploadListener="#{logic.handleFileUpload}"
-											auto="true" id="fileUpload" styleClass="content-element"
-											style="width: 90%;" required="true" update="@form" />
-									</div>
-								</div>
-								<div class="ui-g-12 ui-md-8 ui-lg-1 borders" />
+								</h:panelGroup>
+
+
+								<!-- <div class="ui-g-12 ui-md-8 ui-lg-1 borders" />
 								<div class="ui-g-12 ui-md-8 ui-lg-3 title">File Post:</div>
 								<div class="ui-g-12 ui-md-4 ui-lg-8 borders">
+									<div class="ui-g-12 ui-md-3 ui-lg-8 upload-img">
+										<p:fileUpload fileUploadListener="#{logic.handleFileUpload2}"
+											style="width: 90%;" auto="true" id="fileUploadMulti"
+											styleClass="content-element" required="true" />
+										<c:if test="${data.post.img != null}">
+											<div class="loaded-file2">Loaded Image!</div>
+										</c:if>
+									</div>
 									<div class="ui-g-12 ui-md-8 ui-lg-3 img">
 										<c:if test="${data.post.filePost.size() > 0}">
 											<div class="element-create">
 												<div class="input-content-element">
 													<h:commandButton value="Download"
-														action="#{fileDownload.download(data.filePost.url)}" />
+														action="#{fileDownload.download(data.post.filePost[data.post.filePost.size()-1].url)}" />
 												</div>
 											</div>
 										</c:if>
-
 									</div>
-									<div class="ui-g-12 ui-md-3 ui-lg-8 upload-img">
-										<p:fileUpload fileUploadListener="#{logic.handleFileUpload2}"
-											style="width: 90%;" auto="true" id="fileUploadMulti"
-											styleClass="content-element" required="true" />
-									</div>
+								</div> -->
 
-								</div>
+								<h:panelGroup id="loadfile" layout="block">
+									<div class="ui-g-12 ui-md-8 ui-lg-1 borders" />
+									<div class="ui-g-12 ui-md-8 ui-lg-3 title">File Post:</div>
+									<div class="ui-g-12 ui-md-4 ui-lg-8 borders">
+										<div class="ui-g-12 ui-md-3 ui-lg-8 upload-img">
+											<p:fileUpload fileUploadListener="#{logic.handleFileUpload2}"
+												style="width: 90%;" auto="true" id="fileUploadMulti"
+												styleClass="content-element" required="true"
+												update=":form-create:loadfile" />
+											<c:if test="${data.post.filePost.size() > 0}">
+												<div class="loaded-file2">Loaded File!</div>
+											</c:if>
+										</div>
+										<div class="ui-g-12 ui-md-8 ui-lg-3 img">
+											<div class="loaded-file">
+												<c:if test="${data.post.filePost.size() >0 }">
+													<h:commandButton value="Download"
+														action="#{fileDownload.download(data.post.filePost[data.post.filePost.size()-1].url)}" />
+												</c:if>
+											</div>
+										</div>
+									</div>
+								</h:panelGroup>
+
+
 								<div class="ui-g button-create">
 									<p:commandButton id="save" icon="fa fa-save"
 										value="Confirm Information" actionListener="#{logic.create}"
@@ -281,3 +253,94 @@
 	</ui:composition>
 </h:body>
 </html>
+
+<!-- <div class="ui-g-9 class-content">
+
+				<div class="ui-g-12">
+					<ic:training.center.manage.components.Header>
+					</ic:training.center.manage.components.Header>
+				</div>
+
+				<div id="content-create-user" class="ui-g-9 content-create-user">
+					<p:fieldset legend="Edit Post" styleClass="fieldset">
+						<div class="logo">
+							<p:graphicImage styleClass="img-product"
+								name="layouts/images/logo.bmp" />
+						</div>
+						<h:form id="form-create">
+							<p:messages />
+							<div class="element-create">
+								<div class="title-element-create">Name:</div>
+								<div class="input-content-element">
+									<p:inputText styleClass="content-element"
+										value="#{data.post.name}" />
+								</div>
+							</div>
+
+							<div class="element-create">
+								<div class="title-element-create">Category:</div>
+								<p:selectOneMenu styleClass="select-menu" id="group"
+									value="#{data.post.category}"
+									labelTemplate="#{data.post.category.name}"
+									converter="pojoConverter">
+									<f:selectItems value="#{data.categories}" var="category"
+										itemLabel="#{category.name}" itemValue="#{category}" />
+								</p:selectOneMenu>
+							</div>
+
+							<div class="element-create">
+								<div class="title-element-create">Description:</div>
+								<div class="input-content-element">
+									<p:inputText styleClass="content-element"
+										value="#{data.post.description}" />
+								</div>
+							</div>
+							<div class="element-create">
+								<div class="title-element-create">Content:</div>
+								<div class="input-content-element">
+									<p:inputTextarea rows="5" cols="45"
+										value="#{data.post.content_post}" />
+								</div>
+							</div>
+
+							<div class="element-create">
+								<div class="title-element-create">Image:</div>
+								<div class="input-content-element-image">
+									<div class="img">
+										<p:graphicImage styleClass="img-post"
+											name="layouts/file-upload/#{data.post.img}" />
+									</div>
+									<div class="upload-img">
+										<p:fileUpload fileUploadListener="#{logic.handleFileUpload}"
+											auto="true" id="fileUpload" styleClass="content-element"
+											required="true" update="@form" />
+									</div>
+									<p:fileUpload fileUploadListener="#{logic.handleFileUpload}"
+									auto="true" id="fileUpload" styleClass="content-element"
+									required="true" />
+								</div>
+							</div>
+
+							<div class="element-create">
+								<div class="title-element-create">File Post:</div>
+								<div class="input-content-element">
+									<p:fileUpload fileUploadListener="#{logic.handleFileUpload2}"
+									auto="true" id="fileUploadMulti" styleClass="content-element"
+									required="true" />
+								</div>
+							</div>
+
+							<div class="button-create">
+								<p:commandButton id="save" icon="fa fa-save"
+									value="Confirm Information" actionListener="#{logic.create}"
+									update="@form" />
+							</div>
+						</h:form>
+					</p:fieldset>
+				</div>
+
+				<div>
+					<ic:training.center.manage.components.Footer>
+					</ic:training.center.manage.components.Footer>
+				</div>
+			</div> -->

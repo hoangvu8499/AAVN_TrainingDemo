@@ -59,6 +59,7 @@ PostService postService = new PostService();
 CategoryDao categoryDao = new CategoryDao();
 in.categories = categoryDao.getAll();
 in.confirm = true;
+in.indexProcessChain = 1;
 in.post = postService.findById(in.idPost);
 if(in.post.filePost.size() > 0){
 	in.filePost = in.post.filePost.get(in.post.filePost.size()-1);
@@ -120,7 +121,7 @@ import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.workflow.ICase;
 
 if(in.comment.isBlank()){
- FacesContext.getCurrentInstance().addMessage(":form-comment",
+ FacesContext.getCurrentInstance().addMessage(":comment",
 				new FacesMessage(FacesMessage.SEVERITY_ERROR, "COMMENT IS NOT NUT", "COMMENT IS NOT NUT"));
 }else{
 	in.confirm = false;
@@ -144,6 +145,7 @@ import ivy.trainingmanage.service.UserService;
 import org.primefaces.context.RequestContext;
 
 PostService postService = new PostService();
+in.post = postService.findById(in.idPost);
 postService.save(in.post);
 in.confirm = true;
 

@@ -31,7 +31,8 @@
 						<p:dataTable id="theTable" widgetVar="theTable" paginator="true"
 							paginatorPosition="bottom" rows="4"
 							rowsPerPageTemplate="{ShowAll|'All'},4,10" filterEvent="enter"
-							value="#{data.postList}" var="post">
+							filteredValue="#{data.postListFilter}" value="#{data.postList}"
+							var="post">
 
 							<f:facet name="header">
 								<p:outputPanel styleClass="search">
@@ -41,10 +42,25 @@
 								</p:outputPanel>
 							</f:facet>
 
-							<p:column styleClass="name-column" headerText="Name"
+							<p:column styleClass="name-column" headerText="Name" sortBy="#{post.name}"
 								filterMatchMode="contains" filterBy="#{post.name}">
 								<p:outputLabel id="colName" value="#{post.name}" />
 							</p:column>
+
+							<p:column styleClass="category" headerText="Category"
+								filterMatchMode="contains" filterBy="#{post.category.name}">
+								<f:facet name="filter">
+									<p:selectOneMenu onchange="PF('theTable').filter()"
+										id="nameFilter">
+										<f:selectItem itemLabel="All" itemValue="#{null}"
+											noSelectionOption="true" />
+										<f:selectItems value="#{data.categories}" var="category"
+											itemLabel="#{category.name}" itemValue="#{category.name}" />
+									</p:selectOneMenu>
+								</f:facet>
+								<p:outputLabel id="colCategory" value="#{post.category.name}" />
+							</p:column>
+
 							<p:column styleClass="email-column" headerText="Description"
 								filterMatchMode="contains" filterBy="#{post.description}">
 								<p:outputLabel id="colEmail" value="#{post.description}" />
@@ -53,10 +69,26 @@
 								filterMatchMode="contains" filterBy="#{post.createBy}">
 								<p:outputLabel id="colCrBy" value="#{post.createBy}" />
 							</p:column>
-							<p:column styleClass="update" headerText="UpdateBy"
-								filterMatchMode="contains" filterBy="#{post.updateBy}">
-								<p:outputLabel id="colUpBy" value="#{post.updateBy}" />
-							</p:column>
+							<!-- <p:column field="date" headerText="Create At"
+								filterBy="#{post.createAt}" filterMatchMode="range">
+								<f:facet name="filter">
+									<p:datePicker selectionMode="range"
+										onchange="PF('theTable').filter()" />
+
+								</f:facet>
+								<p:outputLabel value="#{post.createAt}">
+									<f:convertDateTime pattern="dd.MM.yyyy" />
+								</p:outputLabel>
+							</p:column> -->
+
+						<!-- 	<p:column field="date" headerText="Join Date"
+								filterMatchMode="range">
+								<f:facet name="filter">
+									<p:datePicker selectionMode="range"
+										onchange="PF('customersTable').filter()" />
+								</f:facet>
+							</p:column> -->
+
 							<p:column styleClass="action-column" headerText="Action">
 								<div class="action-button">
 									<p:commandButton styleClass="action-button-edit"
@@ -81,78 +113,12 @@
 			<div class="ui-g">
 				<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
 				<div class="ui-g-12 ui-md-6 ui-lg-6 borders">
-					<ic:training.center.manage.components.Footer />
+					<!-- 					<ic:training.center.manage.components.Footer />
+ -->
 				</div>
 				<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
 			</div>
 
-
-
-
-			<!-- <div class="ui-g-9 class-content">
-				<div class="ui-g-12">
-					<ic:training.center.manage.components.Header>
-					</ic:training.center.manage.components.Header>
-				</div>
-
-				<div class="ui-g-9 content-dashboard-user">
-					<div class="title-manage-user">Post Manage</div>
-					<p:commandButton styleClass="button-create" value="Create New Post"
-						icon="fa fa-newspaper-o"
-						actionListener="#{postManageBean.moveCreatePostPage}" />
-
-					<h:form id="form-list-post">
-						<p:messages />
-						<p:dataTable id="theTable" widgetVar="theTable" paginator="true"
-							paginatorPosition="bottom"
-							rowsPerPageTemplate="{ShowAll|'All'},10,20" filterEvent="enter"
-							value="#{data.postList}" var="post">
-
-							<f:facet name="header">
-								<p:outputPanel styleClass="search">
-									<h:outputText value="Find: " />
-									<p:inputText id="globalFilter"
-										onkeyup="PF('theTable').filter()" placeholder="Enter keyword" />
-								</p:outputPanel>
-							</f:facet>
-
-							<p:column styleClass="name-column" headerText="Name"
-								filterMatchMode="contains" filterBy="#{post.name}">
-								<p:outputLabel id="colName" value="#{post.name}" />
-							</p:column>
-							<p:column styleClass="email-column" headerText="Description"
-								filterMatchMode="contains" filterBy="#{post.description}">
-								<p:outputLabel id="colEmail" value="#{post.description}" />
-							</p:column>
-							<p:column styleClass="create" headerText="CreateBy"
-								filterMatchMode="contains" filterBy="#{post.createBy}">
-								<p:outputLabel id="colCrBy" value="#{post.createBy}" />
-							</p:column>
-							<p:column styleClass="update" headerText="UpdateBy"
-								filterMatchMode="contains" filterBy="#{post.updateBy}">
-								<p:outputLabel id="colUpBy" value="#{post.updateBy}" />
-							</p:column>
-							<p:column styleClass="action-column" headerText="Action">
-								<div class="action-button">
-									<p:commandButton styleClass="action-button-edit"
-										actionListener="#{logic.edit(post.id)}" icon="fa fa-pencil" />
-									<p:commandButton styleClass="action-button-delete"
-										actionListener="#{logic.delete(post)}" icon="fa fa-trash"
-										update="@form" />
-								</div>
-							</p:column>
-
-
-						</p:dataTable>
-
-
-					</h:form>
-				</div>
-				<div>
-					<ic:training.center.manage.components.Footer>
-					</ic:training.center.manage.components.Footer>
-				</div>
-			</div> -->
 			<h:outputStylesheet name="layouts/style/dashboard-post.css" />
 
 		</ui:define>

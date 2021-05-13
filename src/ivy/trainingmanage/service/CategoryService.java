@@ -46,5 +46,19 @@ public class CategoryService {
 		}
 		return true;
 	}
+	
+	public Category findById(Long id) {
+		return categoryDao.findById(id);
+	}
+	
+	public List<Category> resetCategory(List<Category> categories, Category category){
+		for(int i = 0 ; i< categories.size(); i++) {
+			if(category.getId() == categories.get(i).getId()) {
+				categories.remove(i);
+				categories.add(0, category);
+			}
+		}
+		return categories;
+	}
 
 }

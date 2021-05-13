@@ -17,7 +17,9 @@
 					<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
 
 					<div class="ui-g-12 ui-md-6 ui-lg-6 borders">
-						<ic:training.center.manage.components.Header />
+						<c:if test="${data.checkRoleUserLogin != 1}">
+							<ic:training.center.manage.components.Header />
+						</c:if>
 					</div>
 					<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
 
@@ -36,9 +38,9 @@
 								<h:form id="form" styleClass="form-product">
 									<p:dataTable id="theTable" widgetVar="theTable"
 										paginator="true" styleClass="table" paginatorPosition="bottom"
-										rows="3" value="#{data.listPost}" var="post">
-<!-- 										 rowsPerPageTemplate="3,4"
- -->										
+										rows="4" value="#{data.listPost}" var="post">
+										<!-- 										 rowsPerPageTemplate="3,4"
+ -->
 
 										<p:column headerText="NEWS">
 											<div class="post-item">
@@ -58,7 +60,8 @@
 												</div>
 
 												<div class="ui-g-12 ui-md-8 ui-lg-4">
-													<p:graphicImage styleClass="img-post" style="width: 80%;"
+													<p:graphicImage styleClass="img-post"
+														style="width: 50%; height: 20% !important"
 														name="layouts/file-upload/#{post.img}" />
 												</div>
 
@@ -79,7 +82,8 @@
 				<div class="ui-g">
 					<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
 					<div class="ui-g-12 ui-md-6 ui-lg-6 borders">
-						<ic:training.center.manage.components.Footer />
+						<!-- 						<ic:training.center.manage.components.Footer />
+ -->
 					</div>
 					<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
 				</div>

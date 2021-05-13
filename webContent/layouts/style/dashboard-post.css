@@ -1,7 +1,28 @@
+a {
+	color: black !important;
+}
+
+td {
+	color: black !important;
+}
+
+
+/*  th.ui-state-active{
+	color: black !important;
+} 
+ */
+.ui-state-active {
+	background-color: #ffffff !important;
+	border-top-color: #d8d8d8 !important;
+}
+
+.ui-datatable thead tr th .ui-sortable-column-icon.ui-icon {
+	color: black !important;
+}
 .class-content {
 	margin-left: 12%;
 }
-
+	
 .content-dashboard-user {
 	margin-top: 20px;
 	margin-bottom: 20px;
@@ -36,6 +57,7 @@
 	font-family: cursive;
 	font-size: 17px;
 	font-weight: bold;
+	color: black !important;
 }
 
 .rowToggler {
@@ -63,5 +85,11 @@
 }
 
 .post-data {
-	height: 800px !important;
+	height: 400px !important;
+}
+
+.description-content {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }

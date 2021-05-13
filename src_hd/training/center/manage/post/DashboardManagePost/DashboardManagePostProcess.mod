@@ -61,10 +61,48 @@ Ds0 f4 @|UdExitEndIcon #fIcon
 Ds0 f5 109 408 403 408 #arcP
 Ds0 f6 actionTable 'out=in;
 ' #txt
-Ds0 f6 actionCode 'import ivy.trainingmanage.service.PostService;
+Ds0 f6 actionCode 'import ivy.trainingmanage.model.Post1;
+import ivy.trainingmanage.model.Category;
+import ivy.trainingmanage.model.Post;
+import ivy.trainingmanage.service.CategoryService;
+import ivy.trainingmanage.service.PostService;
+
+CategoryService categoryService = new CategoryService();
+//Category category1 = new ivy.trainingmanage.model.Category("Điểm Thi");
+//Category category2 = new ivy.trainingmanage.model.Category("Tin Tức");
+//in.categories.add(category1);
+//in.categories.add(category2);
+
+Post1 post1 = new Post1("name1","des1");
+Post1 post2 = new Post1("name2","des1");
+Post1 post3 = new Post1("name1","des1");
+Post1 post4 = new Post1("name1","des1");
+Post1 post5 = new Post1("name1","des1");
+Post1 post6 = new Post1("name1","des1");
+
+in.listPost1.add(post1).add(post2).add(post3).add(post4).add(post5).add(post6);
 
 PostService postService = new PostService();
-in.postList = postService.getAll();' #txt
+in.postList = postService.getAll();
+in.categories = categoryService.getAll();
+in.postListFilter.addAll(in.postList);
+//for (Post item: in.postList){
+// String descriptin = item.content_post;
+//	item.description = descriptin.substring(0, 10) + "..."; // cái ni làm gì ko cần thiết, muốn có ... thì có thể dùng css da
+//}
+//for (Category item: in.categories){
+  //in.labelCategories.add(item.name);
+//}
+
+//------------------------------------------------------------------------------------
+//in.labelCategories.add("tes1");
+//in.labelCategories.add("tes1");
+//in.labelCategories.add("tes1");
+//in.labelCategories.add("tes1");
+
+//in.labelCategories.add("test");
+//in.labelCategories.add("test");in.labelCategories.add("test");in.labelCategories.add("test");in.labelCategories.add("test");
+' #txt
 Ds0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>
@@ -72,7 +110,7 @@ Ds0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Ds0 f6 192 42 112 44 -23 -8 #rect
+Ds0 f6 192 40 112 48 -23 -8 #rect
 Ds0 f6 @|StepIcon #fIcon
 Ds0 f7 109 64 192 64 #arcP
 Ds0 f2 304 64 403 64 #arcP
