@@ -62,6 +62,17 @@
 }
 
 .button-create {
-	padding-left: 40%;
+	padding-left: 43%;
 	padding-bottom: 3%;
+}
+
+.ui-fileupload .ui-fileupload-buttonbar {
+    background-color: #ffffff !important;
+    border: 1px solid #ffffff !important;
+}
+
+.ui-widget-content {
+    background-color: #ffffff !important;
+     border: 1px solid #ffffff !important;
+    padding: 0.857em 1em;
 }

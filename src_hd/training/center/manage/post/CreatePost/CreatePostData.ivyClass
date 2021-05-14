@@ -24,3 +24,5 @@ dateCreateNote String #field
 dateCreateNote PERSISTENT #fieldModifier
 indexProcessChain Integer #field
 indexProcessChain PERSISTENT #fieldModifier
+category ivy.trainingmanage.model.Category #field
+category PERSISTENT #fieldModifier

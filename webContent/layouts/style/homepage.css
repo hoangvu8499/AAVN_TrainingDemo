@@ -6,7 +6,7 @@
 	margin-top: 20px;
 	margin-bottom: 20px;
 	display: flex;
-	height: 400px !important;
+	height: 500px !important;
 }
 
 .side-bar {
@@ -16,7 +16,7 @@
 }
 
 .content-post {
-	height: 400px;
+	height: 500px;
 }
 
 .post-item-content {

@@ -56,7 +56,6 @@
 									<div class="ui-g-12 ui-md-4 ui-lg-8 borders">
 										<p:selectOneMenu styleClass="select-menu" id="group"
 											style="width: 90%;" value="#{data.post.category}"
-											labelTemplate="#{data.post.category.name}"
 											converter="pojoConverter">
 											<f:selectItems value="#{data.categories}" var="category"
 												itemLabel="#{category.name}" itemValue="#{category}" />
@@ -104,7 +103,8 @@
  -->
 									<h:panelGroup id="loadfile" layout="block">
 										<div class="ui-g-12 ui-md-8 ui-lg-1 borders" />
-										<div class="ui-g-12 ui-md-8 ui-lg-3 title title-load">File Post:</div>
+										<div class="ui-g-12 ui-md-8 ui-lg-3 title title-load">File
+											Post:</div>
 										<div class="ui-g-12 ui-md-4 ui-lg-8 borders">
 											<div class="ui-g-12 ui-md-3 ui-lg-8 upload-img">
 												<p:fileUpload
@@ -130,12 +130,13 @@
 									<c:if test="${data.comment.length() >0 }">
 										<div class="ui-g-12 ui-md-8 ui-lg-1 borders" />
 										<div class="ui-g-12 ui-md-8 ui-lg-3 title">
-											<p:outputLabel for="content-comment" value="INote: "/>
+											<p:outputLabel for="content-comment" value="INote: " />
 										</div>
 										<div class="ui-g-12 ui-md-4 ui-lg-8 borders">
 											<p:inputText id="content-comment"
 												styleClass="content-element" required="true"
-												style="width: 90%;color: red; font-weight: bold" value="#{data.comment}" disabled="true" />
+												style="width: 90%;color: red; font-weight: bold"
+												value="#{data.comment}" disabled="true" />
 										</div>
 										<div class="ui-g-12 ui-md-8 ui-lg-1 borders" />
 										<div class="ui-g-12 ui-md-8 ui-lg-3 title">
@@ -144,16 +145,15 @@
 										<div class="ui-g-12 ui-md-4 ui-lg-8 borders">
 											<p:inputText id="timeCreate-comment"
 												styleClass="content-element" required="true"
-												style="width: 90%; color: red; font-weight: bold" value="#{data.dateCreateNote}"
-												disabled="true" />
+												style="width: 90%; color: red; font-weight: bold"
+												value="#{data.dateCreateNote}" disabled="true" />
 										</div>
 									</c:if>
 
 								</div>
 								<div class="ui-g-12 button-create">
-									<p:commandButton id="save" icon="fa fa-save"
-										value="Submit" actionListener="#{logic.create}"
-										update="@form" />
+									<p:commandButton id="save" icon="fa fa-save" value="Submit"
+										actionListener="#{logic.create}" update="@form" />
 								</div>
 							</h:form>
 						</p:fieldset>

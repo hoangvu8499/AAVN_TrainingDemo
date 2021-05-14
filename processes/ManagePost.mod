@@ -51,7 +51,7 @@ Mt0 f0 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Mt0 f0 @C|.responsibility Teacher #txt
-Mt0 f0 257 233 30 30 -61 26 #rect
+Mt0 f0 137 233 30 30 -61 26 #rect
 Mt0 f0 @|StartRequestIcon #fIcon
 Mt0 f3 dialogId training.center.manage.post.DashboardManagePost #txt
 Mt0 f3 startMethod start(Long) #txt
@@ -66,10 +66,10 @@ Mt0 f3 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Mt0 f3 200 154 144 44 -65 -8 #rect
+Mt0 f3 80 154 144 44 -65 -8 #rect
 Mt0 f3 @|UserDialogIcon #fIcon
-Mt0 f4 272 233 272 198 #arcP
-Mt0 f7 664 464 32 32 0 16 #rect
+Mt0 f4 152 233 152 198 #arcP
+Mt0 f7 496 464 32 32 0 16 #rect
 Mt0 f7 @|AlternativeIcon #fIcon
 Mt0 f5 dialogId training.center.manage.post.CreatePost #txt
 Mt0 f5 startMethod start(Long,String) #txt
@@ -89,7 +89,7 @@ Mt0 f5 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Mt0 f5 384 362 112 44 -31 -8 #rect
+Mt0 f5 216 362 112 44 -31 -8 #rect
 Mt0 f5 @|UserDialogIcon #fIcon
 Mt0 f6 outLink createPost.ivp #txt
 Mt0 f6 inParamDecl '<> param;' #txt
@@ -107,7 +107,7 @@ Mt0 f6 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 </elementInfo>
 ' #txt
 Mt0 f6 @C|.responsibility Teacher #txt
-Mt0 f6 257 369 30 30 -21 17 #rect
+Mt0 f6 89 369 30 30 -21 17 #rect
 Mt0 f6 @|StartRequestIcon #fIcon
 Mt0 f9 actionTable 'out=in1;
 out.comment=in1.comment;
@@ -129,9 +129,9 @@ Mt0 f9 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Mt0 f9 425 465 30 30 -20 16 #rect
+Mt0 f9 257 465 30 30 -20 16 #rect
 Mt0 f9 @|TaskSwitchSimpleIcon #fIcon
-Mt0 f8 809 465 30 30 0 15 #rect
+Mt0 f8 641 465 30 30 0 15 #rect
 Mt0 f8 @|EndIcon #fIcon
 Mt0 f10 dialogId training.center.manage.post.Confirm #txt
 Mt0 f10 startMethod start(Long,String) #txt
@@ -158,10 +158,10 @@ Mt0 f10 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Mt0 f10 624 362 112 44 -22 -8 #rect
+Mt0 f10 456 362 112 44 -22 -8 #rect
 Mt0 f10 @|UserTaskIcon #fIcon
-Mt0 f11 287 384 384 384 #arcP
-Mt0 f13 680 406 680 464 #arcP
+Mt0 f11 119 384 216 384 #arcP
+Mt0 f13 512 406 512 464 #arcP
 Mt0 f14 expr in #txt
 Mt0 f14 outCond 'in.confirm == false' #txt
 Mt0 f14 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
@@ -172,7 +172,7 @@ Mt0 f14 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Mt0 f14 664 480 455 480 #arcP
+Mt0 f14 496 480 287 480 #arcP
 Mt0 f14 0 0.23668639053254437 1 22 #arcLabel
 Mt0 f15 expr in #txt
 Mt0 f15 outCond 'in.confirm == true' #txt
@@ -184,8 +184,8 @@ Mt0 f15 .xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Mt0 f15 696 480 809 480 #arcP
-Mt0 f16 440 465 440 406 #arcP
+Mt0 f15 528 480 641 480 #arcP
+Mt0 f16 272 465 272 406 #arcP
 Mt0 f16 0 0.27872104218182414 0 0 #arcLabel
 Mt0 f19 dialogId training.center.manage.post.EditPost #txt
 Mt0 f19 startMethod EditPost(Boolean,String,Long) #txt
@@ -207,19 +207,19 @@ Mt0 f19 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Mt0 f19 408 74 128 44 -40 -16 #rect
+Mt0 f19 288 74 128 44 -40 -16 #rect
 Mt0 f19 @|UserDialogIcon #fIcon
-Mt0 f24 680 160 32 32 0 16 #rect
+Mt0 f24 560 160 32 32 0 16 #rect
 Mt0 f24 @|AlternativeIcon #fIcon
-Mt0 f1 272 154 408 96 #arcP
-Mt0 f1 1 312 96 #addKink
+Mt0 f1 152 154 288 96 #arcP
+Mt0 f1 1 192 96 #addKink
 Mt0 f1 0 0.6481481481481481 0 0 #arcLabel
-Mt0 f2 817 161 30 30 0 15 #rect
+Mt0 f2 697 161 30 30 0 15 #rect
 Mt0 f2 @|EndIcon #fIcon
 Mt0 f17 expr in #txt
 Mt0 f17 outCond 'in.confirm == true' #txt
-Mt0 f17 712 176 817 176 #arcP
-Mt0 f12 496 384 624 384 #arcP
+Mt0 f17 592 176 697 176 #arcP
+Mt0 f12 328 384 456 384 #arcP
 Mt0 f18 dialogId training.center.manage.post.Confirm #txt
 Mt0 f18 startMethod start(Long,String) #txt
 Mt0 f18 requestActionDecl '<Long idPost,String comment> param;' #txt
@@ -245,10 +245,10 @@ Mt0 f18 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Mt0 f18 640 74 112 44 -22 -8 #rect
+Mt0 f18 520 74 112 44 -22 -8 #rect
 Mt0 f18 @|UserTaskIcon #fIcon
-Mt0 f20 536 96 640 96 #arcP
-Mt0 f21 696 118 696 160 #arcP
+Mt0 f20 416 96 520 96 #arcP
+Mt0 f21 576 118 576 160 #arcP
 Mt0 f22 actionTable 'out=in1;
 out.comment=in1.comment;
 out.confirm=in1.confirm;
@@ -269,12 +269,12 @@ Mt0 f22 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
     </language>
 </elementInfo>
 ' #txt
-Mt0 f22 457 161 30 30 -20 16 #rect
+Mt0 f22 337 161 30 30 -20 16 #rect
 Mt0 f22 @|TaskSwitchSimpleIcon #fIcon
 Mt0 f23 expr in #txt
 Mt0 f23 outCond 'in.confirm == false' #txt
-Mt0 f23 680 176 487 176 #arcP
-Mt0 f25 472 161 472 118 #arcP
+Mt0 f23 560 176 367 176 #arcP
+Mt0 f25 352 161 352 118 #arcP
 >Proto Mt0 .type training.center.manage.ManagePostData #txt
 >Proto Mt0 .processKind NORMAL #txt
 >Proto Mt0 0 0 32 24 18 0 #rect

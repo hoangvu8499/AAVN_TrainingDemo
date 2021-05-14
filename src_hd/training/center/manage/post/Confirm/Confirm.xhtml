@@ -54,13 +54,15 @@
 								<div class="ui-g-12 ui-md-8 ui-lg-1 borders" />
 								<div class="ui-g-12 ui-md-8 ui-lg-3 title">Category:</div>
 								<div class="ui-g-12 ui-md-4 ui-lg-8 borders">
-									<p:selectOneMenu styleClass="select-menu" id="group"
+									<!-- <p:selectOneMenu styleClass="select-menu" id="group"
 										style="width: 90%;" value="#{data.post.category}"
 										disabled="true" labelTemplate="#{data.post.category.name}"
 										converter="pojoConverter">
 										<f:selectItems value="#{data.categories}" var="category"
 											itemLabel="#{category.name}" itemValue="#{category}" />
-									</p:selectOneMenu>
+									</p:selectOneMenu> -->
+									<p:inputText styleClass="content-element" style="width: 90%;"
+										disabled="true" value="#{data.post.category.name}" />
 								</div>
 								<div class="ui-g-12 ui-md-8 ui-lg-1 borders" />
 								<div class="ui-g-12 ui-md-8 ui-lg-3 title">Description:</div>
@@ -106,16 +108,16 @@
 								<div class="ui-g-12 ui-md-4 ui-lg-8 borders">
 									<p:inputText id="content-comment"
 										styleClass="text-area-content"
-										placeholder="If you want to Reject, please provide reason!"
+										placeholder="If you want to Reject, please provide reason!" required="true"
 										style="width: 90%;" value="#{data.comment}" />
-									<p:messages styleClass="message" />
+									<p:message for="content-comment" styleClass="message" />
 								</div>
 
 								<div class="ui-g-12">
 									<div class="ui-g-12 button-confirm">
-										<p:commandButton icon="fa fa-fw fa-remove" value="Cancel"
-											actionListener="#{movePageBean.moveTaskHome}" update="@form" />
-										<p:commandButton icon="fa fa-save" value="Procced"
+										<p:commandButton icon="fa fa-fw fa-remove" value="Cancel" process="@this"
+											actionListener="#{movePageBean.moveTaskList}" update="@form" />
+										<p:commandButton icon="fa fa-save" value="Procced" process="@this"
 											actionListener="#{logic.confirm}" update="@form" />
 										<p:commandButton value="Reject" icon="fa fa-mail-reply"
 											update="@form" actionListener="#{logic.close}" />

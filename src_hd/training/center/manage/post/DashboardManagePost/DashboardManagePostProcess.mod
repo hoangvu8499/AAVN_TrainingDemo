@@ -149,11 +149,16 @@ Ds0 f10 83 275 26 26 -13 21 #rect
 Ds0 f10 @|UdMethodIcon #fIcon
 Ds0 f12 actionTable 'out=in;
 ' #txt
-Ds0 f12 actionCode 'import ivy.trainingmanage.service.PostService;
+Ds0 f12 actionCode 'import ivy.trainingmanage.model.Post;
+import ivy.trainingmanage.service.PostService;
 
 PostService postService = new PostService();
 postService.delete(in.post);
-in.postList = postService.getAll();' #txt
+in.postList = postService.getAll();
+in.post = new Post();
+in.postListFilter = null;
+in.postListFilter.addAll(in.postList);
+' #txt
 Ds0 f12 @C|.xml '<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <elementInfo>
     <language>

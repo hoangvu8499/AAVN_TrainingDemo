@@ -17,4 +17,12 @@
         <emailAddress>user22@gmail.com	</emailAddress>
         <role>Student</role>
     </user>
+    <user>
+        <username>teacher</username>
+        <password>123456</password>
+        <fullName>Teacher</fullName>
+        <emailAddress>teacher@gmail.com</emailAddress>
+        <role>Teacher</role>
+        <role>Student</role>
+    </user>
 </userConfig>

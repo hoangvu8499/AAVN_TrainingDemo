@@ -73,16 +73,16 @@
 
 								<div class="element-create">
 									<div class="title-element-create">Import CV:</div>
-									<div class="input-content-element">
+									<div class="input-content-element" style="width: 20%;">
 										<p:fileUpload fileUploadListener="#{logic.handleFileUpload}"
 											auto="true" id="fileUpload" styleClass="content-element"
 											required="true" />
 									</div>
 								</div>
-
+								
 								<div class="button-create">
 									<p:commandButton id="save" icon="fa fa-save"
-										value="Confirm Information" actionListener="#{logic.create}"
+										value="Confirm" actionListener="#{logic.create}"
 										update="@form" />
 								</div>
 							</h:form>

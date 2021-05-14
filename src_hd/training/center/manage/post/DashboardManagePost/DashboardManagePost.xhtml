@@ -95,14 +95,10 @@
 										actionListener="#{logic.edit(post.id)}" icon="fa fa-pencil" />
 									<p:commandButton styleClass="action-button-delete"
 										actionListener="#{logic.delete(post)}" icon="fa fa-trash"
-										update="@form" />
+										update=":form-list-post:theTable"/>
 								</div>
 							</p:column>
-
-
 						</p:dataTable>
-
-
 					</h:form>
 
 

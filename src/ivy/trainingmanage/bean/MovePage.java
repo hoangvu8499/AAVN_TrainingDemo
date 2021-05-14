@@ -44,5 +44,10 @@ public class MovePage {
 		String link = LinkHelper.getFullLinkBySignature("TaskAnalusis/start()");
 		redirect(link);
 	}
+	
+	public void moveTaskList() throws java.io.IOException {
+		String link = LinkHelper.getFullLinkBySignature("DefaultTaskListPage()");
+		redirect(link);
+	}
 
 }

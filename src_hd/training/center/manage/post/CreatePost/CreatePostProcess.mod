@@ -93,11 +93,12 @@ FormatDateTime formatDateTime = new FormatDateTime();
 PostService postService = new PostService();
 CategoryDao categoryDao = new CategoryDao();
 	in.post = new Post();
-if(in.idPost != null){
-	in.post = postService.findById(in.idPost);
-}
-in.categories = categoryDao.getAll();
-in.indexProcessChain = 0;
+	if(in.idPost != 0){
+		in.post = postService.findById(in.idPost);
+	}
+	in.category = new Category();
+	in.categories = categoryDao.getAll();
+	in.indexProcessChain = 0;
 	ICase currentCase = Ivy.wfCase();
 	List<INote> listNote = currentCase.getNotes();
 	if(listNote.size() >0 ){

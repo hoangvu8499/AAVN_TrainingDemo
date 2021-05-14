@@ -60,6 +60,7 @@
 												</div>
 
 												<div class="ui-g-12 ui-md-8 ui-lg-4">
+												
 													<p:graphicImage styleClass="img-post"
 														style="width: 50%; height: 20% !important"
 														name="layouts/file-upload/#{post.img}" />
@@ -106,7 +107,7 @@
 							<c:if test="${data.post.filePost.size() > 0}">
 								<div class="download-file">
 									<h:commandButton value="Download"
-										action="#{fileDownload.download(data.post.filePost[0].url)}" />
+										action="#{fileDownload.download(data.post.filePost[data.post.filePost.size()-1].url)}" />
 								</div>
 							</c:if>
 						</div>

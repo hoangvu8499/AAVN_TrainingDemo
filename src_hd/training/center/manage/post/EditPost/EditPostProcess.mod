@@ -76,7 +76,8 @@ Es0 f4 @|UdExitEndIcon #fIcon
 Es0 f5 85 608 243 608 #arcP
 Es0 f6 actionTable 'out=in;
 ' #txt
-Es0 f6 actionCode 'import ivy.trainingmanage.util.FormatDateTime;
+Es0 f6 actionCode 'import ivy.trainingmanage.model.Category;
+import ivy.trainingmanage.util.FormatDateTime;
 import ch.ivyteam.ivy.workflow.INote;
 import ch.ivyteam.ivy.environment.Ivy;
 import ch.ivyteam.ivy.workflow.ICase;
