@@ -36,8 +36,8 @@
 	font-size: 17px;
 	background-color: white;
 	font-weight: bold;
-	/* 	border: 1px solid;
-	border-radius: 15px !important; */
+	border: 1px solid;
+	border-radius: 15px !important;
 }
 
 .ui-fieldset-legend {
@@ -79,7 +79,7 @@
 }
 
 .select-menu {
-	width: 99%;
+	width: 90%
 }
 
 .commention {

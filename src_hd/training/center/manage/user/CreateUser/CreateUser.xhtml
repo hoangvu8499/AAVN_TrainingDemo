@@ -21,9 +21,9 @@
 				<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
 
 			</div>
-			<div class="ui-g">
+			<div id="content-page" class="ui-g set-hight">
 				<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
-				<div class="ui-g-12 ui-md-6 ui-lg-6 borders user-data">
+				<div class="ui-g-12 ui-md-6 ui-lg-6 borders post-data">
 					<div id="content-create-user" class="ui-g-9 content-create-user">
 						<p:fieldset legend="Create New User Account" styleClass="fieldset">
 							<div class="logo">
@@ -32,52 +32,64 @@
 							</div>
 							<h:form id="form-create">
 								<p:messages />
-								<div class="element-create">
-									<div class="title-element-create">Your Name:</div>
-									<div class="input-content-element">
+								<div>
+									<div class="ui-g-12 ui-md-8 ui-lg-1 borders" />
+									<div class="ui-g-12 ui-md-8 ui-lg-3 title">Your Name:</div>
+									<div class="ui-g-12 ui-md-4 ui-lg-8 borders">
 										<p:inputText styleClass="content-element"
 											value="#{data.user.fullName}" />
 									</div>
-								</div>
-								<div class="element-create">
-									<div class="title-element-create">Email:</div>
-									<div class="input-content-element">
+									<div class="ui-g-12 ui-md-8 ui-lg-1 borders" />
+									<div class="ui-g-12 ui-md-8 ui-lg-3 title">Email:</div>
+									<div class="ui-g-12 ui-md-4 ui-lg-8 borders">
 										<p:inputText styleClass="content-element"
 											value="#{data.user.email}" />
 									</div>
-								</div>
-								<div class="element-create">
-									<div class="title-element-create">UserName:</div>
-									<div class="input-content-element">
+									<div class="ui-g-12 ui-md-8 ui-lg-1 borders" />
+									<div class="ui-g-12 ui-md-8 ui-lg-3 title">User Name:</div>
+									<div class="ui-g-12 ui-md-4 ui-lg-8 borders">
 										<p:inputText styleClass="content-element"
 											value="#{data.user.userName}" />
 									</div>
-								</div>
-								<div class="element-create">
-									<div class="title-element-create">Password:</div>
-									<div class="input-content-element">
+									<div class="ui-g-12 ui-md-8 ui-lg-1 borders" />
+									<div class="ui-g-12 ui-md-8 ui-lg-3 title">Password:</div>
+									<div class="ui-g-12 ui-md-4 ui-lg-8 borders">
 										<p:password id="turkishFeedback" feedback="true"
 											weakLabel="Yếu" goodLabel="Trung Bình"
 											strongLabel="Siêu Bảo Mật" value="#{data.user.password}"
 											redisplay="true" styleClass="content-element" />
 									</div>
-								</div>
-
-								<div class="element-create">
-									<div class="title-element-create">IP Card:</div>
-									<div class="input-content-element">
+									<div class="ui-g-12 ui-md-8 ui-lg-1 borders" />
+									<div class="ui-g-12 ui-md-8 ui-lg-3 title">Ip Card:</div>
+									<div class="ui-g-12 ui-md-4 ui-lg-8 borders">
 										<p:inputText styleClass="content-element"
 											value="#{data.user.ipCard}" />
 									</div>
-								</div>
-
-								<div class="element-create">
-									<div class="title-element-create">Import CV:</div>
-									<div class="input-content-element" style="width: 20%;">
-										<p:fileUpload fileUploadListener="#{logic.handleFileUpload}"
-											auto="true" id="fileUpload" styleClass="content-element"
-											required="true" />
-									</div>
+								
+									<h:panelGroup id="loadfile" layout="block">
+										<div class="ui-g-12 ui-md-8 ui-lg-1 borders" />
+										<div class="ui-g-12 ui-md-8 ui-lg-3 title title-load">Import CV:</div>
+										<div class="ui-g-12 ui-md-4 ui-lg-8 borders" style="width: 50%">
+											<div class="ui-g-12 ui-md-3 ui-lg-8 upload-img">
+												<p:fileUpload
+													fileUploadListener="#{logic.handleFileUpload}"
+													style="width: 20%;" auto="true" 
+													styleClass="content-element" required="true"
+													update=":form-create:loadfile" />
+												<c:if test="${data.user.filePost != null}">
+													<div class="loaded-file2">Loaded File!</div>
+												</c:if>
+											</div>
+											<div class="ui-g-12 ui-md-8 ui-lg-3">
+												<div class="loaded-file">
+													<c:if test="${data.user.filePost != null }">
+														<h:commandButton value="Download"
+															action="#{fileDownload.download(data.user.filePost.url)}" />
+													</c:if>
+												</div>
+											</div>
+										</div>
+									</h:panelGroup>
 								</div>
 								
 								<div class="button-create">

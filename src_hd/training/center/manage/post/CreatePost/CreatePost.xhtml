@@ -9,7 +9,7 @@
 <h:body>
 	<ui:composition
 		template="/layouts/includes/basic-manage-template.xhtml">
-		<ui:define name="title">Create User</ui:define>
+		<ui:define name="title">Create Post</ui:define>
 
 		<ui:define name="content">
 			<div class="ui-g">
@@ -54,11 +54,12 @@
 									<div class="ui-g-12 ui-md-8 ui-lg-1 borders" />
 									<div class="ui-g-12 ui-md-8 ui-lg-3 title">Category:</div>
 									<div class="ui-g-12 ui-md-4 ui-lg-8 borders">
-										<p:selectOneMenu styleClass="select-menu" id="group"
-											style="width: 90%;" value="#{data.post.category}"
-											converter="pojoConverter">
-											<f:selectItems value="#{data.categories}" var="category"
-												itemLabel="#{category.name}" itemValue="#{category}" />
+										<p:selectOneMenu styleClass="select-menu"
+											value="#{data.post.category}" converter="pojoConverter">
+											<c:forEach var="category" items="#{data.categories}">
+												<f:selectItem itemValue="#{category}"
+													itemLabel="#{category.name}" />
+											</c:forEach>
 										</p:selectOneMenu>
 									</div>
 									<div class="ui-g-12 ui-md-8 ui-lg-1 borders" />

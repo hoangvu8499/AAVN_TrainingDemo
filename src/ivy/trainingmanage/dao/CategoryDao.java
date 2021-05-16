@@ -44,9 +44,9 @@ public class CategoryDao extends BaseDao {
 			Criteria cr = session.createCriteria(Category.class);
 			cr.add(Restrictions.isNull("deleteAt"));
 			categories = cr.list();
-//			for(Category category: categories) {
-//				Hibernate.initialize(category.getPostList()); 
-//			}
+			for(Category category: categories) {
+				Hibernate.initialize(category.getPostList()); 
+			}
 		} catch (Exception e) {
 			transaction.rollback();
 			e.printStackTrace();

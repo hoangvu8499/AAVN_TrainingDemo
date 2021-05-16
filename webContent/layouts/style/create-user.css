@@ -1,12 +1,22 @@
+.post-data {
+	margin-left: 6%;
+	height: 600px !important;
+}
+
+#content-page {
+	
+}
+
 .class-content {
-	margin-left: 12%;
+	margin-left: 14%;
 }
 
 .content-create-user {
-	margin: 5%;
-	width: 70% !important;
-	margin-left: 15%;
-	border-radius: 15px;
+	margin-top: 1%;
+	margin-left: 5%;
+	width: 65% !important;
+	border-radius: 10px;
+	margin-bottom: 2%;
 }
 
 #content-create-user {
@@ -15,9 +25,9 @@
 }
 
 .element-create {
-	width: 110%;
+	width: 100%;
 	padding-left: 4%;
-	padding-bottom: 5%;
+	padding-bottom: 1%;
 	display: flex !important;
 }
 
@@ -42,7 +52,6 @@
 
 .logo {
 	padding-left: 40%;
-	padding-bottom: 5%;
 }
 
 .title-element-create {
@@ -54,25 +63,113 @@
 }
 
 .input-content-element {
-	width: 60%;
+	width: 20% !important;
 }
 
 .content-element {
-	width: 80%;
+	width: 100%;
 }
 
 .button-create {
-	padding-left: 43%;
-	padding-bottom: 3%;
+	padding-left: 40.75%;
 }
 
-.ui-fileupload .ui-fileupload-buttonbar {
-    background-color: #ffffff !important;
-    border: 1px solid #ffffff !important;
+.button-confirm {
+	padding-left: 34%;
 }
 
-.ui-widget-content {
-    background-color: #ffffff !important;
-     border: 1px solid #ffffff !important;
-    padding: 0.857em 1em;
+.select-menu {
+	width: 90%
+}
+
+.commention {
+	background-color: white;
+	border-radius: 15px !important;
+	padding-bottom: 2%;
+	padding-top: 1%;
+	border: 1px solid;
+}
+
+.comment {
+	width: 110%;
+	padding-left: 15%;
+	padding-bottom: 2%;
+	display: flex !important;
+}
+
+.button-non-accept {
+	margin-left: 42%;
+}
+
+.input-comment {
+	width: 50%;
+	margin-left: 10%;
+}
+
+.label-comment {
+	font-family: cursive !important;
+	font-weight: bold;
+	font-size: 15px;
+}
+
+.input-content-element-image {
+	width: 100%;
+	display: flex;
+}
+
+.img {
+	width: 30%;
+}
+
+.upload-img {
+	
+}
+
+.img-post {
+	width: 100%;
+}
+
+.ui-corner-bottom {
+	display: none;
+}
+
+.title {
+	font-family: cursive;
+	font-weight: bold;
+}
+
+.message {
+	width: 80%;
+	margin-left: 5%;
+}
+
+.process-chain {
+	padding-left: 16%;
+}
+
+.ui-fileupload-buttonbar {
+	background-color: #ffffff !important;
+	border: 1px solid #ffffff !important;
+}
+
+.ui-widget.ui-fileupload {
+	margin-top: 0px !important;
+	padding: 0em !important;
+}
+
+.loaded-file {
+	padding-top: 12%;
+	margin-top: 10% !important;
+}
+
+.loaded-file2 {
+	padding-left: 12%;
+}
+
+.loaded-file-img {
+	padding-top: 5%;
+}
+
+.title-load {
+	padding-top: 2%;
 }

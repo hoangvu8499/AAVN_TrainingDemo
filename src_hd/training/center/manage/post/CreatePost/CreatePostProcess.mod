@@ -96,7 +96,6 @@ CategoryDao categoryDao = new CategoryDao();
 	if(in.idPost != 0){
 		in.post = postService.findById(in.idPost);
 	}
-	in.category = new Category();
 	in.categories = categoryDao.getAll();
 	in.indexProcessChain = 0;
 	ICase currentCase = Ivy.wfCase();
