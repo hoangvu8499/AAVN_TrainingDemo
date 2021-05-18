@@ -65,15 +65,16 @@
 										<p:inputText styleClass="content-element"
 											value="#{data.user.ipCard}" />
 									</div>
-								
+
 									<h:panelGroup id="loadfile" layout="block">
 										<div class="ui-g-12 ui-md-8 ui-lg-1 borders" />
-										<div class="ui-g-12 ui-md-8 ui-lg-3 title title-load">Import CV:</div>
-										<div class="ui-g-12 ui-md-4 ui-lg-8 borders" style="width: 50%">
+										<div class="ui-g-12 ui-md-8 ui-lg-3 title title-load">Import
+											CV:</div>
+										<div class="ui-g-12 ui-md-4 ui-lg-8 borders"
+											style="width: 50%">
 											<div class="ui-g-12 ui-md-3 ui-lg-8 upload-img">
-												<p:fileUpload
-													fileUploadListener="#{logic.handleFileUpload}"
-													style="width: 20%;" auto="true" 
+												<p:fileUpload fileUploadListener="#{logic.handleFileUpload}"
+													style="width: 20%;" auto="true"
 													styleClass="content-element" required="true"
 													update=":form-create:loadfile" />
 												<c:if test="${data.user.filePost != null}">
@@ -91,11 +92,10 @@
 										</div>
 									</h:panelGroup>
 								</div>
-								
+
 								<div class="button-create">
-									<p:commandButton id="save" icon="fa fa-save"
-										value="Confirm" actionListener="#{logic.create}"
-										update="@form" />
+									<p:commandButton id="save" icon="fa fa-save" value="Confirm"
+										actionListener="#{logic.create}" update="@form" />
 								</div>
 							</h:form>
 						</p:fieldset>
@@ -107,10 +107,7 @@
 			</div>
 			<div class="ui-g">
 				<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
-				<div class="ui-g-12 ui-md-6 ui-lg-6 borders">
-					<!-- 					<ic:training.center.manage.components.Footer />
- -->
-				</div>
+				<div class="ui-g-12 ui-md-6 ui-lg-6 borders"></div>
 				<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
 			</div>
 

@@ -48,8 +48,6 @@ public class UserService {
 	}
 
 	public void createUser(User user, Role role) {
-		// securityContext.deleteUser("nacu22984");
-		// securityContext.deleteUser("hoangvu8499");
 		try {
 			securityContext.createUser(user.getUserName(), user.getFullName(), user.getPassword(), Locale.JAPAN,
 					user.getEmail(), "");
@@ -127,20 +125,12 @@ public class UserService {
 					new FacesMessage(FacesMessage.SEVERITY_ERROR, MessageUtil.MESSAGE_CANT_DELETE_YOUR_ACCOUNT,
 							MessageUtil.MESSAGE_CANT_DELETE_YOUR_ACCOUNT));
 		} else {
-//			User userLogin = userDao.findByUserName(userName);
-//			int countRole = userLogin.getUserRoleDetail().size();
-//			if (countRole == 3) {
-				user.setDeleted(new Date());
-				userDao.save(user);
-//			} else {
-//				FacesContext.getCurrentInstance().addMessage(":form-list-user",
-//						new FacesMessage(FacesMessage.SEVERITY_ERROR, MessageUtil.MESSAGE_NONE_ACCEPT_ROLE,
-//								MessageUtil.MESSAGE_NONE_ACCEPT_ROLE));
-//			}
+			user.setDeleted(new Date());
+			userDao.save(user);
 		}
 
 	}
-	
+
 	public Integer checkRoleUserLogin() {
 		String userName = Ivy.session().getSessionUserName();
 		User userLogin = userDao.findByUserName(userName);

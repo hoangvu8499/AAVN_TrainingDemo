@@ -8,7 +8,7 @@
 <h:body>
 	<ui:composition
 		template="/layouts/includes/basic-manage-template.xhtml">
-		<ui:define name="title">Show Lis Post</ui:define>
+		<ui:define name="title">Show List Post</ui:define>
 
 		<ui:define name="content">
 			<div class="ui-g">
@@ -69,33 +69,14 @@
 								filterMatchMode="contains" filterBy="#{post.createBy}">
 								<p:outputLabel id="colCrBy" value="#{post.createBy}" />
 							</p:column>
-							<!-- <p:column field="date" headerText="Create At"
-								filterBy="#{post.createAt}" filterMatchMode="range">
-								<f:facet name="filter">
-									<p:datePicker selectionMode="range"
-										onchange="PF('theTable').filter()" />
-
-								</f:facet>
-								<p:outputLabel value="#{post.createAt}">
-									<f:convertDateTime pattern="dd.MM.yyyy" />
-								</p:outputLabel>
-							</p:column> -->
-
-						<!-- 	<p:column field="date" headerText="Join Date"
-								filterMatchMode="range">
-								<f:facet name="filter">
-									<p:datePicker selectionMode="range"
-										onchange="PF('customersTable').filter()" />
-								</f:facet>
-							</p:column> -->
-
+						
 							<p:column styleClass="action-column" headerText="Action">
 								<div class="action-button">
 									<p:commandButton styleClass="action-button-edit"
 										actionListener="#{logic.edit(post.id)}" icon="fa fa-pencil" />
 									<p:commandButton styleClass="action-button-delete"
 										actionListener="#{logic.delete(post)}" icon="fa fa-trash"
-										update=":form-list-post:theTable"/>
+										update="@form"/>
 								</div>
 							</p:column>
 						</p:dataTable>
@@ -109,8 +90,6 @@
 			<div class="ui-g">
 				<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
 				<div class="ui-g-12 ui-md-6 ui-lg-6 borders">
-					<!-- 					<ic:training.center.manage.components.Footer />
- -->
 				</div>
 				<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
 			</div>

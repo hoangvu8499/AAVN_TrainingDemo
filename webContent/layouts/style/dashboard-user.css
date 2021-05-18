@@ -38,3 +38,15 @@
 .action-column {
 	text-align: center;
 }
+
+.name-column {
+	width: 25% !important;
+}
+
+.username-column {
+	width: 25% !important;
+}
+
+.action-column {
+	width: 20% !important;
+}

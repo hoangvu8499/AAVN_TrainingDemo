@@ -17,11 +17,11 @@ public class Post extends BaseEntity {
 	private String name;
 
 	private String description;
-	
+
 	private Date createAt;
 
 	private String content_post;
-	
+
 	private String img;
 
 	private Date deleted;
@@ -29,11 +29,11 @@ public class Post extends BaseEntity {
 	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "id_category", nullable = false)
 	private Category category;
-	
+
 	private String createBy;
-	
+
 	private String updateBy;
-	
+
 	@OneToMany(mappedBy = "post", cascade = CascadeType.ALL)
 	private List<FilePost> filePost;
 
@@ -119,19 +119,17 @@ public class Post extends BaseEntity {
 
 	public Post() {
 	}
-	
-	@Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Post post = (Post) o;
-        return this.getId() == post.getId() &&
-                name.equals(post.name);
-    }
 
-    @Override
-    public int hashCode() {
-        return  1;
-    }
+	@Override
+	public boolean equals(Object o) {
+		return (this.getId() != null && o != null && getClass() == o.getClass())
+				? this.getId().equals(((Post) o).getId())
+				: (o == this);
+	}
+
+	@Override
+	public int hashCode() {
+		return (this.getId() != null) ? (getClass().hashCode() + this.getId().hashCode()) : super.hashCode();
+	}
 
 }

@@ -39,9 +39,6 @@
 									<p:dataTable id="theTable" widgetVar="theTable"
 										paginator="true" styleClass="table" paginatorPosition="bottom"
 										rows="4" value="#{data.listPost}" var="post">
-										<!-- 										 rowsPerPageTemplate="3,4"
- -->
-
 										<p:column headerText="NEWS">
 											<div class="post-item">
 												<div class="ui-g-12 ui-md-4 ui-lg-8 post-item-content">
@@ -60,7 +57,7 @@
 												</div>
 
 												<div class="ui-g-12 ui-md-8 ui-lg-4">
-												
+
 													<p:graphicImage styleClass="img-post"
 														style="width: 50%; height: 20% !important"
 														name="layouts/file-upload/#{post.img}" />

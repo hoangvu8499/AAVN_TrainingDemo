@@ -27,5 +27,5 @@ public class ReadContentFile implements Serializable {
 		return content;
 	}
 
-	public static final String staa = "dsdsds";
+	public static final String status = "URL_UPLOAD_FILE";
 }

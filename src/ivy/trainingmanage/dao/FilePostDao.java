@@ -45,7 +45,7 @@ public class FilePostDao extends BaseDao {
 		}
 		return file;
 	}
-	
+
 	public FilePost findByIdPost(Long id) {
 		FilePost filePost = new FilePost();
 		Session session = sessionFactory.openSession();

@@ -79,7 +79,6 @@ public class UserDao extends BaseDao {
 			Criterion email = Restrictions.like("email", user.getEmail());
 			Criterion name = Restrictions.like("userName", user.getUserName());
 
-			// Lấy các record phù hợp với điều kiện OR
 			LogicalExpression orExp = Restrictions.or(email, name);
 			cr.add(orExp);
 			users = cr.list();

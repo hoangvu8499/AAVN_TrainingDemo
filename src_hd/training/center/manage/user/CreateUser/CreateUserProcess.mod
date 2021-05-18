@@ -83,7 +83,6 @@ FilePostDao filePostDao = new FilePostDao();
 
 FilePost filePost = new FilePost();
 filePost.url =  ufManager.uploadFile(uploadedFile);
-//filePostDao.save(filePost);
 
 out.user.filePost = filePost;
 

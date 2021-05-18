@@ -123,8 +123,6 @@ import ivy.trainingmanage.model.Category;
 
 CategoryDao categoryDao = new CategoryDao();
 CategoryService categoryService = new CategoryService();
-//in.category.deleteAt = new Date();
-//categoryDao.save(in.category);
 categoryService.deleteCategory(in.category);
 in.categories = categoryDao.getAll();
 in.category = new Category();

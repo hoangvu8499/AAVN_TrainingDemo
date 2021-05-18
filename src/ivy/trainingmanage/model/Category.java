@@ -53,12 +53,6 @@ public class Category extends BaseEntity {
 
 	@Override
     public boolean equals(Object o) {
-//        if (this == o) return true;
-//        if (o == null || getClass() != o.getClass()) return false;
-//        Category category = (Category) o;
-//        return  name.equals(category.name);
-        
-        
         return (this.getId() != null && o != null && getClass() == o.getClass())
         ? this.getId().equals(((Category) o).getId())
         : (o == this);
@@ -66,7 +60,6 @@ public class Category extends BaseEntity {
 
     @Override
     public int hashCode() {
-//        return  1;
     	return (this.getId() != null) 
     	         ? (getClass().hashCode() + this.getId().hashCode()) 
     	         : super.hashCode();

@@ -82,9 +82,7 @@
 			</div>
 			<div class="ui-g">
 				<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
-				<div class="ui-g-12 ui-md-6 ui-lg-6 borders">
-<!-- 					<ic:training.center.manage.components.Footer />
- -->				</div>
+				<div class="ui-g-12 ui-md-6 ui-lg-6 borders"></div>
 				<div class="ui-g-12 ui-md-6 ui-lg-3 borders" />
 			</div>
 
@@ -93,8 +91,8 @@
 				width="15%">
 				<h:form id="showPost" enctype="multipart/form-data">
 					<div class="title-form-delete">Delete Category</div>
-					<div class="content-form-delete">All post of this category will delete If you delete this
-						category.</div>
+					<div class="content-form-delete">All post of this category
+						will delete If you delete this category.</div>
 					<div class="content-form-delete">Are you sure?</div>
 					<p:commandButton styleClass="action-button-delete"
 						id="deleteButtonYES" value="Yes"
@@ -102,8 +100,7 @@
 						update=":form:table-category" />
 
 					<p:commandButton styleClass="action-button-delete"
-						id="deleteButtonNO" value="No"
-						actionListener="#{logic.deleteNo}"
+						id="deleteButtonNO" value="No" actionListener="#{logic.deleteNo}"
 						update=":form:table-category" />
 				</h:form>
 			</p:dialog>
