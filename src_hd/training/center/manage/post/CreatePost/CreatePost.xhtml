@@ -46,37 +46,43 @@
 								<p:messages />
 								<div>
 									<div class="ui-g-12 ui-md-8 ui-lg-1 borders" />
-									<div class="ui-g-12 ui-md-8 ui-lg-3 title">Name:</div>
+									<div class="ui-g-12 ui-md-8 ui-lg-3 title">
+										<p:outputLabel for="name" styleClass="title">Name</p:outputLabel>
+									</div>
 									<div class="ui-g-12 ui-md-4 ui-lg-8 borders">
-										<p:inputText styleClass="content-element" style="width: 90%;"
-											value="#{data.post.name}" />
+										<p:inputText id="name" styleClass="content-element"
+											style="width: 90%;" required="true" value="#{data.post.name}" />
+										<p:message for="name" />
 									</div>
 									<div class="ui-g-12 ui-md-8 ui-lg-1 borders" />
 									<div class="ui-g-12 ui-md-8 ui-lg-3 title">Category:</div>
 									<div class="ui-g-12 ui-md-4 ui-lg-8 borders">
 										<p:selectOneMenu styleClass="select-menu"
 											value="#{data.post.category}" converter="pojoConverter">
-											<c:forEach var="category" items="#{data.categories}">
-												<f:selectItem itemValue="#{category}"
-													itemLabel="#{category.name}" />
-											</c:forEach>
+											<f:selectItems value="#{data.categories}" var="category"
+												itemValue="#{category}" itemLabel="#{category.name}" />
 										</p:selectOneMenu>
 									</div>
 									<div class="ui-g-12 ui-md-8 ui-lg-1 borders" />
-									<div class="ui-g-12 ui-md-8 ui-lg-3 title">Description:</div>
+									<div class="ui-g-12 ui-md-8 ui-lg-3 title">
+										<p:outputLabel for="name" styleClass="title">Description</p:outputLabel>
+									</div>
 									<div class="ui-g-12 ui-md-4 ui-lg-8 borders">
-										<p:inputText styleClass="content-element" style="width: 90%;"
+										<p:inputText id="description" styleClass="content-element"
+											required="true" style="width: 90%;"
 											value="#{data.post.description}" />
+										<p:message for="description" />
 									</div>
 									<div class="ui-g-12 ui-md-8 ui-lg-1 borders" />
-									<div class="ui-g-12 ui-md-8 ui-lg-3 title">Content:</div>
+									<div class="ui-g-12 ui-md-8 ui-lg-3 title">
+										<p:outputLabel styleClass="title">Content</p:outputLabel>
+									</div>
 									<div class="ui-g-12 ui-md-4 ui-lg-8 borders">
 										<p:inputTextarea style="width:90%" rows="4" cols="30"
 											autoResize="false" styleClass="text-area-content"
 											value="#{data.post.content_post}" />
 									</div>
-									<!-- 									<h:form id="form-img" enctype="multipart/form-data">
- -->
+
 									<h:panelGroup id="loadimg" layout="block">
 										<div class="ui-g-12 ui-md-8 ui-lg-1 borders" />
 										<div class="ui-g-12 ui-md-8 ui-lg-3 title title-load">Image:</div>
